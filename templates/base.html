@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/elearnapp/elearn.css' %}">
+    {% block css %}
+
+    {% endblock %}
+    <script type="text/javascript" src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/elearnapp/index.js' %}"></script>
+    {% block js %}
+
+    {% endblock %}
+</head>
+<body>
+
+<div class="container">
+    <div class="row header-index">
+        <div class="header-logo">
+            <div class="logo">
+                <a href="{% url 'home:home' %}">
+                    <img src="{% static 'images/filebg/logo.png' %}">
+                </a>
+            </div>
+        </div>
+        <div class="header-index-search">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="搜索">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="header-index-text">
+            {% if request.session.user %}
+                <div class="mod-header__user-avatar">
+                    <a href="{% url 'mine:loginout' %}">
+                        <img class="profile-photo" src="/static/{{ request.session.user.photo }}" title="退出登录">
+                        <span>
+                            {{ request.session.user.name }}
+                        </span>
+                    </a>
+                </div>
+            {% else %}
+                <div class="reg-log">
+                    <h5>
+                        <a data-toggle="modal" id="register" href="javascript:void(0)">注册</a>
+                        <a>|</a>
+                        <a data-toggle="modal" id="login" href="javascript:void(0)">登录</a>
+                    </h5>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div>
+            <ul class="nav nav-tabs nav-justified">
+                <li role="presentation" class="active">
+                    <a href="{% url 'home:home' %}">首页</a>
+                </li>
+                <li role="presentation">
+                    <a href="{% url 'video:video' %}">视频</a>
+                </li>
+                <li role="presentation">
+                    <a href="{% url 'courseware:courseware' %}">课件</a>
+                </li>
+                <li role="presentation">
+                    <a href="{% url 'homework:homework' %}">作业</a>
+                </li>
+                <li role="presentation">
+                    <a href="{% url 'mine:mine' %}">我的</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% if request.session.user %}
+    {% block content %}{% endblock %}
+{% else %}
+    <div class="reg-log-tip">
+        <h4>
+            你还未登录，请先
+            <a data-toggle="modal" id="goregister" href="javascript:void(0)">注册</a>
+            或
+            <a data-toggle="modal" id="gologin" href="javascript:void(0)">登录</a>
+        </h4>
+    </div>
+{% endif %}
+
+<div class="outer-footer">
+    <div class="container footer">
+        <div class="row">
+            <div class="i-logo">
+                <a href="{% url 'home:home' %}">
+                    <img src="{% static 'images/filebg/i-logo.png' %}">
+                </a>
+            </div>
+            <div>
+                <p>易学网-在线学习交流平台 保留所有权利</p>
+                <p>©&nbsp;2019&nbsp;www.elearn.com&nbsp;&nbsp;京ICP备 00000000号-00</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 注册 -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content register-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <img class="head-img" src="{% static 'images/filebg/register_header_night.png' %}">
+            </div>
+            <div class="modal-body">
+                <div class="row myrow">
+                    <div class="col-xs-3 col-sm-3 col-md-3"></div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 tips">
+                        <form>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">
+                                        <img class="input-img" src="{% static 'images/filebg/student_name.png' %}">
+                                    </span>
+                                    <input type="text" class="form-control" name="register-name" placeholder="姓名"
+                                           aria-describedby="basic-addon1">
+                                </div>
+                                <span class="r-name-tip"></span>{# 注册姓名提示 #}
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">
+                                    <img class="input-img" src="{% static 'images/filebg/student_number.png' %}">
+                                </span>
+                                    <input type="text" class="form-control" name="register-number" placeholder="学号"
+                                           aria-describedby="basic-addon1">
+                                </div>
+                                <span class="r-number-tip"></span>{# 注册学号提示 #}
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">
+                                    <img class="input-img" src="{% static 'images/filebg/student_password.png' %}">
+                                </span>
+                                    <input type="password" class="form-control" placeholder="密码"
+                                           aria-describedby="basic-addon1" name="register-password">
+                                </div>
+                                <span class="r-password-tip"></span>{# 注册密码提示 #}
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">
+                                    <img class="input-img" src="{% static 'images/filebg/student_password.png' %}">
+                                </span>
+                                    <input type="password" class="form-control" placeholder="确认密码"
+                                           aria-describedby="basic-addon1" name="register-password-2">
+                                </div>
+                                <span class="r-password-tip-2"></span>{# 确认密码提示 #}
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group selection-id">
+                                    <label><input class="r-st" type="radio" name="r-selection-id"
+                                                  value="student" checked="checked">学生</label>
+                                    <label><input class="r-st" type="radio" name="r-selection-id"
+                                                  value="teacher">教师</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group v-code" hidden>
+                                <div class="input-group">
+                                    <span><input type="text" class="form-control" name="code-tip"
+                                                 aria-describedby="basic-addon1" placeholder="请输入注册码">
+                                    </span>
+
+                                </div>
+                                <span class="code-tip"></span>{# 教师注册验证码提示 #}
+                            </div>
+                            <div class="submit-menu">
+                                <button type="button" class="btn register-submit">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 登录 -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <img class="head-img" src="{% static 'images/filebg/login_header_night.png' %}">
+            </div>
+            <div class="modal-body">
+                <div class="row myrow">
+                    <div class="col-xs-3 col-sm-3 col-md-3"></div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 tips2">
+                        <form>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">
+                                    <img class="input-img" src="{% static 'images/filebg/student_number.png' %}">
+                                </span>
+                                    <input type="text" class="form-control" placeholder="学号"
+                                           aria-describedby="basic-addon1" name="login-number">
+                                </div>
+                                <span class="l-number-tip"></span>{# 登录学号提示 #}
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">
+                                    <img class="input-img" src="{% static 'images/filebg/student_password.png' %}">
+                                </span>
+                                    <input type="password" class="form-control" placeholder="密码"
+                                           aria-describedby="basic-addon1" name="login-password">
+                                </div>
+                                <span class="l-password-tip">
+
+                                </span>{# 登录密码提示 #}
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group selection-id">
+                                    <label><input class="l-st" type="radio" name="l-selection-id"
+                                                  value="student" checked="checked">学生</label>
+                                    <label><input class="l-st" type="radio" name="l-selection-id"
+                                                  value="teacher">教师</label>
+                                </div>
+                            </div>
+                            <div class="submit-menu">
+                                <button type="button" class="btn login-submit">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+.carousel-outer {
+    margin: 20px auto 20px auto;
+}
+
+.carousel-outer > div {
+    text-align: center;
+    margin: auto;
+    width: 1100px !important;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 375px !important;
+}
+
+.cate-tab-item {
+    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.course-card-list {
+    margin: 0;
+    padding: 0;
+}
+
+.course-card-item {
+    display: inline-block;
+    border: 1px solid transparent;
+    float: left;
+    margin-top: -10px;
+    padding: 11.51px 11.51px 13px;
+}
+
+.course-card-item:hover {
+    border: 1px solid #dddddd;
+    background-color: rgba(0, 0, 100, 0.03);
+}
+
+.item-img-link > img {
+    width: 250px;
+    height: 150px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.item-status {
+    text-align: left;
+    width: 248px;
+    margin-left: 1px;
+    height: 24px;
+    font-size: 12px;
+    line-height: 24px;
+    margin-top: -30px;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, .4);
+    position: absolute;
+    overflow: hidden;
+}
+
+.item-status > span {
+    margin-left: 5px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.item-tt {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 45px;
+    font-size: 14px;
+    margin-bottom: 0;
+    position: relative;
+    font-weight: 400;
+    text-align: left;
+    width: 250px;
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+.item-tt-link {
+    color: #333;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    text-decoration: none;
+    background: transparent;
+
+}
+
+.item-tt-link:hover {
+    text-decoration: none;
+    color: #62b4f7;
+
+}
+
+.item-line {
+    overflow: hidden;
+    margin-top: 0;
+    font-size: 12px;
+}
+
+.item-click {
+    float: left;
+    color: #999999;
+    margin-left: 1px;
+}
+
+.item-source {
+
+    float: right;
+}
+
+.item-source > a {
+    color: #999999;
+    margin-right: 1px;
+}
+
+.item-source > a:hover {
+    color: #62b4f7;
+    text-decoration: none;
+}
+
+.homework-score li{
+    list-style: none;
+}
+.homework-score{
+    margin-top: 15px;
+    margin-left: -40px;
+}
+.homework-score h5{
+    font-size: 17px;
+}
+.homework-score div{
+    display: inline-block;
+    width: 150px;
+}
+.homework-score div:nth-child(1){
+    width: 300px;
+}
+.mine-item-title ul,.mine-item-title li{
+    list-style: none;
+    margin-left: -20px;
+    height: 40px;
+    line-height: 40px;
+}
+.mine-item-title a,.mine-item-title a:hover{
+    font-size: 17px;
+    text-decoration: none;
+    color: #333333;
+}
+.mine-item-title li:hover{
+    background-color: rgb(35, 184, 255);
+}
+.mine-item-title{
+    float: left;
+    text-align: center;
+    width: 120px;
+    height: 200px;
+    background-color: rgba(1,1,1,0.05);
+}
+.mine-item-title,.mine-item-content{
+    display: inline-block;
+}
+.mine-item-content{
+    padding-top: 20px;
+    float: right;
+    width: 1000px;
+}
+.mine-item-upload-video-inner>form>div{
+    width: 250px !important;
+    text-align: center;
+}
+.filter-option-inner{
+    text-align: center;
+}
+.filter-option-inner-inner{
+    color: white;
+}
+
+input[name='video-name'],input[type='submit'],input[name='course-name'],input[name='course-desc']{
+    margin-top: 15px;
+    width: 250px;
+    height: 35px;
+    text-align: center;
+}
+input[name='video-name']{
+    display: inline-block;
+}
+input[name='course-name']{
+    margin-top: 0;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+input[type='submit']{
+    background-color: #fafafa;
+}
+input[type='submit']:hover{
+    background-color: #eeeeee;
+}
+.a-upload {
+    padding: 4px 10px;
+    text-align: center;
+    width: 250px;
+    height: 35px;
+    margin-top: 20px;
+    line-height: 25px;
+    position: relative;
+    cursor: pointer;
+    color: #666666;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}

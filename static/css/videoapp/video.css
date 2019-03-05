@@ -1,0 +1,7 @@
+.sort-page {
+    margin-top: 20px;
+}
+
+.sort-page > nav > ul > li > a {
+    margin-left: 10px;
+}

@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}我的{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/elearnapp/index.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-select/css/bootstrap-select.min.css' %}">
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/elearnapp/mine.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap-select/js/defaults-zh_CN.min.js' %}"></script>
+    <script type="text/javascript">
+        //判断视频表单
+        function checkvideo() {
+            if ($("select[name='course-select'] option:selected").val() === undefined) {
+                $(".option-tip2").css("display", "none");
+                $(".option-tip").css("display", "inline-block");
+                return false;
+            } else if ($("input[name='video-name']").val() === "") {
+                $(".video-name-tip").css("display", "inline-block");
+                return false;
+            } else if ($("input[name='video-file']").val() === "") {
+                $(".video-file-tip").css("display", "inline-block");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function checkcourse() {
+            if ($("input[name='course-name']").val() === "") {
+                $(".course-name-tip").css("display", "inline-block");
+                return false;
+            } else if ($("input[name='course-file']").val() === "") {
+                $(".course-file-tip").css("display", "inline-block");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        $(function () {
+            $("select[name='course-select']").change(function () {
+                $(".option-tip").css("display", "none");
+                $(".option-tip2").css("display", "inline-block");
+            });
+            $("input[name='video-name']").change(function () {
+                $(".video-name-tip").css("display", "none");
+            });
+            $("input[name='video-file']").change(function () {
+                $(".video-file-tip").css("display", "none");
+            });
+            $("input[name='course-name']").change(function () {
+                $(".course-name-tip").css("display", "none");
+            });
+            $("input[name='course-file']").change(function () {
+                $(".course-file-tip").css("display", "none");
+            })
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    {% if request.session.user.identity == "student" %}
+        <div class="container">
+            <div class="row">
+                <div class="homework-score">
+                    <ul>
+                        <li>
+                            <div><h5>作业名</h5></div>
+                            <div><h5>判断提分数</h5></div>
+                            <div><h5>选择题分数</h5></div>
+                            <div><h5>简答题分数</h5></div>
+                            <div><h5>总分</h5></div>
+                            <div><h5>作答时间</h5></div>
+                        </li>
+                    </ul>
+                    <ul>
+                        {% for s in s_score %}
+                            <li>
+                                <div>{{ s.homework.name }}</div>
+                                <div>{{ s.pd_score }}</div>
+                                <div>{{ s.xz_score }}</div>
+                                <div>{{ s.jd_score }}</div>
+                                <div>{{ s.total }}</div>
+                                <div>{{ s.add_time }}</div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% elif request.session.user.identity == "teacher" %}
+        <div class="container">
+            <div class="row">
+                <div class="mine-item-title">
+                    <ul>
+                        <li style="background-color: #23b8ff"><a href="javascript:void(0)">上传视频</a></li>
+                        <li><a href="javascript:void(0)">上传课件</a></li>
+                        <li><a href="javascript:void(0)">我的作业</a></li>
+                        <li><a href="javascript:void(0)">学习详情</a></li>
+                        <li><a href="javascript:void(0)">学生分数</a></li>
+                    </ul>
+                </div>
+                <div class="mine-item-content">
+                    <div class="mine-item-upload-video">
+                        <div class="mine-item-upload-video-inner">
+                            <form action="{% url 'video:uploadvideo' %}" method="post" enctype="multipart/form-data"
+                                  onsubmit="return checkvideo()">
+                                {% csrf_token %}
+                                <select class="selectpicker form-control" multiple data-live-search="true"
+                                        data-max-options="1" name="course-select"
+                                        data-style="btn-info" title="选择视频所属的分类">
+                                    {% for course in allcourse %}
+                                        <option value="{{ course.id }}">
+                                            {{ course.course_title }}
+                                        </option>
+                                    {% endfor %}
+                                </select><span class="option-tip" style="margin-left: 5px;color: red;display: none;">请选择分类</span>
+                                <span class="option-tip2">没有？点击<a class="add-course"
+                                                                  href="javascript:void(0)">添加</a></span>
+                                <br/>
+                                <input type="text" class="form-control" name="video-name" placeholder="视频名"><span
+                                    class="video-name-tip"
+                                    style="margin-left: 5px;color: red;display: none;">请输入视频名</span>
+                                <br/>
+                                <a href="javascript:void(0)" class="a-upload">
+                                    <input type="file" name="video-file" accept="video/*">点击选择视频文件
+                                </a><span class="video-file-tip" style="margin-left: 5px;color: red;display: none;">请选择视频文件</span>
+                                <input type="submit" class="form-control" value="上传">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="mine-item-upload-courseware" hidden="hidden">
+
+                    </div>
+                    <div class="mine-item-homework" hidden="hidden">
+
+                    </div>
+                    <div class="mine-item-student-details" hidden="hidden">
+
+                    </div>
+                    <div class="mine-item-student-score" hidden="hidden">
+
+                    </div>
+                    <div class="mine-item-add-course" hidden="hidden">
+                        <div class="mine-item-upload-video-inner">
+                            <form action="{% url 'video:uploadcourse' %}" method="post" enctype="multipart/form-data"
+                                  onsubmit="return checkcourse()">
+                                {% csrf_token %}
+                                <input type="text" class="form-control" name="course-name" placeholder="课程名"><span
+                                    class="course-name-tip"
+                                    style="margin-left: 5px;color: red;display: none;">请输入课程名</span>
+                                <input type="text" class="form-control" name="course-desc" placeholder="课程描述(可为空)">
+                                <a href="javascript:void(0)" class="a-upload">
+                                    <input type="file" name="course-file" accept="image/*">点击选择封面图片
+                                </a><span class="course-file-tip" style="margin-left: 5px;color: red;display: none;">请选择封面图片</span>
+                                <input type="submit" class="form-control" value="添加">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
