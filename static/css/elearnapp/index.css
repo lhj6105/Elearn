@@ -179,25 +179,29 @@
     color: white;
 }
 
-input[name='video-name'],input[type='submit'],input[name='course-name'],input[name='course-desc']{
+input[name='video-name'],input[type='submit'],input[name='course-name'],
+input[name='course-desc'],input[name='courseware-name'],.upload{
     margin-top: 15px;
     width: 250px;
     height: 35px;
     text-align: center;
 }
-input[name='video-name']{
+input[name='video-name'],input[name='courseware-name']{
     display: inline-block;
 }
-input[name='course-name']{
+input[name='course-name'],input[name='courseware-name']{
     margin-top: 0;
     margin-bottom: 5px;
     display: inline-block;
 }
-input[type='submit']{
+input[type='submit'], .upload{
     background-color: #fafafa;
 }
-input[type='submit']:hover{
+input[type='submit']:hover,.upload:hover{
     background-color: #eeeeee;
+}
+.upload:active{
+    background-color: #cccccc;
 }
 .a-upload {
     padding: 4px 10px;

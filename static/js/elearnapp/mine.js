@@ -29,8 +29,46 @@ $(function () {
     });
 
     $(".add-course").click(function () {
-        $(".mine-item-upload-video").attr("hidden","hidden");
+        $(".mine-item-upload-video").attr("hidden", "hidden");
         $(".mine-item-add-course").removeAttr("hidden");
+    });
+
+    $(".upload").click(function () {
+        if ($("input[name='courseware-name']").val() === "") {
+            $(".courseware-name-tip").css("display", "inline-block")
+        }else if($("input[name='courseware-file']").val() === ""){
+            $(".courseware-file-tip").css("display", "inline-block")
+        }else {
+            var formData = new FormData($('#upload-courseware')[0]);
+            $.ajax({
+                type: "POST",
+                url: "/courseware/upload/",
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if(data["status"] === "success"){
+                        $("input[name='courseware-name']").val("");
+                        $("input[name='courseware-file']").val("");
+                        $(".upload-error").css("display", "none");
+                        $(".upload-success").css("display", "block");
+                    }
+                    else if(data["status"] === "error"){
+                        $(".upload-success").css("display", "none");
+                        $(".upload-error").css("display", "block")
+                    }
+                }
+            });
+        }
+    });
+
+    $("input[name='courseware-name']").change(function () {
+        $(".courseware-name-tip").css("display", "none")
+    });
+    $("input[name='courseware-file']").change(function () {
+        $(".courseware-file-tip").css("display", "none")
     })
+
 });
 

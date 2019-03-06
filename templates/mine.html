@@ -137,8 +137,26 @@
                     </div>
 
                     <div class="mine-item-upload-courseware" hidden="hidden">
-
+                        <div class="mine-item-upload-courseware-inner">
+                            <form method="post" id="upload-courseware"
+                                  enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <input type="text" class="form-control" name="courseware-name"
+                                       placeholder="课件名"><span
+                                    class="courseware-name-tip"
+                                    style="margin-left: 5px;color: red;display: none;">请输入课件名</span>
+                                <br/>
+                                <a href="javascript:void(0)" class="a-upload">
+                                    <input type="file" name="courseware-file">点击选择文件
+                                </a><span class="courseware-file-tip"
+                                          style="margin-left: 5px;color: red;display: none;">请选择文件</span>
+                                <input type="button" class="form-control upload" value="上传">
+                            </form>
+                            <span class="upload-success" style="color: green;display: none;">上传成功！</span>
+                            <span class="upload-error" style="color: red;display: none;">上传失败！请重新上传</span>
+                        </div>
                     </div>
+
                     <div class="mine-item-homework" hidden="hidden">
 
                     </div>

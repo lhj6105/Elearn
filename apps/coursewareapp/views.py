@@ -26,50 +26,26 @@ class CoursewareView(View):
             return render(request, 'courseware.html')
 
 
-'''
+
 class UploadFile(View):
     def get(self, request):
-        return render(request, 'courseware.html')
+        return render(request, 'mine.html')
 
     def post(self, request):
         try:
-            coursewarename = request.POST.get('coursewarename')
-            coursewarefile = request.FILES.get('coursewarefile')
-            teacher_number = request.session['user']['number']
-            Tobj = TeacherProfile.objects.filter(teacher_number=teacher_number).first()
-            # course_cover.name  文件名
-            # 写入到服务器的封面存储的位置中
-            file_dir = os.path.join(settings.BASE_DIR, 'static/resources/courseware')
-            if file_dir + '/' + str(time.strftime('%Y%m%d')) is None:
-                os.makedirs(file_dir + '/' + str(time.strftime('%Y%m%d')))
-            if len(coursewarefile.name) < 32:
-                uuid_str = str(uuid.uuid4()).replace('-', '')
-                coursewarefile.name = uuid_str + os.path.splitext(coursewarefile.name)[-1]
-            # 将上传的文件按段(缓存块)写入到目标文件中
-            with open(os.path.join(file_dir + '/' + str(time.strftime('%Y%m%d')), str(coursewarefile)), 'wb') as f:
-                for chunk in coursewarefile.chunks():
-                    f.write(chunk)
-
-            # 将信息添加到数据库中
-            cobj = Courseware.objects.create(courseawre_name=coursewarename,
-                                             courseware_upload=os.path.join(
-                                                 'resources/courseware' + '/' + str(time.strftime('%Y%m%d')),
-                                                 str(coursewarefile)),
-                                             teacher=Tobj)
-            if cobj:  # 如果保存成功
-                cobj.save()
-                messages.success(request, '上传成功！')
-                return redirect(reverse('courseware:courseware'))
+            courseware_name = request.POST.get('courseware-name')
+            courseware_file = request.FILES.get('courseware-file')
+            teacher = request.session['user']['number']
+            c_obj = Courseware.objects.create(courseawre_name=courseware_name,courseware_upload=courseware_file
+                                              ,teacher_id=teacher)
+            if c_obj:
+                return JsonResponse({'status': 'success'})
             else:
-                os.remove(file_dir + '/' + str(time.strftime('%Y%m%d')) +'/'+ str(coursewarefile))
-                cobj.delete()
-                messages.error(request, '上传失败，请重新上传！')
-                return redirect(reverse('courseware:courseware'))
+                c_obj.delete()
+                return JsonResponse({'status': 'error'})
         except Exception as e:
             print(e)
-            messages.error(request, '服务器错误，请重新上传！')
-            return redirect(reverse('courseware:courseware'))
-'''
+            return JsonResponse({'status': 'error'})
 
 
 class DownloadFile(View):
