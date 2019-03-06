@@ -13,55 +13,6 @@
     <script type="text/javascript" src="{% static 'js/elearnapp/mine.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap-select/js/bootstrap-select.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap-select/js/defaults-zh_CN.min.js' %}"></script>
-    <script type="text/javascript">
-        //判断视频表单
-        function checkvideo() {
-            if ($("select[name='course-select'] option:selected").val() === undefined) {
-                $(".option-tip2").css("display", "none");
-                $(".option-tip").css("display", "inline-block");
-                return false;
-            } else if ($("input[name='video-name']").val() === "") {
-                $(".video-name-tip").css("display", "inline-block");
-                return false;
-            } else if ($("input[name='video-file']").val() === "") {
-                $(".video-file-tip").css("display", "inline-block");
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        function checkcourse() {
-            if ($("input[name='course-name']").val() === "") {
-                $(".course-name-tip").css("display", "inline-block");
-                return false;
-            } else if ($("input[name='course-file']").val() === "") {
-                $(".course-file-tip").css("display", "inline-block");
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        $(function () {
-            $("select[name='course-select']").change(function () {
-                $(".option-tip").css("display", "none");
-                $(".option-tip2").css("display", "inline-block");
-            });
-            $("input[name='video-name']").change(function () {
-                $(".video-name-tip").css("display", "none");
-            });
-            $("input[name='video-file']").change(function () {
-                $(".video-file-tip").css("display", "none");
-            });
-            $("input[name='course-name']").change(function () {
-                $(".course-name-tip").css("display", "none");
-            });
-            $("input[name='course-file']").change(function () {
-                $(".course-file-tip").css("display", "none");
-            })
-        });
-    </script>
 {% endblock %}
 
 {% block content %}
@@ -107,10 +58,10 @@
                     </ul>
                 </div>
                 <div class="mine-item-content">
+                    {# 上传视频 #}
                     <div class="mine-item-upload-video">
                         <div class="mine-item-upload-video-inner">
-                            <form action="{% url 'video:uploadvideo' %}" method="post" enctype="multipart/form-data"
-                                  onsubmit="return checkvideo()">
+                            <form id="upload-video" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <select class="selectpicker form-control" multiple data-live-search="true"
                                         data-max-options="1" name="course-select"
@@ -131,15 +82,17 @@
                                 <a href="javascript:void(0)" class="a-upload">
                                     <input type="file" name="video-file" accept="video/*">点击选择视频文件
                                 </a><span class="video-file-tip" style="margin-left: 5px;color: red;display: none;">请选择视频文件</span>
-                                <input type="submit" class="form-control" value="上传">
+                                <input type="button" class="form-control upload-video" value="上传">
                             </form>
+                            <span class="upload-video-success" style="color: green;display: none;">上传成功！</span>
+                            <span class="upload-video-error" style="color: red;display: none;">上传失败！请重新上传</span>
                         </div>
                     </div>
 
+                    {# 上传课件 #}
                     <div class="mine-item-upload-courseware" hidden="hidden">
                         <div class="mine-item-upload-courseware-inner">
-                            <form method="post" id="upload-courseware"
-                                  enctype="multipart/form-data">
+                            <form id="upload-courseware" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <input type="text" class="form-control" name="courseware-name"
                                        placeholder="课件名"><span
@@ -166,10 +119,11 @@
                     <div class="mine-item-student-score" hidden="hidden">
 
                     </div>
+
+                    {# 上传课程封面 #}
                     <div class="mine-item-add-course" hidden="hidden">
                         <div class="mine-item-upload-video-inner">
-                            <form action="{% url 'video:uploadcourse' %}" method="post" enctype="multipart/form-data"
-                                  onsubmit="return checkcourse()">
+                            <form id="upload-course" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <input type="text" class="form-control" name="course-name" placeholder="课程名"><span
                                     class="course-name-tip"
@@ -178,8 +132,10 @@
                                 <a href="javascript:void(0)" class="a-upload">
                                     <input type="file" name="course-file" accept="image/*">点击选择封面图片
                                 </a><span class="course-file-tip" style="margin-left: 5px;color: red;display: none;">请选择封面图片</span>
-                                <input type="submit" class="form-control" value="添加">
+                                <input type="button" class="form-control upload-course" value="添加">
                             </form>
+                            <span class="upload-course-success" style="color: green;display: none;">上传成功！</span>
+                            <span class="upload-course-error" style="color: red;display: none;">上传失败！请重新上传</span>
                         </div>
                     </div>
                 </div>

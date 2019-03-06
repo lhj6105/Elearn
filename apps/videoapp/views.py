@@ -119,13 +119,13 @@ class UploadCourse(View):
             c_obj = Course.objects.create(course_title=course_name, course_cover=course_file,
                                       course_describe=course_desc, teacher_id=teacher)
             if c_obj:
-                return redirect(reverse('mine:mine'))
+                return JsonResponse({'status': 'success'})
             else:
                 c_obj.delete()
-                return redirect(reverse('mine:mine'))
+                return JsonResponse({'status': 'error'})
         except Exception as e:
             print(e)
-            return redirect(reverse('mine:mine'))
+            return JsonResponse({'status': 'error'})
 
 
 class UploadVideo(View):
@@ -139,10 +139,10 @@ class UploadVideo(View):
             video_file = request.FILES.get('video-file')
             v_obj = Video.objects.create(course_id=int(course_select), video_title=video_name, video_upload=video_file)
             if v_obj:
-                return redirect(reverse('mine:mine'))
+                return JsonResponse({'status': 'success'})
             else:
                 v_obj.delete()
-                return redirect(reverse('mine:mine'))
+                return JsonResponse({'status': 'error'})
         except Exception as e:
             print(e)
-            return redirect(reverse('mine:mine'))
+            return JsonResponse({'status': 'error'})

@@ -179,8 +179,8 @@
     color: white;
 }
 
-input[name='video-name'],input[type='submit'],input[name='course-name'],
-input[name='course-desc'],input[name='courseware-name'],.upload{
+input[name='video-name'],input[type='button'],input[name='course-name'],
+input[name='course-desc'],input[name='courseware-name']{
     margin-top: 15px;
     width: 250px;
     height: 35px;
@@ -194,10 +194,10 @@ input[name='course-name'],input[name='courseware-name']{
     margin-bottom: 5px;
     display: inline-block;
 }
-input[type='submit'], .upload{
+input[type='button']{
     background-color: #fafafa;
 }
-input[type='submit']:hover,.upload:hover{
+input[type='button']:hover{
     background-color: #eeeeee;
 }
 .upload:active{
