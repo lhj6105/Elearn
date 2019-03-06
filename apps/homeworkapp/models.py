@@ -30,13 +30,11 @@ class Questions(models.Model):
                                     verbose_name='题目类型')
     context = models.TextField(verbose_name='题目内容')
     answer = models.TextField(verbose_name='正确答案')
-    choice_a = models.TextField(verbose_name='A选项', default='A. 我是答案A')
-    choice_b = models.TextField(verbose_name='B选项', default='B. 我是答案B')
-    choice_c = models.TextField(verbose_name='C选项', default='C. 我是答案C')
-    choice_d = models.TextField(verbose_name='D选项', default='D. 我是答案D')
+    choice_a = models.TextField(verbose_name='A选项', default='我是答案A')
+    choice_b = models.TextField(verbose_name='B选项', default='我是答案B')
+    choice_c = models.TextField(verbose_name='C选项', default='我是答案C')
+    choice_d = models.TextField(verbose_name='D选项', default='我是答案D')
     note = models.TextField(verbose_name='备注信息', default='简答题在此处做答')
-    boolt = models.TextField(verbose_name='判断正误正确选项', default='正确')
-    boolf = models.TextField(verbose_name='判断正误错误选项', default='错误')
     add_time = models.DateTimeField(auto_now_add=True, verbose_name='添加时间')
 
     class Meta:

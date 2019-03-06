@@ -26,7 +26,6 @@ class CoursewareView(View):
             return render(request, 'courseware.html')
 
 
-
 class UploadFile(View):
     def get(self, request):
         return render(request, 'mine.html')
@@ -36,9 +35,10 @@ class UploadFile(View):
             courseware_name = request.POST.get('courseware-name')
             courseware_file = request.FILES.get('courseware-file')
             teacher = request.session['user']['number']
-            c_obj = Courseware.objects.create(courseawre_name=courseware_name,courseware_upload=courseware_file
-                                              ,teacher_id=teacher)
+            c_obj = Courseware.objects.create(courseawre_name=courseware_name, courseware_upload=courseware_file
+                                              , teacher_id=teacher)
             if c_obj:
+                c_obj.save()
                 return JsonResponse({'status': 'success'})
             else:
                 c_obj.delete()

@@ -59,9 +59,9 @@
                             <li>
                                 <h5>{{ forloop.counter }}.&nbsp;{{ question.context }}</h5>
                                 <input type="hidden" value="{{ question.id }}"/>
-                                <input name="{{ question.id }}" type="radio" value="正确"/>&nbsp;{{ question.boolt }}
+                                <input name="{{ question.id }}" type="radio" value="正确"/>&nbsp;正确
                                 <br/>
-                                <input name="{{ question.id }}" type="radio" value="错误"/>&nbsp;{{ question.boolf }}
+                                <input name="{{ question.id }}" type="radio" value="错误"/>&nbsp;错误
                                 <br/>
                             </li>
                         {% endfor %}
@@ -73,13 +73,13 @@
                             <li>
                                 <h5>{{ forloop.counter }}.&nbsp;{{ question.context }}</h5>
                                 <input type="hidden" value="{{ question.id }}"/>
-                                <input name="{{ question.id }}" type="radio" value="A"/>&nbsp;{{ question.choice_a }}
+                                <input name="{{ question.id }}" type="radio" value="A"/>&nbsp;A.{{ question.choice_a }}
                                 <br/>
-                                <input name="{{ question.id }}" type="radio" value="B"/>&nbsp;{{ question.choice_b }}
+                                <input name="{{ question.id }}" type="radio" value="B"/>&nbsp;B.{{ question.choice_b }}
                                 <br/>
-                                <input name="{{ question.id }}" type="radio" value="C"/>&nbsp;{{ question.choice_c }}
+                                <input name="{{ question.id }}" type="radio" value="C"/>&nbsp;C.{{ question.choice_c }}
                                 <br/>
-                                <input name="{{ question.id }}" type="radio" value="D"/>&nbsp;{{ question.choice_d }}
+                                <input name="{{ question.id }}" type="radio" value="D"/>&nbsp;D.{{ question.choice_d }}
                                 <br/>
                             </li>
                         {% endfor %}

@@ -18,7 +18,11 @@ class Mine(View):
     def get(self, request):
         try:
             allcourse = Course.objects.all()
-            allstudent = StudentProfile.objects.all()
+            allhomework = Homework.objects.all()
+            questions = Questions.objects.all()
+            if request.session['user']:
+                stu = request.session['user']['number']
+                s_score = StudentScore.objects.filter(student_id=stu)
             return render(request, 'mine.html', locals())
         except Exception as e:
             print(e)
@@ -90,7 +94,6 @@ class TeacherLog(View):
                     return JsonResponse({'status': 'log_error'})  # 密码错误
             else:
                 return JsonResponse({'status': 'log_empty'})  # 学号不存在
-
         except Exception as e:
             print("登录出错啦：", e)
             return JsonResponse({'status': 'log_stop'})  # 服务器出错
@@ -157,7 +160,6 @@ class StudentLog(View):
                     return JsonResponse({'status': 'log_error'})  # 密码错误
             else:
                 return JsonResponse({'status': 'log_empty'})  # 学号不存在
-
         except Exception as e:
             print("登录出错啦：", e)
             return JsonResponse({'status': 'log_stop'})  # 服务器出错

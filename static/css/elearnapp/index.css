@@ -122,87 +122,110 @@
     text-decoration: none;
 }
 
-.homework-score li{
+.homework-score li {
     list-style: none;
 }
-.homework-score{
+
+.homework-score {
     margin-top: 15px;
     margin-left: -40px;
 }
-.homework-score h5{
+
+.homework-score h5 {
     font-size: 17px;
 }
-.homework-score div{
+
+.homework-score div {
     display: inline-block;
     width: 150px;
 }
-.homework-score div:nth-child(1){
+
+.homework-score div:nth-child(1) {
     width: 300px;
 }
-.mine-item-title ul,.mine-item-title li{
+
+.mine-item-title ul, .mine-item-title li {
     list-style: none;
     margin-left: -20px;
     height: 40px;
     line-height: 40px;
 }
-.mine-item-title a,.mine-item-title a:hover{
+
+.mine-item-title a, .mine-item-title a:hover {
     font-size: 17px;
     text-decoration: none;
     color: #333333;
 }
-.mine-item-title li:hover{
+
+.mine-item-title li:hover {
     background-color: rgb(35, 184, 255);
 }
-.mine-item-title{
+
+.mine-item-title {
     float: left;
     text-align: center;
     width: 120px;
     height: 200px;
-    background-color: rgba(1,1,1,0.05);
+    background-color: rgba(1, 1, 1, 0.05);
 }
-.mine-item-title,.mine-item-content{
+
+.mine-item-title, .mine-item-content {
     display: inline-block;
 }
-.mine-item-content{
+
+.mine-item-content {
     padding-top: 20px;
     float: right;
     width: 1000px;
 }
-.mine-item-upload-video-inner>form>div{
+
+.mine-item-upload-video-inner > form > div, .mine-item-add-questions-inner > form > div {
+    text-align: center;
+}
+
+.bootstrap-select {
     width: 250px !important;
+}
+
+.filter-option-inner {
     text-align: center;
 }
-.filter-option-inner{
-    text-align: center;
-}
-.filter-option-inner-inner{
+
+.filter-option-inner-inner {
     color: white;
 }
 
-input[name='video-name'],input[type='button'],input[name='course-name'],
-input[name='course-desc'],input[name='courseware-name']{
+input[name='video-name'], input[type='button'], input[name='course-name'],
+input[name='course-desc'], input[name='courseware-name'], input[name='homework-name'],
+input[name='homework-id'], input[name='homework-desc'] {
     margin-top: 15px;
     width: 250px;
     height: 35px;
     text-align: center;
 }
-input[name='video-name'],input[name='courseware-name']{
+
+input[name='video-name'], input[name='courseware-name'], input[name='homework-name'] {
     display: inline-block;
 }
-input[name='course-name'],input[name='courseware-name']{
+
+input[name='course-name'], input[name='courseware-name'], input[name='homework-name'] {
     margin-top: 0;
     margin-bottom: 5px;
     display: inline-block;
 }
-input[type='button']{
+
+input[type='button'] {
     background-color: #fafafa;
 }
-input[type='button']:hover{
+
+input[type='button']:hover {
     background-color: #eeeeee;
 }
-.upload:active{
+
+.upload:active {
     background-color: #cccccc;
 }
+
 .a-upload {
     padding: 4px 10px;
     text-align: center;
@@ -222,7 +245,7 @@ input[type='button']:hover{
     *zoom: 1
 }
 
-.a-upload  input {
+.a-upload input {
     position: absolute;
     font-size: 100px;
     right: 0;
@@ -237,4 +260,38 @@ input[type='button']:hover{
     background: #eee;
     border-color: #ccc;
     text-decoration: none
+}
+
+.mine-item-pd, .mine-item-xz, .mine-item-jd, .select-question-type {
+    text-align: left !important;
+    width: 100% !important;
+}
+
+.mine-item-pd input, .mine-item-xz input, .mine-item-jd textarea {
+    margin-top: 10px;
+}
+
+.select-question-type {
+    height: 40px;
+    line-height: 40px;
+}
+
+.select-question-type span {
+    padding: 20px 20px 20px 12px;
+}
+
+.select-question-type a, .select-question-type a:hover {
+    text-decoration: none;
+}
+
+.select-question-type a {
+    color: #333333;
+}
+
+.select-question-type a:hover {
+    color: #337ab7;
+}
+
+.mine-item-pd p, .mine-item-xz p, .mine-item-jd p {
+    margin: 15px 0 0 0;
 }

@@ -131,12 +131,86 @@ class AnswerNums(View):
             h_id = request.POST.get('h_id')
             h_obj = Homework.objects.filter(id=int(h_id))
             h_update_obj = h_obj.update(answer_nums=int(h_obj.first().answer_nums) + 1)
-            print(h_update_obj)
             if h_update_obj:
                 return JsonResponse({'status': True})
             else:
                 return JsonResponse({'status': False})
-
         except Exception as e:
             print(e)
             return JsonResponse({'status': False})
+
+
+class UploadHomework(View):
+    def get(self, request):
+        pass
+
+    def post(self, request):
+        try:
+            homework_name = request.POST.get('homework-name')
+            homework_id = request.POST.get('homework-id')
+            homework_desc = request.POST.get('homework-desc')
+            teacher = request.session['user']['number']
+            if homework_id == '':
+                homework_id = 'hwm0000'
+            if homework_desc == '':
+                homework_desc = '无'
+            h_obj = Homework.objects.create(name=homework_name, homeworkId=homework_id, desc=homework_desc,
+                                            teacher_id=teacher)
+            if h_obj:
+                h_obj.save()
+                return JsonResponse({'status': 'success'})
+            else:
+                h_obj.delete()
+                return JsonResponse({'status': 'error'})
+        except Exception as e:
+            return JsonResponse({'status': 'error'})
+
+
+class AddPDQuestion(View):
+    def get(self, request):
+        pass
+
+    def post(self, request):
+        try:
+            homework = request.POST.get('homework')
+            pd_question = request.POST.get('pd-question')
+            pd_anwser = request.POST.get('pd-anwser')
+            teacher = request.session['user']['number']
+            q_obj = Questions.objects.create(homework_id=homework, teacher_id=teacher, questionType='pd',
+                                             context=pd_question, choice_a='', choice_b='',
+                                             choice_c='', choice_d='', note='', answer=pd_anwser)
+            if q_obj:
+                q_obj.save()
+                return JsonResponse({'status': 'success'})
+            else:
+                q_obj.delete()
+                return JsonResponse({'status': 'error'})
+        except Exception as e:
+            return JsonResponse({'status': 'error'})
+
+
+class AddXZQuestion(View):
+    def get(self, request):
+        pass
+
+    def post(self, request):
+        try:
+            homework = request.POST.get('homework')
+            xz_question = request.POST.get('xz-question')
+            xz_anwser_A = request.POST.get('xz-anwser-A')
+            xz_anwser_B = request.POST.get('xz-anwser-B')
+            xz_anwser_C = request.POST.get('xz-anwser-C')
+            xz_anwser_D = request.POST.get('xz-anwser-D')
+            xz_anwser = request.POST.get('xz-anwser')
+            teacher = request.session['user']['number']
+            q_obj = Questions.objects.create(homework_id=homework, teacher_id=teacher, questionType='xz',
+                                             context=xz_question, choice_a=xz_anwser_A, choice_b=xz_anwser_B,
+                                             choice_c=xz_anwser_C, choice_d=xz_anwser_D, answer=xz_anwser, note='')
+            if q_obj:
+                q_obj.save()
+                return JsonResponse({'status': 'success'})
+            else:
+                q_obj.delete()
+                return JsonResponse({'status': 'error'})
+        except Exception as e:
+            return JsonResponse({'status': 'error'})

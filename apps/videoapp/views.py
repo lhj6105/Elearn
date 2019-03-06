@@ -117,8 +117,9 @@ class UploadCourse(View):
             if course_desc == '':
                 course_desc = '无'
             c_obj = Course.objects.create(course_title=course_name, course_cover=course_file,
-                                      course_describe=course_desc, teacher_id=teacher)
+                                          course_describe=course_desc, teacher_id=teacher)
             if c_obj:
+                c_obj.save()
                 return JsonResponse({'status': 'success'})
             else:
                 c_obj.delete()
@@ -139,6 +140,7 @@ class UploadVideo(View):
             video_file = request.FILES.get('video-file')
             v_obj = Video.objects.create(course_id=int(course_select), video_title=video_name, video_upload=video_file)
             if v_obj:
+                v_obj.save()
                 return JsonResponse({'status': 'success'})
             else:
                 v_obj.delete()

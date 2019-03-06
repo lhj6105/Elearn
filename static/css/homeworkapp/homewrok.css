@@ -17,7 +17,7 @@
     text-decoration: none;
 }
 
-.homework ul, .homework li {
+.homework ul, .homework li, .question ul, .question li {
     list-style: none;
 }
 
