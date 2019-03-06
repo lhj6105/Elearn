@@ -165,7 +165,7 @@
     float: left;
     text-align: center;
     width: 120px;
-    height: 200px;
+    height: 280px;
     background-color: rgba(1, 1, 1, 0.05);
 }
 
@@ -294,4 +294,26 @@ input[type='button']:hover {
 
 .mine-item-pd p, .mine-item-xz p, .mine-item-jd p {
     margin: 15px 0 0 0;
+}
+.mine-item-myhomework-inner ul,.mine-item-myhomework-inner li{
+    list-style: none;
+    margin-left: -20px;
+}
+.mine-item-myhomework-inner li{
+    height: 30px;
+    margin-top: 2px;
+    background-color: rgba(1,1,100,0.05);
+}
+.mine-item-myhomework-inner span:nth-child(1){
+    float: left;
+    line-height: 30px;
+}
+.mine-item-myhomework-inner span:nth-child(2){
+    float: right;
+}
+.mine-item-myhomework-inner span:nth-child(3){
+    float: right;
+}
+.mine-item-myhomework-inner{
+    width: 500px;
 }

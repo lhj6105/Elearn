@@ -4,7 +4,7 @@ from homeworkapp.models import *
 
 
 class HomeworkAdmin:
-    list_display = ['name', 'homeworkId', 'desc', 'createTime', 'answer_nums', 'teacher']  # 设置列表可显示的字段
+    list_display = ['name', 'homeworkId', 'desc', 'createTime', 'answer_nums', 'teacher', 'is_release']  # 设置列表可显示的字段
     list_per_page = 10  # 每页显示条目数
     ordering = ('name', '-createTime',)  # 按发布日期排序
     model_icon = 'fa fa-book'

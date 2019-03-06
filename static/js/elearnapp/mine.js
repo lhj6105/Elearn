@@ -10,11 +10,21 @@ $(function () {
             $(this).css("background-color", "#23b8ff");
             $(".mine-item-content").children("div").attr("hidden", "hidden");
             $(".mine-item-upload-courseware").removeAttr("hidden")
-        } else if ($(this).children("a").html() === "我的作业") {
+        } else if ($(this).children("a").html() === "添加作业") {
             $(".mine-item-title li").removeAttr("style");
             $(this).css("background-color", "#23b8ff");
             $(".mine-item-content").children("div").attr("hidden", "hidden");
             $(".mine-item-add-questions").removeAttr("hidden")
+        } else if ($(this).children("a").html() === "我的作业") {
+            $(".mine-item-title li").removeAttr("style");
+            $(this).css("background-color", "#23b8ff");
+            $(".mine-item-content").children("div").attr("hidden", "hidden");
+            $(".mine-item-myhomework").removeAttr("hidden")
+        } else if ($(this).children("a").html() === "批改作业") {
+            $(".mine-item-title li").removeAttr("style");
+            $(this).css("background-color", "#23b8ff");
+            $(".mine-item-content").children("div").attr("hidden", "hidden");
+            $(".mine-item-correct-homework").removeAttr("hidden")
         } else if ($(this).children("a").html() === "学习详情") {
             $(".mine-item-title li").removeAttr("style");
             $(this).css("background-color", "#23b8ff");
@@ -293,9 +303,6 @@ $(function () {
             })
         }
     });
-    $("select[name='homework-select']").change(function () {
-        $(".homework-select-tip").css("display", "none")
-    });
     $("textarea[name='xz-question']").change(function () {
         $(".xz-question-tip").css("display", "none")
     });
@@ -315,6 +322,46 @@ $(function () {
         $(".xz-anwser-tip").css("display", "none")
     });
 
+
+    //简答题
+    $(".add-jd-question").click(function () {
+        if ($("select[name='homework-select'] option:selected").val() === undefined) {
+            $(".homework-select-tip").css("display", "block")
+        } else if ($("textarea[name='jd-question']").val() === "") {
+            $(".jd-question-tip").css("display", "block")
+        } else {
+            $.ajax({
+                url: "/homework/addjd/",
+                type: "post",
+                data: {
+                    "homework": $("select[name='homework-select'] option:selected").val(),
+                    "jd-question": $("textarea[name='jd-question']").val(),
+                    "jd-anwser": $("textarea[name='jd-anwser']").val(),
+                    "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
+                },
+                success: function (data) {
+                    if (data["status"] === "success") {
+                        $("textarea[name='jd-question']").val("");
+                        $("textarea[name='jd-anwser']").val("");
+                        $(".add-question-error").css("display", "none");
+                        $(".add-question-success").css("display", "block");
+                        setTimeout(function () {
+                            $(".add-question-success").css("display", "none");
+                        }, 5000);
+                    } else if (data["status"] === "error") {
+                        $(".add-question-success").css("display", "none");
+                        $(".add-question-error").css("display", "block");
+                        setTimeout(function () {
+                            $(".add-question-error").css("display", "none");
+                        }, 5000);
+                    }
+                }
+            })
+        }
+    });
+    $("textarea[name='jd-question']").change(function () {
+        $(".jd-question-tip").css("display", "none")
+    });
 
     $("select[name='course-select']").change(function () {
         $(".option-tip").css("display", "none");
@@ -343,6 +390,7 @@ $(function () {
     });
 
 
+    //增加的题目类型标题颜色和显示内容
     $(".pd").click(function () {
         $(this).css("color", "#12a7ff");
         $(".xz").css("color", "#333333");
@@ -366,6 +414,26 @@ $(function () {
         $(".mine-item-pd").attr("hidden", "hidden");
         $(".mine-item-xz").attr("hidden", "hidden");
         $(".mine-item-jd").removeAttr("hidden")
+    });
+
+
+    $(".release-homework").click(function () {
+        $.ajax({
+            url: "/homework/release/",
+            type: "post",
+            data: {
+                "homeworkid": $(this).val(),
+                "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val()
+            },
+            success: function (data) {
+                if (data["status"] === "success") {
+                    alert("发布成功");
+                    window.location.href="http://localhost:8000/mine/"
+                } else {
+                    alert("发布失败，请重新发布")
+                }
+            }
+        })
     })
 });
 

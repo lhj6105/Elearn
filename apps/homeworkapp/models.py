@@ -11,6 +11,7 @@ class Homework(models.Model):
     desc = models.CharField(max_length=400, verbose_name='作业说明', blank=True, default='无')
     createTime = models.DateTimeField(auto_now_add=True, verbose_name='添加时间')
     answer_nums = models.CharField(max_length=10, editable=False, default=0, verbose_name='作答人数')
+    is_release = models.BooleanField(default=False, verbose_name='是否发布')
 
     class Meta:
         db_table = 'homework'
@@ -34,7 +35,6 @@ class Questions(models.Model):
     choice_b = models.TextField(verbose_name='B选项', default='我是答案B')
     choice_c = models.TextField(verbose_name='C选项', default='我是答案C')
     choice_d = models.TextField(verbose_name='D选项', default='我是答案D')
-    note = models.TextField(verbose_name='备注信息', default='简答题在此处做答')
     add_time = models.DateTimeField(auto_now_add=True, verbose_name='添加时间')
 
     class Meta:

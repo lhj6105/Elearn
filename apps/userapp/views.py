@@ -20,9 +20,12 @@ class Mine(View):
             allcourse = Course.objects.all()
             allhomework = Homework.objects.all()
             questions = Questions.objects.all()
-            if request.session['user']:
+            if request.session['user']['identity'] == 'student':
                 stu = request.session['user']['number']
                 s_score = StudentScore.objects.filter(student_id=stu)
+            elif request.session['user']['identity'] == 'teacher':
+                tea = request.session['user']['number']
+                my_homework = Homework.objects.filter(teacher_id=tea)
             return render(request, 'mine.html', locals())
         except Exception as e:
             print(e)
