@@ -23,9 +23,22 @@ class Mine(View):
             if request.session['user']['identity'] == 'student':
                 stu = request.session['user']['number']
                 s_score = StudentScore.objects.filter(student_id=stu)
+                total = StudentProfile.objects.filter(student_number=stu).first().total_time
+                total_time = FileCheck.timeConvert(self,int(total))
             elif request.session['user']['identity'] == 'teacher':
                 tea = request.session['user']['number']
                 my_homework = Homework.objects.filter(teacher_id=tea)
+                all_student_score = StudentScore.objects.all()
+                all_student_details = StudentProfile.objects.all()
+                student_list = []
+                for student in all_student_details:
+                    s = []
+                    l = []
+                    one_time = FileCheck.timeConvert(self,int(student.total_time))
+                    s.append(student.student_name)
+                    s.append(one_time)
+                    l.append(s)
+                    student_list.extend(l)
             return render(request, 'mine.html', locals())
         except Exception as e:
             print(e)

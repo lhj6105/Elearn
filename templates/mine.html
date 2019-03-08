@@ -20,6 +20,11 @@
         <div class="container">
             <div class="row">
                 <div class="homework-score">
+                    <div class="student_total_time">
+                        <span>观看视频时长：{{ total_time }}</span>
+                        <hr/>
+                    </div>
+
                     <ul>
                         <li>
                             <div><h5>作业名</h5></div>
@@ -33,7 +38,12 @@
                     <ul>
                         {% for s in s_score %}
                             <li>
-                                <div>{{ s.homework.name }}</div>
+                                {% if s.is_correct == 1 %}
+                                    <div><a href="{% url 'homework:answer' %}?hid={{ s.homework_id }}" title="查看答案"
+                                            target="_blank">{{ s.homework.name }}</a></div>
+                                {% else %}
+                                    <div>{{ s.homework.name }}</div>
+                                {% endif %}
                                 <div>{{ s.pd_score }}</div>
                                 <div>{{ s.xz_score }}</div>
                                 <div>{{ s.jd_score }}</div>
@@ -91,8 +101,9 @@
                                             {{ course.course_title }}
                                         </option>
                                     {% endfor %}
-                                </select><span class="option-tip" style="margin-left: 5px;color: red;display: none;">请选择分类&nbsp;<a class="add-course"
-                                                                  href="javascript:void(0)">添加</a></span>
+                                </select><span class="option-tip" style="margin-left: 5px;color: red;display: none;">请选择分类&nbsp;<a
+                                    class="add-course"
+                                    href="javascript:void(0)">添加</a></span>
                                 <span class="option-tip2">没有？点击<a class="add-course"
                                                                   href="javascript:void(0)">添加</a></span>
                                 <br/>
@@ -176,9 +187,9 @@
                                 <div class="mine-item-pd">
                                     <textarea class="form-control" name="pd-question" placeholder="问题描述"></textarea>
                                     <span class="pd-question-tip" style="color: red;display: none;">问题不能为空</span>
-                                    <input type="radio" name="pd-anwser" value="正确">正确&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="pd-anwser" value="错误">错误
-                                    <span class="pd-anwser-tip" style="color: red;display: none;">答案不能为空</span>
+                                    <input type="radio" name="pd-answer" value="true">正确&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="pd-answer" value="false">错误
+                                    <span class="pd-answer-tip" style="color: red;display: none;">答案不能为空</span>
                                     <input type="button" class="form-control add-pd-question" value="添加">
                                 </div>
 
@@ -186,30 +197,30 @@
                                     <textarea class="form-control" name="xz-question" placeholder="问题描述"></textarea>
                                     <span class="xz-question-tip" style="color: red;display: none;">问题不能为空</span>
 
-                                    <input type="text" class="form-control" name="xz-anwser-A" placeholder="A选项">
-                                    <span class="xz-anwser-A-tip" style="color: red;display: none;">选项不能为空</span>
+                                    <input type="text" class="form-control" name="xz-answer-A" placeholder="A选项">
+                                    <span class="xz-answer-A-tip" style="color: red;display: none;">选项不能为空</span>
 
-                                    <input type="text" class="form-control" name="xz-anwser-B" placeholder="B选项">
-                                    <span class="xz-anwser-B-tip" style="color: red;display: none;">选项不能为空</span>
+                                    <input type="text" class="form-control" name="xz-answer-B" placeholder="B选项">
+                                    <span class="xz-answer-B-tip" style="color: red;display: none;">选项不能为空</span>
 
-                                    <input type="text" class="form-control" name="xz-anwser-C" placeholder="C选项">
-                                    <span class="xz-anwser-C-tip" style="color: red;display: none;">选项不能为空</span>
+                                    <input type="text" class="form-control" name="xz-answer-C" placeholder="C选项">
+                                    <span class="xz-answer-C-tip" style="color: red;display: none;">选项不能为空</span>
 
-                                    <input type="text" class="form-control" name="xz-anwser-D" placeholder="D选项">
-                                    <span class="xz-anwser-D-tip" style="color: red;display: none;">选项不能为空</span>
+                                    <input type="text" class="form-control" name="xz-answer-D" placeholder="D选项">
+                                    <span class="xz-answer-D-tip" style="color: red;display: none;">选项不能为空</span>
 
-                                    <input type="radio" name="xz-anwser" value="A">A&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="xz-anwser" value="B">B&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="xz-anwser" value="C">C&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="xz-anwser" value="D">D
-                                    <span class="xz-anwser-tip" style="color: red;display: none;">答案不能为空</span>
+                                    <input type="radio" name="xz-answer" value="A">A&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="xz-answer" value="B">B&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="xz-answer" value="C">C&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="xz-answer" value="D">D
+                                    <span class="xz-answer-tip" style="color: red;display: none;">答案不能为空</span>
                                     <input type="button" class="form-control add-xz-question" value="添加">
                                 </div>
 
                                 <div class="mine-item-jd" hidden="hidden">
                                     <textarea class="form-control" name="jd-question" placeholder="问题描述"></textarea>
                                     <span class="jd-question-tip" style="color: red;display: none;">问题不能为空</span>
-                                    <textarea class="form-control" name="jd-anwser" placeholder="问题答案(默认为空)"></textarea>
+                                    <textarea class="form-control" name="jd-answer" placeholder="问题答案(默认为空)"></textarea>
                                     <input type="button" class="form-control add-jd-question" value="添加">
                                 </div>
                             </form>
@@ -231,31 +242,84 @@
                                                 {% if homework.is_release == 0 %}
                                                     <button class="btn btn-sm release-homework"
                                                             value="{{ homework.id }}">发布</button>
-                                                    {% else %}
-                                                    <button class="btn btn-sm release-homework" value="{{ homework.id }}" disabled>发布</button>
+                                                {% else %}
+                                                    <button class="btn btn-sm release-homework"
+                                                            value="{{ homework.id }}" disabled>发布</button>
                                                 {% endif %}</span>
                                         </div>
                                     </li>
                                 {% endfor %}
                             </ul>
-
                         </div>
                     </div>
 
                     {# 批改作业 #}
                     <div class="mine-item-correct-homework" hidden="hidden">
-
+                        <div class="mine-item-correct-homework-inner">
+                            {% csrf_token %}
+                            <ul>
+                                {% for homework in my_homework %}
+                                    <li>
+                                        <div>
+                                            {% if homework.is_release == 1 %}
+                                                <input value="{{ homework.id }}" name="correct-homework-id"
+                                                       hidden="hidden">
+                                                <span><a href="javascript:void(0)"
+                                                         class="correct-homework" name="{{ homework.id }}">{{ homework.name }}</a></span>
+                                            {% endif %}
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
+                    {# 所有学生 #}
+                    <div class="mine-item-all-student" hidden="hidden">
+                        <div class="mine-item-all-student-inner">
+                            <ul>
+                            </ul>
+                        </div>
+                    </div>
+
+
                     {# 学生详情 #}
                     <div class="mine-item-student-details" hidden="hidden">
-
+                        <div class="mine-item-student-details-inner">
+                            <ul>
+                                {% for student in student_list %}
+                                    <li>
+                                        <div>
+                                            <span>{{ student.0 }}</span>
+                                        </div>
+                                        <div><span>观看视频时长：{{ student.1 }}</span></div>
+                                    </li>
+                                    <hr/>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
 
                     {# 学生分数 #}
                     <div class="mine-item-student-score" hidden="hidden">
-
+                        <div class="mine-item-student-score">
+                            <ul>
+                                {% for score in all_student_score %}
+                                    <li>
+                                        <div><span>{{ score.student }}</span></div>
+                                        <div><span>作业名:{{ score.homework }}</span></div>
+                                        <div>
+                                            <span>判断:{{ score.pd_score }}&nbsp;</span>
+                                            <span>选择:{{ score.xz_score }}&nbsp;</span>
+                                            <span>简答:{{ score.jd_score }}&nbsp;</span>
+                                            <span>总分:{{ score.total }}</span>
+                                        </div>
+                                        <div><span>作答时间:{{ score.add_time }}</span></div>
+                                    </li>
+                                    <hr/>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
-
 
                 </div>
             </div>

@@ -18,6 +18,7 @@ class Index(View):
 class Home(View):
     def get(self, request):
         try:
+            # 获取点击量最高的视频
             HotCourse = Course.objects.all().order_by('-course_click_nums')
             hotcourse = []
             for course in HotCourse:

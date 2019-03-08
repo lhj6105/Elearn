@@ -29,19 +29,6 @@
                 }
             });
         };
-        function check() {
-            $.ajax({
-            url: "/homework/answer_nums/",
-            type: "post",
-            data: {
-                "h_id":$("input[name='h']").val(),
-                "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
-            },
-            success: function (data) {
-                console.log(data["status"])
-            }
-        })
-        }
     </script>
 {% endblock %}
 
@@ -49,8 +36,7 @@
     <div class="container">
         <div class="row">
             <div class="question">
-                <form id="{{ question.id }}" method="post" action="{% url 'homework:judge' %}"
-                      onsubmit="return check()">
+                <form id="{{ question.id }}" method="post" action="{% url 'homework:judge' %}">
                     {% csrf_token %}
                     <input hidden name="h" value="{{ h_id }}"> {# 作业id #}
                     <ul>
@@ -59,9 +45,9 @@
                             <li>
                                 <h5>{{ forloop.counter }}.&nbsp;{{ question.context }}</h5>
                                 <input type="hidden" value="{{ question.id }}"/>
-                                <input name="{{ question.id }}" type="radio" value="正确"/>&nbsp;正确
+                                <input name="{{ question.id }}" type="radio" value="true"/>&nbsp;正确
                                 <br/>
-                                <input name="{{ question.id }}" type="radio" value="错误"/>&nbsp;错误
+                                <input name="{{ question.id }}" type="radio" value="false"/>&nbsp;错误
                                 <br/>
                             </li>
                         {% endfor %}

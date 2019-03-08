@@ -295,25 +295,71 @@ input[type='button']:hover {
 .mine-item-pd p, .mine-item-xz p, .mine-item-jd p {
     margin: 15px 0 0 0;
 }
-.mine-item-myhomework-inner ul,.mine-item-myhomework-inner li{
+
+.mine-item-myhomework-inner ul, .mine-item-myhomework-inner li, .mine-item-correct-homework-inner ul, .mine-item-correct-homework-inner li {
     list-style: none;
     margin-left: -20px;
 }
-.mine-item-myhomework-inner li{
+
+.mine-item-myhomework-inner li {
     height: 30px;
     margin-top: 2px;
-    background-color: rgba(1,1,100,0.05);
+    background-color: rgba(1, 1, 100, 0.05);
 }
-.mine-item-myhomework-inner span:nth-child(1){
+
+.mine-item-myhomework-inner span:nth-child(1) {
     float: left;
     line-height: 30px;
 }
-.mine-item-myhomework-inner span:nth-child(2){
+
+.mine-item-myhomework-inner span:nth-child(2) {
     float: right;
 }
-.mine-item-myhomework-inner span:nth-child(3){
+
+.mine-item-myhomework-inner span:nth-child(3) {
     float: right;
 }
-.mine-item-myhomework-inner{
+
+.mine-item-myhomework-inner {
     width: 500px;
+}
+
+.mine-item-all-student-inner ul, .mine-item-student-score ul ,.mine-item-student-details-inner ul{
+    list-style: none;
+    font-size: 15px;
+    line-height: 25px;
+    margin-left: -40px;
+}
+.mine-item-student-score{
+    width: 100%;
+}
+.mine-item-student-score ul{
+    margin-left: -40px;
+}
+.mine-item-student-score div{
+    display: inline-block;
+}
+.mine-item-student-score li>div:nth-child(1),.mine-item-student-details-inner li>div:nth-child(1){
+    width: 150px;
+}
+
+.mine-item-student-score li>div:nth-child(2),.mine-item-student-score li>div:nth-child(3){
+    width: 300px;
+}
+.mine-item-student-score hr,.mine-item-student-details-inner hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.student_total_time{
+    margin-left: 40px;
+}
+.student_total_time hr{
+    margin-bottom: 0;
+}
+.mine-item-student-details-inner ul{
+    margin-left: -40px;
+}
+.mine-item-student-details-inner div{
+    display: inline-block;
 }

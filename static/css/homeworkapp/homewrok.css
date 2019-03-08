@@ -17,10 +17,6 @@
     text-decoration: none;
 }
 
-.homework ul, .homework li, .question ul, .question li {
-    list-style: none;
-}
-
 .homework h5 {
     font-size: 17px;
 }
@@ -53,4 +49,20 @@ textarea {
 
 input[type=submit] {
     margin-left: 40px;
+}
+
+.correct-homework ul, .correct-homework li, .homework-item-answer ul, .homework-item-answer li,
+.homework ul, .homework li, .question ul, .question li {
+    list-style: none;
+}
+
+.homework-item-answer p, .homework-item-answer > ul > h5 {
+    margin-left: 15px;
+}
+
+.homework-item-answer > ul > p {
+    margin-left: 30px;
+}
+.correct-homework p{
+    margin-left: 15px;
 }

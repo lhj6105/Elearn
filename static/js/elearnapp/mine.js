@@ -47,6 +47,27 @@ $(function () {
         $(".mine-item-add-questions").attr("hidden", "hidden");
         $(".mine-item-add-homework").removeAttr("hidden");
     });
+    $(".correct-homework").click(function () {
+        var id = $(this).attr("name");
+        $.ajax({
+            url: "/homework/correct_student/",
+            type: "get",
+            data: {
+                "homework-id": $(this).attr("name"),
+            },
+            success: function (data) {
+                var data_obj = JSON.parse(data["data"]);
+                for (i = 0; i < data_obj.length; i++) {
+                    if ($(".mine-item-all-student-inner li").length < data_obj.length) {
+                        $(".mine-item-all-student-inner").children("ul").append("<li><a href=" + "/homework/correct/?studentid=" + data_obj[i]['pk'] + "&homeworkid="+ id + " target='_blank'>" + data_obj[i]['fields']['student_name'] + "</a></li>")
+                    }
+                    // $(".mine-item-all-student-inner").children("ul").append("<li><a href=" + "/homework/correct/?studentid=" + data_obj[i]['pk'] + " " + "target='_blank'>" + data_obj[i]['fields']['student_name'] + "</a></li>")
+                }
+            }
+        });
+        $(".mine-item-correct-homework").attr("hidden", "hidden");
+        $(".mine-item-all-student").removeAttr("hidden");
+    });
 
 
     //上传课程
@@ -207,8 +228,8 @@ $(function () {
             $(".homework-select-tip").css("display", "block")
         } else if ($("textarea[name='pd-question']").val() === "") {
             $(".pd-question-tip").css("display", "block")
-        } else if ($("input[name='pd-anwser']:checked").val() === undefined) {
-            $(".pd-anwser-tip").css("display", "block")
+        } else if ($("input[name='pd-answer']:checked").val() === undefined) {
+            $(".pd-answer-tip").css("display", "block")
         } else {
             $.ajax({
                 url: "/homework/addpd/",
@@ -216,13 +237,13 @@ $(function () {
                 data: {
                     "homework": $("select[name='homework-select'] option:selected").val(),
                     "pd-question": $("textarea[name='pd-question']").val(),
-                    "pd-anwser": $("input[name='pd-anwser']:checked").val(),
+                    "pd-answer": $("input[name='pd-answer']:checked").val(),
                     "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
                 },
                 success: function (data) {
                     if (data["status"] === "success") {
                         $("textarea[name='pd-question']").val("");
-                        $("input[name='pd-anwser']").removeAttr("checked");
+                        $("input[name='pd-answer']").removeAttr("checked");
                         $(".add-question-error").css("display", "none");
                         $(".add-question-success").css("display", "block");
                         setTimeout(function () {
@@ -245,8 +266,8 @@ $(function () {
     $("textarea[name='pd-question']").change(function () {
         $(".pd-question-tip").css("display", "none")
     });
-    $("input[name='pd-anwser']").change(function () {
-        $(".pd-anwser-tip").css("display", "none")
+    $("input[name='pd-answer']").change(function () {
+        $(".pd-answer-tip").css("display", "none")
     });
 
     //增加选择题
@@ -255,16 +276,16 @@ $(function () {
             $(".homework-select-tip").css("display", "block")
         } else if ($("textarea[name='xz-question']").val() === "") {
             $(".xz-question-tip").css("display", "block")
-        } else if ($("input[name='xz-anwser-A']").val() === "") {
-            $(".xz-anwser-A-tip").css("display", "block")
-        } else if ($("input[name='xz-anwser-B']").val() === "") {
-            $(".xz-anwser-B-tip").css("display", "block")
-        } else if ($("input[name='xz-anwser-C']").val() === "") {
-            $(".xz-anwser-C-tip").css("display", "block")
-        } else if ($("input[name='xz-anwser-D']").val() === "") {
-            $(".xz-anwser-D-tip").css("display", "block")
-        } else if ($("input[name='xz-anwser']:checked").val() === undefined) {
-            $(".xz-anwser-tip").css("display", "block")
+        } else if ($("input[name='xz-answer-A']").val() === "") {
+            $(".xz-answer-A-tip").css("display", "block")
+        } else if ($("input[name='xz-answer-B']").val() === "") {
+            $(".xz-answer-B-tip").css("display", "block")
+        } else if ($("input[name='xz-answer-C']").val() === "") {
+            $(".xz-answer-C-tip").css("display", "block")
+        } else if ($("input[name='xz-answer-D']").val() === "") {
+            $(".xz-answer-D-tip").css("display", "block")
+        } else if ($("input[name='xz-answer']:checked").val() === undefined) {
+            $(".xz-answer-tip").css("display", "block")
         } else {
             $.ajax({
                 url: "/homework/addxz/",
@@ -272,21 +293,21 @@ $(function () {
                 data: {
                     "homework": $("select[name='homework-select'] option:selected").val(),
                     "xz-question": $("textarea[name='xz-question']").val(),
-                    "xz-anwser-A": $("input[name='xz-anwser-A']").val(),
-                    "xz-anwser-B": $("input[name='xz-anwser-B']").val(),
-                    "xz-anwser-C": $("input[name='xz-anwser-C']").val(),
-                    "xz-anwser-D": $("input[name='xz-anwser-D']").val(),
-                    "xz-anwser": $("input[name='xz-anwser']:checked").val(),
+                    "xz-answer-A": $("input[name='xz-answer-A']").val(),
+                    "xz-answer-B": $("input[name='xz-answer-B']").val(),
+                    "xz-answer-C": $("input[name='xz-answer-C']").val(),
+                    "xz-answer-D": $("input[name='xz-answer-D']").val(),
+                    "xz-answer": $("input[name='xz-answer']:checked").val(),
                     "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
                 },
                 success: function (data) {
                     if (data["status"] === "success") {
                         $("textarea[name='xz-question']").val("");
-                        $("input[name='xz-anwser-A']").val("");
-                        $("input[name='xz-anwser-B']").val("");
-                        $("input[name='xz-anwser-C']").val("");
-                        $("input[name='xz-anwser-D']").val("");
-                        $("input[name='xz-anwser']").removeAttr("checked");
+                        $("input[name='xz-answer-A']").val("");
+                        $("input[name='xz-answer-B']").val("");
+                        $("input[name='xz-answer-C']").val("");
+                        $("input[name='xz-answer-D']").val("");
+                        $("input[name='xz-answer']").removeAttr("checked");
                         $(".add-question-error").css("display", "none");
                         $(".add-question-success").css("display", "block");
                         setTimeout(function () {
@@ -306,20 +327,20 @@ $(function () {
     $("textarea[name='xz-question']").change(function () {
         $(".xz-question-tip").css("display", "none")
     });
-    $("input[name='xz-anwser-A']").change(function () {
-        $(".xz-anwser-A-tip").css("display", "none")
+    $("input[name='xz-answer-A']").change(function () {
+        $(".xz-answer-A-tip").css("display", "none")
     });
-    $("input[name='xz-anwser-B']").change(function () {
-        $(".xz-anwser-B-tip").css("display", "none")
+    $("input[name='xz-answer-B']").change(function () {
+        $(".xz-answer-B-tip").css("display", "none")
     });
-    $("input[name='xz-anwser-C']").change(function () {
-        $(".xz-anwser-C-tip").css("display", "none")
+    $("input[name='xz-answer-C']").change(function () {
+        $(".xz-answer-C-tip").css("display", "none")
     });
-    $("input[name='xz-anwser-D']").change(function () {
-        $(".xz-anwser-D-tip").css("display", "none")
+    $("input[name='xz-answer-D']").change(function () {
+        $(".xz-answer-D-tip").css("display", "none")
     });
-    $("input[name='xz-anwser']").change(function () {
-        $(".xz-anwser-tip").css("display", "none")
+    $("input[name='xz-answer']").change(function () {
+        $(".xz-answer-tip").css("display", "none")
     });
 
 
@@ -336,13 +357,13 @@ $(function () {
                 data: {
                     "homework": $("select[name='homework-select'] option:selected").val(),
                     "jd-question": $("textarea[name='jd-question']").val(),
-                    "jd-anwser": $("textarea[name='jd-anwser']").val(),
+                    "jd-answer": $("textarea[name='jd-answer']").val(),
                     "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
                 },
                 success: function (data) {
                     if (data["status"] === "success") {
                         $("textarea[name='jd-question']").val("");
-                        $("textarea[name='jd-anwser']").val("");
+                        $("textarea[name='jd-answer']").val("");
                         $(".add-question-error").css("display", "none");
                         $(".add-question-success").css("display", "block");
                         setTimeout(function () {
@@ -428,7 +449,7 @@ $(function () {
             success: function (data) {
                 if (data["status"] === "success") {
                     alert("发布成功");
-                    window.location.href="http://localhost:8000/mine/"
+                    window.location.href = "http://localhost:8000/mine/"
                 } else {
                     alert("发布失败，请重新发布")
                 }

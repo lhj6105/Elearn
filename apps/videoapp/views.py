@@ -14,6 +14,7 @@ from userapp.models import *
 from videoapp.models import *
 
 
+# 所有视频
 class AllVideo(View):
     def get(self, request):
         page_num = request.GET.get('page', default='1')
@@ -41,11 +42,11 @@ class AllVideo(View):
             print(e)
             return render(request, 'video.html')
 
+    def post(self, request):
+        pass
 
-def post(self, request):
-    pass
 
-
+# 播放视频
 class Player(View):
     def get(self, request):
         try:
@@ -54,14 +55,15 @@ class Player(View):
             courseid = int(courseid)
             videoid = int(videoid)
             courseobj = Course.objects.filter(id=courseid).first()
-            videoobj = Video.objects.filter(course_id=courseid).all()
-            p_video = Video.objects.filter(id=videoid).first()
+            videoobj = Video.objects.filter(course_id=courseid).all()  # 该课程的所有视频
+            p_video = Video.objects.filter(id=videoid).first()  # 默认播放第一个视频
             return render(request, 'video-player.html', locals())
         except Exception as e:
             print(e)
             return render(request, 'video-player.html', locals())
 
 
+# 统计点击量
 class ClickNums(View):
     def get(self, request):
         pass
@@ -80,6 +82,7 @@ class ClickNums(View):
             return JsonResponse({'status': False})
 
 
+# 统计学生播放视频时间
 class Counttime(View):
     def get(self, request):
         pass
@@ -87,23 +90,25 @@ class Counttime(View):
     def post(self, request):
         try:
             sTime = request.POST.get('sTime')
-            number = request.session['user']['number']
-            studentobj = StudentProfile.objects.filter(student_number=number)
-            if studentobj:
-                total_time = studentobj.first().total_time
-                new_total_time = int(total_time) + int(sTime)
-                s_update_obj = studentobj.update(total_time=new_total_time)
-                if s_update_obj:
-                    return JsonResponse({"sTime": sTime + "秒"})
+            if request.session['user']['identity'] == 'student':
+                number = request.session['user']['number']
+                studentobj = StudentProfile.objects.filter(student_number=number)
+                if studentobj:
+                    total_time = studentobj.first().total_time
+                    new_total_time = int(total_time) + int(sTime)
+                    s_update_obj = studentobj.update(total_time=new_total_time)
+                    if s_update_obj:
+                        return JsonResponse({"sTime": sTime + "秒"})
+                    else:
+                        return JsonResponse({"sTime": "error"})
                 else:
                     return JsonResponse({"sTime": "error"})
-            else:
-                return JsonResponse({"sTime": "error"})
         except Exception as e:
             print(e)
             return JsonResponse({"sTime": "error"})
 
 
+# 增加课程
 class UploadCourse(View):
     def get(self, request):
         pass
@@ -129,6 +134,7 @@ class UploadCourse(View):
             return JsonResponse({'status': 'error'})
 
 
+# 增加视频
 class UploadVideo(View):
     def get(self, request):
         pass

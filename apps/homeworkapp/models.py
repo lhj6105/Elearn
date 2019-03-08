@@ -73,17 +73,16 @@ class StudentAnswerLog(models.Model):
     student = models.ForeignKey(StudentProfile, verbose_name='学生', on_delete=models.CASCADE)
     homework = models.ForeignKey(Homework, verbose_name='作业名', on_delete=models.CASCADE)
     question = models.ForeignKey(Questions, verbose_name='题目', on_delete=models.CASCADE)
+    questionType = models.CharField(max_length=2, choices=(('pd', '判断'), ('xz', '选择'), ('jd', '简答')),
+                                    verbose_name='题目类型')
     answer = models.TextField(verbose_name='用户答案')
     score = models.FloatField(max_length=100, verbose_name='分数', default=0)
-    # add_time = models.DateField(auto_now_add=True, verbose_name='作答时间')
+    add_time = models.DateField(auto_now_add=True, verbose_name='作答时间')
 
     class Meta:
         db_table = 'student_answer_log'
         verbose_name = '做题记录'
         verbose_name_plural = verbose_name
-
-    def __str__(self):
-        return '{0}({1}) '.format(self.student.student_number, self.student.student_name)
 
 
 class StudentScore(models.Model):
@@ -93,6 +92,7 @@ class StudentScore(models.Model):
     xz_score = models.FloatField(verbose_name='选择', default=0)
     jd_score = models.FloatField(verbose_name='简答', default=0)
     total = models.FloatField(verbose_name='总分', default=0)
+    is_correct = models.BooleanField(default=False, verbose_name="是否批改")
     add_time = models.DateTimeField(verbose_name='提交时间', auto_now_add=True)
 
     class Meta:
