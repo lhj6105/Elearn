@@ -35,6 +35,7 @@ class Course(models.Model):
                 os.remove(os.path.join(file_dir, str(v.video_upload.name)))
             Course.objects.filter(id=self.id).delete()
             os.remove(os.path.join(file_dir, str(self.course_cover.name)))
+
         else:
             Course.objects.filter(id=self.id).delete()
             os.remove(os.path.join(file_dir, str(self.course_cover.name)))

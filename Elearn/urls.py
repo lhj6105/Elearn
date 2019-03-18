@@ -25,4 +25,5 @@ urlpatterns = [
     path('courseware/', include('coursewareapp.urls', namespace='courseware')),
     path('homework/', include('homeworkapp.urls', namespace='homework')),
     path('mine/', include('userapp.urls', namespace='mine')),
+    path('search/', include('haystack.urls')),
 ]

@@ -2,34 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6514c482-bc98-4c5b-8f4d-37bdc434f2c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/answer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/correct.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/videoapp/search_indexes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/videoapp/search.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/search/indexes/videoapp/course_text.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/search/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/coursewareapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/coursewareapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/coursewareapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/elearnapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/elearnapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/migrations/0002_auto_20190306_1725.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/migrations/0003_auto_20190306_1743.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/migrations/0004_homework_is_release.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/migrations/0005_remove_questions_note.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homeworkapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homeworkapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homeworkapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/userapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/userapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/userapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/videoapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elearn/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elearn/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elearn/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elearn/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/videoapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/videoapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/videoapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/videoapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/elearnapp/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/elearnapp/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/homeworkapp/homewrok.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/homeworkapp/homewrok.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/course/JavaScript.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/user_profile/90b4348c0d6d4f15b6e270d9a87708d9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/user_profile/a17c87e948cf41e888e2e2f3fb65675d.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/user_profile/f17f264bcbb44c6c86e273bcc255dd42.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/elearnapp/mine.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/elearnapp/mine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/homeworkapp/homework-details.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homework_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homework_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mine.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/elearnapp/elearn.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/elearnapp/elearn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/videoapp/video-player.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/videoapp/video-player.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/video-player.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/video-player.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,59 +48,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/correct.html">
+        <entry file="file://$PROJECT_DIR$/apps/videoapp/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+            <state relative-caret-position="620">
+              <caret line="101" column="49" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
               <folding>
-                <element signature="e#873#879#0#HTML" expanded="true" />
-                <element signature="e#1197#1203#0#HTML" expanded="true" />
-                <element signature="e#1024#1030#0#HTML" expanded="true" />
-                <element signature="e#1087#1093#0#HTML" expanded="true" />
-                <element signature="e#1150#1156#0#HTML" expanded="true" />
-                <element signature="e#1213#1219#0#HTML" expanded="true" />
-                <element signature="e#1817#1823#0#HTML" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/homeworkapp/homewrok.css">
+        <entry file="file://$PROJECT_DIR$/templates/search/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="687">
-              <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+            <state relative-caret-position="105">
+              <caret line="20" column="50" lean-forward="true" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/homeworkapp/views.py">
+        <entry file="file://$PROJECT_DIR$/apps/videoapp/search_indexes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="281" column="20" lean-forward="true" selection-start-line="281" selection-start-column="20" selection-end-line="281" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/images/user_profile/default_student.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/images/user_profile/default_teacher.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/homeworkapp/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+            <state relative-caret-position="210">
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -123,13 +81,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/homeworkapp/models.py">
+        <entry file="file://$PROJECT_DIR$/templates/search/indexes/videoapp/course_text.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="33" column="63" lean-forward="true" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="25" selection-start-column="25" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/videoapp/search.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="7" column="64" selection-start-line="7" selection-start-column="64" selection-end-line="7" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/elearnapp/elearn.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="241" selection-start-line="241" selection-end-line="241" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/video-player.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-147">
+              <caret line="8" column="66" lean-forward="true" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -139,10 +130,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -168,19 +159,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/css/video/video.css" />
-        <option value="$PROJECT_DIR$/static/js/video/video.js" />
-        <option value="$PROJECT_DIR$/static/css/video/video-player.css" />
-        <option value="$PROJECT_DIR$/static/js/video/video-player.js" />
-        <option value="$PROJECT_DIR$/static/css/coursewareapp.css" />
-        <option value="$PROJECT_DIR$/Elearn/urls.py" />
-        <option value="$PROJECT_DIR$/apps/videoapp/tests.py" />
-        <option value="$PROJECT_DIR$/apps/videoapp/123.py" />
-        <option value="$PROJECT_DIR$/apps/123.py" />
         <option value="$PROJECT_DIR$/static/js/elearnapp/index.js" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/static/css/videoapp/video-player.css" />
-        <option value="$PROJECT_DIR$/static/css/elearnapp/elearn.css" />
         <option value="$PROJECT_DIR$/apps/coursewareapp/adminx.py" />
         <option value="$PROJECT_DIR$/ext_apps/xadmin/views/delete.py" />
         <option value="$PROJECT_DIR$/apps/userapp/models.py" />
@@ -190,9 +169,7 @@
         <option value="$PROJECT_DIR$/static/js/homeworkapp/homework-details.js" />
         <option value="$PROJECT_DIR$/apps/userapp/tests.py" />
         <option value="$PROJECT_DIR$/static/js/videoapp/video-click-nums.js" />
-        <option value="$PROJECT_DIR$/templates/video-player.html" />
         <option value="$PROJECT_DIR$/static/js/videoapp/video-player.js" />
-        <option value="$PROJECT_DIR$/static/css/videoapp/video.css" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/video.html" />
         <option value="$PROJECT_DIR$/apps/videoapp/adminx.py" />
@@ -210,15 +187,29 @@
         <option value="$PROJECT_DIR$/templates/answer.html" />
         <option value="$PROJECT_DIR$/apps/coursewareapp/views.py" />
         <option value="$PROJECT_DIR$/apps/elearnapp/views.py" />
-        <option value="$PROJECT_DIR$/apps/videoapp/models.py" />
         <option value="$PROJECT_DIR$/apps/userapp/views.py" />
-        <option value="$PROJECT_DIR$/apps/videoapp/views.py" />
         <option value="$PROJECT_DIR$/static/css/elearnapp/index.css" />
         <option value="$PROJECT_DIR$/templates/mine.html" />
         <option value="$PROJECT_DIR$/static/js/elearnapp/mine.js" />
         <option value="$PROJECT_DIR$/apps/homeworkapp/views.py" />
         <option value="$PROJECT_DIR$/static/css/homeworkapp/homewrok.css" />
         <option value="$PROJECT_DIR$/templates/correct.html" />
+        <option value="$PROJECT_DIR$/apps/videoapp/search_index.py" />
+        <option value="$PROJECT_DIR$/templates/search/indexes/videoapp_Video_text.txt" />
+        <option value="$PROJECT_DIR$/Elearn/urls.py" />
+        <option value="$PROJECT_DIR$/static/css/videoapp/video.css" />
+        <option value="$PROJECT_DIR$/Elearn/settings.py" />
+        <option value="$PROJECT_DIR$/templates/search/indexes/videoapp/course_text.txt" />
+        <option value="$PROJECT_DIR$/apps/videoapp/views.py" />
+        <option value="$PROJECT_DIR$/templates/search/indexes/videoapp/video_text.txt" />
+        <option value="$PROJECT_DIR$/templates/video-player.html" />
+        <option value="$PROJECT_DIR$/static/css/videoapp/video-player.css" />
+        <option value="$PROJECT_DIR$/static/css/videoapp/search.css" />
+        <option value="$PROJECT_DIR$/apps/videoapp/models.py" />
+        <option value="$PROJECT_DIR$/templates/search/search.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/static/css/elearnapp/elearn.css" />
+        <option value="$PROJECT_DIR$/apps/videoapp/search_indexes.py" />
       </list>
     </option>
   </component>
@@ -322,6 +313,70 @@
               <item name="Elearn" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="videoapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="cover" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="cover" type="462c0819:PsiDirectoryNode" />
+              <item name="20190318" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+              <item name="indexes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+              <item name="indexes" type="462c0819:PsiDirectoryNode" />
+              <item name="videoapp" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -335,22 +390,22 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/apps" />
-      <recent name="$PROJECT_DIR$/static/css/coursewareapp" />
-      <recent name="$PROJECT_DIR$/ext_apps" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/static/css/video" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Qin\Elearn\static" />
       <recent name="$PROJECT_DIR$/ext_apps/xadmin/static/xadmin/vendor" />
       <recent name="$PROJECT_DIR$/static/js" />
       <recent name="$PROJECT_DIR$/static/css" />
       <recent name="$PROJECT_DIR$/apps" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Qin\Elearn\templates\search\indexes\videoapp" />
+      <recent name="$PROJECT_DIR$/apps" />
+      <recent name="$PROJECT_DIR$/static/css/coursewareapp" />
+      <recent name="$PROJECT_DIR$/ext_apps" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -489,30 +544,37 @@
       <workItem from="1551838433921" duration="5843000" />
       <workItem from="1551875329746" duration="823000" />
       <workItem from="1552019966652" duration="35457000" />
+      <workItem from="1552113365497" duration="653000" />
+      <workItem from="1552306854678" duration="648000" />
+      <workItem from="1552369572269" duration="5000" />
+      <workItem from="1552742168467" duration="4015000" />
+      <workItem from="1552746705858" duration="51000" />
+      <workItem from="1552886962288" duration="7702000" />
+      <workItem from="1552906572970" duration="12626000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130336000" />
+    <option name="totallyTimeSpent" value="156043000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1300268" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14075068" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="3" weight="0.3297491" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5033512" side_tool="true" weight="0.2776204" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50402147" side_tool="true" weight="0.26487252" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.3297491" />
       <window_info anchor="bottom" id="Run" order="7" weight="0.49008498" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4966488" visible="true" weight="0.37252125" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49597856" visible="true" weight="0.26487252" />
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Statistic" order="13" weight="0.58498585" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -526,191 +588,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/video-player.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="32" column="54" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
-          <folding>
-            <element signature="e#2305#2311#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/videoapp/video-player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="57" column="42" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/videoapp/video.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/videoapp/adminx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/userapp/adminx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2331">
-          <caret line="111" column="62" selection-start-line="111" selection-start-column="62" selection-end-line="111" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/structural.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-672">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap-select/js/defaults-zh_CN.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="418" column="27" lean-forward="true" selection-start-line="418" selection-start-column="27" selection-end-line="418" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/userapp/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap-select/css/bootstrap-select.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="93" lean-forward="true" selection-start-line="5" selection-start-column="93" selection-end-line="5" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="1428" column="47" lean-forward="true" selection-start-line="1428" selection-end-line="1429" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/homeworkapp/adminx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="101" selection-start-line="6" selection-start-column="101" selection-end-line="6" selection-end-column="101" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/videoapp/video.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/videoapp/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/video.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/coursewareapp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/elearnapp/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/courseware.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/homework_details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="70" column="36" lean-forward="true" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/coursewareapp/courseware.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/homework.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="57" column="26" lean-forward="true" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/elearnapp/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3602">
-          <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/coursewareapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -734,25 +611,12 @@
     <entry file="file://$PROJECT_DIR$/Elearn/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Elearn/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#630#662#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/answer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="503">
           <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/elearnapp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -773,16 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/videoapp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="73" column="36" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/elearnapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -797,16 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="330" column="22" selection-start-line="330" selection-start-column="22" selection-end-line="330" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/videoapp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="103" column="21" lean-forward="true" selection-start-line="103" selection-start-column="21" selection-end-line="103" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -882,33 +726,245 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/homeworkapp/homework-details.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/course/JavaScript.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/user_profile/90b4348c0d6d4f15b6e270d9a87708d9.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/user_profile/f17f264bcbb44c6c86e273bcc255dd42.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/homeworkapp/homework-details.js" />
+    <entry file="file://$PROJECT_DIR$/static/images/course/JavaScript.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/images/user_profile/90b4348c0d6d4f15b6e270d9a87708d9.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/images/user_profile/f17f264bcbb44c6c86e273bcc255dd42.png" />
     <entry file="file://$PROJECT_DIR$/static/images/user_profile/default_teacher.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/static/images/user_profile/default_student.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/user_profile/a17c87e948cf41e888e2e2f3fb65675d.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/user_profile/a17c87e948cf41e888e2e2f3fb65675d.png" />
     <entry file="file://$PROJECT_DIR$/apps/homeworkapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="281" column="20" lean-forward="true" selection-start-line="281" selection-start-column="20" selection-end-line="281" selection-end-column="20" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/search/indexes/videoapp_Video_text.txt" />
+    <entry file="file://$USER_HOME$/Envs/ElearnEnv/Lib/site-packages/elasticsearch/connection/http_urllib3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/aria.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="1002" column="22" selection-start-line="1002" selection-start-column="22" selection-end-line="1002" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/elearnapp/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/videoapp/video.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/videoapp/video-click-nums.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Envs/ElearnEnv/Lib/site-packages/django/db/models/manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="166" selection-start-line="166" selection-end-line="166" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Elearn/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="53" column="74" selection-start-line="53" selection-start-column="74" selection-end-line="53" selection-end-column="74" />
+          <folding>
+            <element signature="e#307#316#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Envs/ElearnEnv/Lib/site-packages/haystack/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="99" column="16" lean-forward="true" selection-start-line="99" selection-start-column="16" selection-end-line="99" selection-end-column="16" />
+          <folding>
+            <element signature="e#19#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Envs/ElearnEnv/Lib/site-packages/haystack/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="e#19#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Elearn/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding>
+            <element signature="e#630#662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/video.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="23" column="59" lean-forward="true" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
+          <folding>
+            <element signature="e#3661#3716#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/videoapp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/videoapp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="57" column="48" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/videoapp/video-player.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/coursewareapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-567">
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ext_apps/xadmin/views/delete.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-805">
+          <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ext_apps/xadmin/plugins/actions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="87" column="29" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/videoapp/search.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/videoapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="101" column="49" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/video-player.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-147">
+          <caret line="8" column="66" lean-forward="true" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="64" selection-start-line="7" selection-start-column="64" selection-end-line="7" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/elearnapp/elearn.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="241" selection-start-line="241" selection-end-line="241" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/search/indexes/videoapp/course_text.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/search/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="20" column="50" lean-forward="true" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/videoapp/search_indexes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>

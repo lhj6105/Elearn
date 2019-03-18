@@ -81,3 +81,14 @@
     margin-left: 45%;
     margin-top: 25%;
 }
+
+.course_describe {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    background-color: #333333;
+}
+
+.course_describe p {
+    margin: -30px 10px -30px 10px;
+    color: #c7c7c7;
+}

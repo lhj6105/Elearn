@@ -45,8 +45,20 @@ INSTALLED_APPS = [
     'homeworkapp',
     'userapp',
     'xadmin',
-    'crispy_forms'
+    'crispy_forms',
+    'haystack',
 ]
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
+        'URL': 'localhost:9200/',
+        'INDEX_NAME': 'videoapp_index',
+    },
+}
+
+# 增、删、改时自动更新索引
+HAYSTACK_SIGNAL_PROCCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

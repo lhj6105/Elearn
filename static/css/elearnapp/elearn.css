@@ -239,3 +239,7 @@ img {
     text-decoration: none;
     color: #12a7ff;
 }
+
+.glyphicon {
+    top: 3px;
+}

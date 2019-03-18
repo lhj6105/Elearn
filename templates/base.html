@@ -28,36 +28,39 @@
             </div>
         </div>
         <div class="header-index-search">
-            <div class="input-group input-group-lg">
-                <input type="text" class="form-control" placeholder="搜索">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">
+            <form action="/search/">
+                <div class="input-group input-group-lg">
+                    <input type="text" class="form-control" name="q" value="{{ query }}" placeholder="搜索">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"
+                            {% if request.session.user.number == null %}disabled{% endif %}>
                         <span class="glyphicon glyphicon-search"></span>
                     </button>
                 </span>
-            </div>
-        </div>
-        <div class="header-index-text">
-            {% if request.session.user %}
-                <div class="mod-header__user-avatar">
-                    <a href="{% url 'mine:loginout' %}">
-                        <img class="profile-photo" src="/static/{{ request.session.user.photo }}" title="退出登录">
-                        <span>
-                            {{ request.session.user.name }}
-                        </span>
-                    </a>
-                </div>
-            {% else %}
-                <div class="reg-log">
-                    <h5>
-                        <a data-toggle="modal" id="register" href="javascript:void(0)">注册</a>
-                        <a>|</a>
-                        <a data-toggle="modal" id="login" href="javascript:void(0)">登录</a>
-                    </h5>
-                </div>
-            {% endif %}
+            </form>
         </div>
     </div>
+    <div class="header-index-text">
+        {% if request.session.user %}
+            <div class="mod-header__user-avatar">
+                <a href="{% url 'mine:loginout' %}">
+                    <img class="profile-photo" src="/static/{{ request.session.user.photo }}" title="退出登录">
+                    <span>
+                            {{ request.session.user.name }}
+                        </span>
+                </a>
+            </div>
+        {% else %}
+            <div class="reg-log">
+                <h5>
+                    <a data-toggle="modal" id="register" href="javascript:void(0)">注册</a>
+                    <a>|</a>
+                    <a data-toggle="modal" id="login" href="javascript:void(0)">登录</a>
+                </h5>
+            </div>
+        {% endif %}
+    </div>
+</div>
 </div>
 
 

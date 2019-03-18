@@ -37,7 +37,6 @@ class AllVideo(View):
             else:
                 dis_range = range(paginator.num_pages - 2, paginator.num_pages + 1)
             return render(request, 'video.html', locals())
-
         except Exception as e:
             print(e)
             return render(request, 'video.html')
@@ -103,6 +102,8 @@ class Counttime(View):
                         return JsonResponse({"sTime": "error"})
                 else:
                     return JsonResponse({"sTime": "error"})
+            else:
+                return JsonResponse({"sTime": "error"})
         except Exception as e:
             print(e)
             return JsonResponse({"sTime": "error"})
