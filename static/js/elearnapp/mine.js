@@ -59,9 +59,8 @@ $(function () {
                 var data_obj = JSON.parse(data["data"]);
                 for (i = 0; i < data_obj.length; i++) {
                     if ($(".mine-item-all-student-inner li").length < data_obj.length) {
-                        $(".mine-item-all-student-inner").children("ul").append("<li><a href=" + "/homework/correct/?studentid=" + data_obj[i]['pk'] + "&homeworkid="+ id + " target='_blank'>" + data_obj[i]['fields']['student_name'] + "</a></li>")
+                        $(".mine-item-all-student-inner").children("ul").append("<li><a href=" + "/homework/correct/?studentid=" + data_obj[i]['pk'] + "&homeworkid="+ id + " target='_blank'>" + data_obj[i]['fields']['name'] + "</a></li>")
                     }
-                    // $(".mine-item-all-student-inner").children("ul").append("<li><a href=" + "/homework/correct/?studentid=" + data_obj[i]['pk'] + " " + "target='_blank'>" + data_obj[i]['fields']['student_name'] + "</a></li>")
                 }
             }
         });

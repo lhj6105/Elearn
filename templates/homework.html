@@ -23,7 +23,7 @@
                     <hr class="homework-hr"/>
                 </ul>
                 <ul>
-                    {% for homework in homework_list %}
+                    {% for homework in all_homework_list %}
                         <li>
                             <div class="homework-name">
                                 <a href="{% url 'homework:details' %}?list={{ homework.id }}">{{ homework.name }}</a>
@@ -36,7 +36,7 @@
                             </div>
                             <div class="homework-time">
                                 <span>
-                                    {{ homework.createTime }}
+                                    {{ homework.add_time }}
                                 </span>
                             </div>
                             <div>

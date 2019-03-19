@@ -38,7 +38,7 @@
                     <ul>
                         {% for s in s_score %}
                             <li>
-                                {% if s.is_correct == 1 %}
+                                {% if s.correct == 1 %}
                                     <div><a href="{% url 'homework:answer' %}?hid={{ s.homework_id }}" title="查看答案"
                                             target="_blank">{{ s.homework.name }}</a></div>
                                 {% else %}
@@ -96,9 +96,9 @@
                                 <select class="selectpicker form-control" multiple data-live-search="true"
                                         data-max-options="1" name="course-select"
                                         data-style="btn-info" title="选择视频所属的分类">
-                                    {% for course in allcourse %}
+                                    {% for course in all_course %}
                                         <option value="{{ course.id }}">
-                                            {{ course.course_title }}
+                                            {{ course.title }}
                                         </option>
                                     {% endfor %}
                                 </select><span class="option-tip" style="margin-left: 5px;color: red;display: none;">请选择分类&nbsp;<a
@@ -107,7 +107,7 @@
                                 <span class="option-tip2">没有？点击<a class="add-course"
                                                                   href="javascript:void(0)">添加</a></span>
                                 <br/>
-                                <input type="text" class="form-control" name="video-name" placeholder="视频名"><span
+                                <input type="text" class="form-control" name="video-title" placeholder="视频名"><span
                                     class="video-name-tip"
                                     style="margin-left: 5px;color: red;display: none;">请输入视频名</span>
                                 <br/>
@@ -167,7 +167,7 @@
                                 <select class="selectpicker form-control" multiple data-live-search="true"
                                         data-max-options="1" name="homework-select"
                                         data-style="btn-info" title="选择要添加题目的作业">
-                                    {% for homework in allhomework %}
+                                    {% for homework in all_homework %}
                                         <option value="{{ homework.id }}">
                                             {{ homework.name }}
                                         </option>
@@ -236,10 +236,10 @@
                                 {% for homework in my_homework %}
                                     <li>
                                         <div>
-                                            <span>{{ homework.name }}{% if homework.is_release == 0 %}
+                                            <span>{{ homework.name }}{% if homework.release == 0 %}
                                                 （未发布）{% endif %}</span>
                                             <span>
-                                                {% if homework.is_release == 0 %}
+                                                {% if homework.release == 0 %}
                                                     <button class="btn btn-sm release-homework"
                                                             value="{{ homework.id }}">发布</button>
                                                 {% else %}
@@ -261,7 +261,7 @@
                                 {% for homework in my_homework %}
                                     <li>
                                         <div>
-                                            {% if homework.is_release == 1 %}
+                                            {% if homework.release == 1 %}
                                                 <input value="{{ homework.id }}" name="correct-homework-id"
                                                        hidden="hidden">
                                                 <span><a href="javascript:void(0)"

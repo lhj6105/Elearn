@@ -4,7 +4,7 @@ $(function () {
         url: "/video/clicknums/",
         type: "post",
         data: {
-            "courseid": $(this).children("input[name='courseid']").val(),
+            "course-id": $(this).children("input[name='courseid']").val(),
             "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
         },
         success: function (data) {
@@ -17,7 +17,7 @@ $(function () {
         url: "/video/clicknums/",
         type: "post",
         data: {
-            "courseid": $(this).children("input[name='courseid']").val(),
+            "course-id": $(this).children("input[name='courseid']").val(),
             "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
         },
         success: function (data) {
@@ -30,7 +30,7 @@ $(function () {
         url: "/video/clicknums/",
         type: "post",
         data: {
-            "courseid": $(this).children("input[name='courseid']").val(),
+            "course-id": $(this).children("input[name='courseid']").val(),
             "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
         },
         success: function (data) {

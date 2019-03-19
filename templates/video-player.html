@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}{{ courseobj.course_title }}{% endblock %}
+{% block title %}{{ course_obj.title }}{% endblock %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/video-js.min.css' %}">
@@ -22,34 +22,34 @@
                 <div style="width:900px;height: 550px;">
                     <video id="example_video_1" class="video-js vjs-default-skin" controls preload="auto" width="900"
                            height="550" data-setup='{"example_option":true}' onended="time_function()">
-                        <source src="/static/{{ p_video.video_upload }}" type='video/mp4'/>
-                        <source src="/static/{{ p_video.video_upload }}" type='video/webm'>
-                        <source src="/static/{{ p_video.video_upload }}" type='video/ogg'>
-                        <input id="click_course" type="text" value="{{ p_video.course_id }}" hidden>
+                        <source src="/static/{{ first_video.file }}" type='video/mp4'/>
+                        <source src="/static/{{ first_video.file }}" type='video/webm'>
+                        <source src="/static/{{ first_video.file }}" type='video/ogg'>
+                        <input id="click_course" type="text" value="{{ first_video.course_id }}" hidden>
                         <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a
                             web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports
                                 HTML5 video</a></p>
                     </video>
-                    <input class="cover" hidden value="{{ courseobj.course_cover }}">
+                    <input class="cover" hidden value="{{ course_obj.cover }}">
                     <input id="aa" type="text" value="0" hidden>
                     <input id="bb" type="text" value="{{ CourseTitle }}" hidden>
                 </div>
             </div>
             <div class="js-task-list-section">
                 <div class="course_describe">
-                    <p>描述：{{ courseobj.course_describe }}</p>
+                    <p>描述：{{ course_obj.describe }}</p>
                 </div>
                 <ol class="js-study-task-list">
-                    {% for video in videoobj %}
+                    {% for video in video_obj %}
                         <li class="sub-section">
                             <a href="{% url 'video:player' %}?course={{ video.course_id }}&videoid={{ video.id }}"
                                data-anchor="{% url 'video:player' %}?course={{ video.course_id }}&videoid={{ video.id }}">
                                 <h5>
-                                    {{ forloop.counter }}.&nbsp;{{ video.video_title }}
+                                    {{ forloop.counter }}.&nbsp;{{ video.title }}
                                 </h5>
                             </a>
                             <div>
-                                <span class="task-item--suffix">{{ video.video_time }}</span>
+                                <span class="task-item--suffix">{{ video.duration }}</span>
                             </div>
                         </li>
                     {% endfor %}

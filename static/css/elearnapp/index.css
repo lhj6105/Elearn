@@ -195,7 +195,7 @@
     color: white;
 }
 
-input[name='video-name'], input[type='button'], input[name='course-name'],
+input[name='video-title'], input[type='button'], input[name='course-name'],
 input[name='course-desc'], input[name='courseware-name'], input[name='homework-name'],
 input[name='homework-id'], input[name='homework-desc'] {
     margin-top: 15px;
@@ -204,7 +204,7 @@ input[name='homework-id'], input[name='homework-desc'] {
     text-align: center;
 }
 
-input[name='video-name'], input[name='courseware-name'], input[name='homework-name'] {
+input[name='video-title'], input[name='courseware-name'], input[name='homework-name'] {
     display: inline-block;
 }
 

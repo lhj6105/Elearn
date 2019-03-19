@@ -31,22 +31,23 @@
                         <li>
                             <div class="courseware-name">
                                 <a href="{% url 'courseware:download' %}?file={{ courseware.id }}" title="点击下载">
-                                    {{ courseware.courseawre_name }}
+                                    {{ courseware.name }}
+                                    {% csrf_token %}
+                                    <input hidden="hidden" name="courseware-id" value="{{ courseware.id }}">
                                 </a>
                             </div>
                             <div class="courseware-teacher-name">
-                                <span>{{ courseware.teacher.teacher_name }}</span>
+                                <span>{{ courseware.teacher.name }}</span>
                             </div>
                             <div class="courseware-size">
-                                <span>{{ courseware.courseawre_size }}</span>
+                                <span>{{ courseware.size }}</span>
                             </div>
                             <div class="courseware-time">
-                                <span>{{ courseware.courseware_time }}</span>
+                                <span>{{ courseware.add_time }}</span>
                             </div>
                             <div class="courseware-download-nums">
-                                {% csrf_token %}
-                                <input hidden="hidden" name="courseware-id" value="{{ courseware.id }}">
-                                <span>{{ courseware.courseware_download_nums }}</span>
+
+                                <span>{{ courseware.download_nums }}</span>
                             </div>
                         </li>
                         <hr class="courseware-hr"/>

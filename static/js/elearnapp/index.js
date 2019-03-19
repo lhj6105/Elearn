@@ -62,7 +62,7 @@ $(function () {
                 var s_reg_name = $("input[name='register-name']").val();
                 var s_reg_number = $("input[name='register-number']").val();
                 var s_reg_password = $("input[name='register-password']").val();
-                var s_r_selection_id = $(".r-st:checked").val();
+                var s_reg_selection_id = $(".r-st:checked").val();
                 if (s_reg_number.length < 8) {
                     $(".r-number-tip").html("不能小于8位");
                     $("input[name='register-number']").change(function () {
@@ -98,7 +98,7 @@ $(function () {
                             type: "post",
                             data: {
                                 "s_reg_name": s_reg_name, "s_reg_number": s_reg_number,
-                                "s_reg_password": s_reg_password, "s_r_selection_id": s_r_selection_id,
+                                "s_reg_password": s_reg_password, "s_reg_selection_id": s_reg_selection_id,
                                 "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val()
                             },
                             success: function (data) {
@@ -148,7 +148,7 @@ $(function () {
                 var t_reg_name = $("input[name='register-name']").val();
                 var t_reg_number = $("input[name='register-number']").val();
                 var t_reg_password = $("input[name='register-password']").val();
-                var t_r_selection_id = $(".r-st:checked").val();
+                var t_reg_selection_id = $(".r-st:checked").val();
                 if (t_reg_number.length < 8) {
                     $(".r-number-tip").html("不能小于8位");
                     $("input[name='register-number']").change(function () {
@@ -186,7 +186,7 @@ $(function () {
                                     type: "post",
                                     data: {
                                         "t_reg_name": t_reg_name, "t_reg_number": t_reg_number,
-                                        "t_reg_password": t_reg_password, "t_r_selection_id": t_r_selection_id,
+                                        "t_reg_password": t_reg_password, "t_reg_selection_id": t_reg_selection_id,
                                         "t_reg_code": $("input[name='code-tip']").val(),
                                         "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val()
                                     },
@@ -323,14 +323,14 @@ $(function () {
             if ($(".l-st:checked").val() == "student") {
                 var s_log_number = $("input[name='login-number']").val();
                 var s_log_password = $("input[name='login-password']").val();
-                var s_l_selection_id = $(".l-st:checked").val();
+                var s_log_selection_id = $(".l-st:checked").val();
                 $.ajax({
                     url: "/mine/studentlogin/",
                     type: "post",
                     data: {
                         "s_log_number": s_log_number,
                         "s_log_password": s_log_password,
-                        "s_l_selection_id": s_l_selection_id,
+                        "s_log_selection_id": s_log_selection_id,
                         "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
                     },
                     success: function (data) {
@@ -376,14 +376,14 @@ $(function () {
             else if ($(".l-st:checked").val() == "teacher") {
                 var t_log_number = $("input[name='login-number']").val();
                 var t_log_password = $("input[name='login-password']").val();
-                var t_l_selection_id = $(".l-st:checked").val();
+                var t_log_selection_id = $(".l-st:checked").val();
                 $.ajax({
                     url: "/mine/teacherlogin/",
                     type: "post",
                     data: {
                         "t_log_number": t_log_number,
                         "t_log_password": t_log_password,
-                        "t_l_selection_id": t_l_selection_id,
+                        "t_log_selection_id": t_log_selection_id,
                         "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
                     },
                     success: function (data) {
