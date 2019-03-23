@@ -103,7 +103,7 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'newelearn',
+        'NAME': 'elearn',
         'HOST': 'localhost',
         'PORT': 3306,
         'USER': 'root',

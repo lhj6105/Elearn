@@ -16,5 +16,8 @@ urlpatterns = [
     path('release/', Release.as_view(), name='release'),
     path('correct_student/', ReleaseStudent.as_view(), name='correct_student'),
     path('correct/', Correct.as_view(), name='correct'),
-    path('answer/', Answer.as_view(), name='answer')
+    path('answer/', Answer.as_view(), name='answer'),
+    path('modification/', Modification.as_view(), name='modification'),
+    path('deletequestion/', DeleteQuestion.as_view(), name='deletequestion'),
+    path('deletehomework/', DeleteHomework.as_view(), name='deletehomework'),
 ]

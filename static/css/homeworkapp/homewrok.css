@@ -63,6 +63,21 @@ input[type=submit] {
 .homework-item-answer > ul > p {
     margin-left: 30px;
 }
-.correct-homework p{
+
+.correct-homework p {
     margin-left: 15px;
+}
+
+.homework-pd-modification-ul > li > input:nth-child(4) , button[name="delete-question"]{
+    margin-left: 20px;
+}
+button[name="delete-question"]:hover{
+    background-color: #23b8ff;
+    border-color: #23b8ff;
+    border-style: dashed;
+}
+
+.homework-xz-modification-ul > li > input:nth-child(7), .homework-xz-modification-ul > li > input:nth-child(8),
+.homework-xz-modification-ul > li > input:nth-child(9){
+    margin-left: 20px;
 }

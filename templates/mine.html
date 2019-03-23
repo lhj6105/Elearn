@@ -13,6 +13,7 @@
     <script type="text/javascript" src="{% static 'js/elearnapp/mine.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap-select/js/bootstrap-select.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap-select/js/defaults-zh_CN.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/homeworkapp/homework.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -168,9 +169,11 @@
                                         data-max-options="1" name="homework-select"
                                         data-style="btn-info" title="选择要添加题目的作业">
                                     {% for homework in all_homework %}
-                                        <option value="{{ homework.id }}">
-                                            {{ homework.name }}
-                                        </option>
+                                        {% if homework.release == 0 %}
+                                            <option value="{{ homework.id }}">
+                                                {{ homework.name }}
+                                            </option>
+                                        {% endif %}
                                     {% endfor %}
                                 </select><span class="questions-option-tip"
                                                style="margin-left: 5px;color: red;display: none;">请选择分类</span>
@@ -236,15 +239,24 @@
                                 {% for homework in my_homework %}
                                     <li>
                                         <div>
-                                            <span>{{ homework.name }}{% if homework.release == 0 %}
-                                                （未发布）{% endif %}</span>
+                                            <span>
+                                                {% if homework.release == 0 %}
+                                                    <a href="{% url 'homework:modification' %}?id={{ homework.id }}">{{ homework.name }}</a>
+                                                    （未发布）
+                                                {% else %}
+                                                    {{ homework.name }}（已发布）
+                                                {% endif %}</span>
                                             <span>
                                                 {% if homework.release == 0 %}
                                                     <button class="btn btn-sm release-homework"
                                                             value="{{ homework.id }}">发布</button>
+                                                    <button class="btn btn-sm delete-homework"
+                                                            value="{{ homework.id }}">删除</button>
                                                 {% else %}
                                                     <button class="btn btn-sm release-homework"
                                                             value="{{ homework.id }}" disabled>发布</button>
+                                                    <button class="btn btn-sm delete-homework"
+                                                            value="{{ homework.id }}">删除</button>
                                                 {% endif %}</span>
                                         </div>
                                     </li>
@@ -265,7 +277,8 @@
                                                 <input value="{{ homework.id }}" name="correct-homework-id"
                                                        hidden="hidden">
                                                 <span><a href="javascript:void(0)"
-                                                         class="correct-homework" name="{{ homework.id }}">{{ homework.name }}</a></span>
+                                                         class="correct-homework"
+                                                         name="{{ homework.id }}">{{ homework.name }}</a></span>
                                             {% endif %}
                                         </div>
                                     </li>

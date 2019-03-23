@@ -330,6 +330,14 @@ input[type='button']:hover {
     line-height: 25px;
     margin-left: -40px;
 }
+.mine-item-myhomework-inner a{
+    text-decoration: none;
+    color: #12a7ff;
+}
+.mine-item-myhomework-inner a:hover{
+    text-decoration: none;
+    color: rgb(35, 184, 255);
+}
 .mine-item-student-score{
     width: 100%;
 }

@@ -314,7 +314,7 @@ class Correct(View):
                 xz_list.append(sal)
             elif sal.question_type == 'jd':
                 jd_list.append(sal)
-        return render(request, 'correct.html', locals())
+        return render(request, 'homework_correct.html', locals())
 
     def post(self, request):
         try:
@@ -353,10 +353,10 @@ class Answer(View):
         student_id = request.session['user']['number']
         questions_obj = Questions.objects.filter(homework_id=homework_id)
         studentanswerlog_obj = StudentAnswerLog.objects.filter(homework_id=homework_id, student_id=student_id)
-        pd_list = [] # 正确答案
+        pd_list = []  # 正确答案
         xz_list = []
         jd_list = []
-        my_pd_list = [] # 我的答案
+        my_pd_list = []  # 我的答案
         my_xz_list = []
         my_jd_list = []
         for question in questions_obj:
@@ -374,3 +374,97 @@ class Answer(View):
 
     def post(self, request):
         pass
+
+
+# 修改题目
+class Modification(View):
+
+    def get(self, request):
+        homework_id = request.GET.get('id')
+        questions_obj = Questions.objects.filter(homework_id=homework_id).all()
+        pd_question_list = []
+        xz_question_list = []
+        jd_question_list = []
+        for question in questions_obj:
+            if question.question_type == 'pd':
+                pd_question = []
+                pd_question.extend((question.id, question.context, question.answer))
+                pd_question_list.append(pd_question)
+            elif question.question_type == 'xz':
+                xz_question = []
+                xz_question.extend((question.id, question.context, question.choice_a, question.choice_b,
+                                    question.choice_c, question.choice_d, question.answer))
+                xz_question_list.append(xz_question)
+            elif question.question_type == 'jd':
+                jd_question = []
+                jd_question.extend((question.id, question.context, question.answer))
+                jd_question_list.append(jd_question)
+        return render(request, 'homework_modification.html', locals())
+
+    def post(self, request):
+        homework_id = request.POST.get('homework-id')
+        questions = Questions.objects.filter(homework_id=homework_id)
+        for key in request.POST:
+            if key.isdigit():
+                question = questions.filter(id=key)
+                if question.first().question_type == 'pd':
+                    q = question.first()
+                    if request.POST.get(key) != q.context or request.POST.get('answer' + key) != q.answer:
+                        question.update(id=key, context=request.POST.get(key), answer=request.POST.get('answer' + key))
+                elif question.first().question_type == 'xz':
+                    q = question.first()
+                    if request.POST.get(key) != q.context or request.POST.get(
+                            'question' + key + "1") != q.choice_a or request.POST.get(
+                        'question' + key + "2") != q.choice_a or request.POST.get(
+                        'question' + key + "3") != q.choice_a or request.POST.get(
+                        'question' + key + "4") != q.choice_a or request.POST.get('answer' + key) != q.answer:
+                        question.update(id=key, context=request.POST.get(key), choice_a=request.POST.get(
+                            'question' + key + "1"), choice_b=request.POST.get(
+                            'question' + key + "2"), choice_c=request.POST.get(
+                            'question' + key + "3"), choice_d=request.POST.get(
+                            'question' + key + "4"), answer=request.POST.get('answer' + key))
+                elif question.first().question_type == 'jd':
+                    q = question.first()
+                    if request.POST.get(key) != q.context or request.POST.get('answer' + key) != q.answer:
+                        question.update(id=key, context=request.POST.get(key), answer=request.POST.get('answer' + key))
+        return redirect(reverse('mine:mine'))
+
+
+# 删除问题
+class DeleteQuestion(View):
+
+    def get(self, request):
+        pass
+
+    def post(self, request):
+        try:
+            homework_id = request.POST.get('homework-id')
+            question_id = request.POST.get("question-id")
+            question_delete_obj = Questions.objects.filter(homework_id=homework_id, id=question_id).delete()
+            print(question_delete_obj)
+            if question_delete_obj[1]:
+                return JsonResponse({"status": "success"})
+            else:
+                return JsonResponse({"status": "error"})
+        except Exception as e:
+            print('DeleteQuestion error:', e)
+            return JsonResponse({"status": "error"})
+
+
+# 删除作业
+class DeleteHomework(View):
+
+    def get(self, request):
+        pass
+
+    def post(self, request):
+        try:
+            homework_id = request.POST.get('homework-id')
+            homework_delete_obj = Homework.objects.filter(id=homework_id).delete()
+            if homework_delete_obj[1]:
+                return JsonResponse({'status': 'success'})
+            else:
+                return JsonResponse({'status': 'error'})
+        except Exception as e:
+            print('DeleteHomework error:', e)
+            return JsonResponse({'status': 'error'})
