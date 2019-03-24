@@ -11,4 +11,5 @@ urlpatterns = [
     path('counttime/', Counttime.as_view(), name='counttime'),
     path('uploadcourse/', UploadCourse.as_view(), name='uploadcourse'),
     path('uploadvideo/', UploadVideo.as_view(), name='uploadvideo'),
+    path('deletevideo/', DeleteVideo.as_view(), name='deletevideo'),
 ]

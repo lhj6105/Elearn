@@ -3,7 +3,7 @@ import re
 from wsgiref.util import FileWrapper
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import JsonResponse, StreamingHttpResponse
+from django.http import JsonResponse, StreamingHttpResponse, QueryDict
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -123,7 +123,7 @@ class UploadCourse(View):
             if course_desc == '':
                 course_desc = '无'
             course_obj = Course.objects.create(title=course_name, cover=course_file, describe=course_desc,
-                                          teacher_id=teacher)
+                                               teacher_id=teacher)
             if course_obj:
                 course_obj.save()
                 return JsonResponse({'status': 'success'})
@@ -154,4 +154,37 @@ class UploadVideo(View):
                 return JsonResponse({'status': 'error'})
         except Exception as e:
             print(e)
+            return JsonResponse({'status': 'error'})
+
+
+class DeleteVideo(View):
+
+    def get(self, request):
+        pass
+
+    def post(self, request):
+        pass
+
+    def delete(self, request):
+        try:
+            delete = QueryDict(request.body)
+            video_id = delete.get('video-id')
+            course_id = delete.get('course-id')
+            video_obj = Video.objects.filter(id=video_id)
+            course = Course.objects.filter(id=course_id)
+            filename = str(video_obj.first().file)
+            video_delete_obj = video_obj.delete()
+            if video_delete_obj[1]:
+                os.remove(os.path.join(settings.BASE_DIR, 'static/' + filename))
+                if course.first().video_set.count() == 0:
+                    covername = str(course.first().cover)
+                    course_delete_obj = course.delete()
+                    if course_delete_obj[1]:
+                        os.remove(os.path.join(settings.BASE_DIR, 'static/' + covername))
+                        return JsonResponse({'status': 'remove'})
+                return JsonResponse({'status': 'success'})
+            else:
+                return JsonResponse({'status': 'error'})
+        except Exception as e:
+            print('DeleteVideo error:', e)
             return JsonResponse({'status': 'error'})

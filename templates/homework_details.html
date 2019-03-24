@@ -76,7 +76,7 @@
                             <li>
                                 <h5>{{ forloop.counter }}.&nbsp;{{ question.context }}</h5>
                                 <input type="hidden" value="{{ question.id }}"/>
-                                <textarea name="{{ question.id }}" placeholder="{{ question.note }}"></textarea>
+                                <textarea name="{{ question.id }}" placeholder="在此作答" class="form-control"></textarea>
                                 <br/>
                             </li>
                         {% endfor %}

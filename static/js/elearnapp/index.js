@@ -38,8 +38,7 @@ $(function () {
             $(".v-code").removeAttr("hidden"); //如果选择教师注册，显示注册码输入框
             $(".r-st[value='student']").removeAttr("checked");
             $(".r-st[value='teacher']").attr('checked', 'checked')
-        }
-        else {
+        } else {
             $(".v-code").attr("hidden", "hidden"); //如果选择教师注册，隐藏注册码输入框
             $(".r-st[value='student']").attr('checked', 'checked');
             $(".r-st[value='teacher']").removeAttr("checked")
@@ -305,8 +304,7 @@ $(function () {
         if ($(this).val() == "teacher") {
             $(".l-st[value='student']").removeAttr("checked");
             $(".l-st[value='teacher']").attr('checked', 'checked')
-        }
-        else {
+        } else {
             $(".l-st[value='student']").attr('checked', 'checked');
             $(".l-st[value='teacher']").removeAttr("checked")
         }
@@ -454,5 +452,42 @@ $(function () {
                 }
             })
         }
-    })
+    });
+
+    $(".login-password-eye").click(function () {
+        var login_password_eye_icon = $(".login-password-eye-icon");
+        if (login_password_eye_icon.hasClass("glyphicon-eye-close")) {
+            login_password_eye_icon.removeClass("glyphicon-eye-close");
+            login_password_eye_icon.addClass("glyphicon-eye-open");
+            $("input[name='login-password']").attr("type","text")
+        } else if (login_password_eye_icon.hasClass("glyphicon-eye-open")) {
+            login_password_eye_icon.removeClass("glyphicon-eye-open");
+            login_password_eye_icon.addClass("glyphicon-eye-close");
+            $("input[name='login-password']").attr("type","password")
+        }
+    });
+    $(".register-password-eye-1").click(function () {
+        var register_password_eye_icon_1 = $(".register-password-eye-icon-1");
+        if (register_password_eye_icon_1.hasClass("glyphicon-eye-close")) {
+            register_password_eye_icon_1.removeClass("glyphicon-eye-close");
+            register_password_eye_icon_1.addClass("glyphicon-eye-open");
+            $("input[name='register-password']").attr("type","text")
+        } else if (register_password_eye_icon_1.hasClass("glyphicon-eye-open")) {
+            register_password_eye_icon_1.removeClass("glyphicon-eye-open");
+            register_password_eye_icon_1.addClass("glyphicon-eye-close");
+            $("input[name='register-password']").attr("type","password")
+        }
+    });
+    $(".register-password-eye-2").click(function () {
+        var register_password_eye_icon_2 = $(".register-password-eye-icon-2");
+        if (register_password_eye_icon_2.hasClass("glyphicon-eye-close")) {
+            register_password_eye_icon_2.removeClass("glyphicon-eye-close");
+            register_password_eye_icon_2.addClass("glyphicon-eye-open");
+            $("input[name='register-password-2']").attr("type","text")
+        } else if (register_password_eye_icon_2.hasClass("glyphicon-eye-open")) {
+            register_password_eye_icon_2.removeClass("glyphicon-eye-open");
+            register_password_eye_icon_2.addClass("glyphicon-eye-close");
+            $("input[name='register-password-2']").attr("type","password")
+        }
+    });
 });

@@ -130,7 +130,7 @@ $(function () {
                 contentType: false,
                 success: function (data) {
                     if (data["status"] === "success") {
-                        $("input[name='video-name']").val("");
+                        $("input[name='video-title']").val("");
                         $("input[name='video-file']").val("");
                         $(".upload-video-error").css("display", "none");
                         $(".upload-video-success").css("display", "block");

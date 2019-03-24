@@ -13,9 +13,53 @@ $(function () {
         if ($a.data('anchor').split("=").slice(2, 3)[0] === window.location.href.split("=").slice(2, 3)[0]) {
             $a.addClass("active");
             $a.css("color", "#23b8ff");
-            $a.parent("li").children("div").children("span").css("color", "#23b8ff")
+            $a.parent("li").children("div").children("span").css("color", "#23b8ff");
+            $a.parent("li").children("div").children("button").css("color", "#23b8ff");
         }
     });
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", $("input[name='csrfmiddlewaretoken']").val());
+            }
+        }
+    });
+    $(".delete-video").click(function () {
+        var mymessage = confirm("确认删除视频？");
+        var myVideo = document.getElementsByTagName('video')[0];   //获取视频video
+        if (myVideo.pause()) {
+            myVideo.pause();
+        } else {
+            myVideo.pause();
+        }
+        if (mymessage === true) {
+            var delete_obj = $(this);
+            $.ajax({
+                url: "/video/deletevideo/",
+                type: "delete",
+                data: {
+                    "video-id": delete_obj.val(),
+                    "course-id": $("input[name='course-id']").val(),
+                },
+                success: function (data) {
+                    if (data["status"] === "success") {
+                        delete_obj.parent("div").parent("li").remove();
+                    } else if (data["status"] === "error") {
+                        alert("删除失败")
+                    }else if(data["status"] === "remove"){
+                        window.location.href = "http://localhost:8000/video/"
+                    }
+                }
+            })
+        }
+    });
+
     var options = {};
     var player = videojs('example_video_1', options, function onPlayerReady() {
         var time1;
@@ -56,7 +100,7 @@ $(function () {
             var click_nums = 1;
             countTime(click_nums);   //向后台发数据
             $("video").attr("poster", "");
-            $("video").attr("poster", "/static/"+$(".cover").val())
+            $("video").attr("poster", "/static/" + $(".cover").val())
 
         })
 

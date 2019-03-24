@@ -92,3 +92,21 @@
     margin: -30px 10px -30px 10px;
     color: #c7c7c7;
 }
+
+.delete-video {
+    float: right;
+    font-size: 12px;
+    height: 20px;
+    width: 30px;
+    padding: 0;
+    background-color: #131313;
+}
+
+.delete-video:hover {
+    color: #12a7ff;
+    background-color: #666666;
+}
+
+.glyphicon-stop {
+    top: 0;
+}

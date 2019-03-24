@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.http import StreamingHttpResponse, JsonResponse
+from django.http import StreamingHttpResponse, JsonResponse, QueryDict
 from django.shortcuts import render
 
 # Create your views here.
@@ -106,3 +106,28 @@ class DownloadNums(View):
         except Exception as e:
             print('DownloadNums出错', e)
             return JsonResponse({'status': False})
+
+
+class DeleteCourseware(View):
+
+    def get(self, request):
+        pass
+
+    def post(self, request):
+        pass
+
+    def delete(self, request):
+        try:
+            delete = QueryDict(request.body)
+            courseware_id = delete.get('courseware-id')
+            courseware_obj = Courseware.objects.filter(id=courseware_id)
+            filename = str(courseware_obj.first().file)
+            courseware_delete_obj = courseware_obj.delete()
+            if courseware_delete_obj[1]:
+                os.remove(os.path.join(settings.BASE_DIR, 'static/' + filename))
+                return JsonResponse({'status': 'success'})
+            else:
+                return JsonResponse({'status': 'error'})
+        except Exception as e:
+            print('DeleteCourseware error:', e)
+            return JsonResponse({'status': 'error'})

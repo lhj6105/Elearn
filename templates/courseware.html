@@ -46,8 +46,11 @@
                                 <span>{{ courseware.add_time }}</span>
                             </div>
                             <div class="courseware-download-nums">
-
                                 <span>{{ courseware.download_nums }}</span>
+                            </div>
+                            <div>
+                                {% csrf_token %}
+                                <button class="btn btn-sm delete-courseware" value="{{ courseware.id }}">删除</button>
                             </div>
                         </li>
                         <hr class="courseware-hr"/>
