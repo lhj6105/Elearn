@@ -3,7 +3,7 @@ chardet==3.0.4
 decorator==4.3.2
 defusedxml==0.5.0
 diff-match-patch==20181111
-Django==2.0.6
+Django==2.0.13
 django-crispy-forms==1.7.2
 django-formtools==2.1
 django-haystack==2.8.1
@@ -27,7 +27,7 @@ Pillow==5.4.1
 proglog==0.1.9
 PyMySQL==0.9.3
 pytz==2018.9
-PyYAML==3.13
+PyYAML==5.1
 redis==3.2.0
 requests==2.21.0
 six==1.10.0

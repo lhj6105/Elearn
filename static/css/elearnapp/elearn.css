@@ -119,6 +119,10 @@ img {
 .register-content {
     margin-top: 50px;
 }
+.resetpassword-content {
+    margin-top: 50px;
+}
+
 
 .head-img {
     margin-top: -34px;
@@ -222,6 +226,7 @@ img {
 .mod-header__user-avatar a {
     text-decoration: none;
     color: #333333;
+    height: 100%;
     font-size: 14px;
     display: block;
 }
@@ -244,7 +249,8 @@ img {
     top: 3px;
 }
 
-.login-password-eye,.register-password-eye-1,.register-password-eye-2 {
+.login-password-eye,.register-password-eye-1,.register-password-eye-2,
+.reset-password-eye-1,.reset-password-eye-2 {
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -253,4 +259,11 @@ img {
     z-index: 100;
     cursor: pointer;
     top: 5px;
+}
+.dropdown-menu .divider {
+    margin: 3px 0;
+}
+.dropdown-menu{
+    top: 90%;
+    min-width: 100px;
 }

@@ -10,5 +10,6 @@ urlpatterns = [
     path('teacherlogin/', TeacherLog.as_view(), name='teacherlogin'),
     path('studentregister/', StudentReg.as_view(), name='studentregister'),
     path('studentlogin/', StudentLog.as_view(), name='studentlogin'),
+    path('resetpassword/',ResetPassword.as_view(), name='resetpassword'),
     path('loginout/', LoginOut.as_view(), name='loginout'),
 ]

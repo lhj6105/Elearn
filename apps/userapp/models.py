@@ -20,7 +20,7 @@ class TeacherProfile(models.Model):
         if len(self.profile_photo.name) < 32:
             uuid_str = str(uuid.uuid4()).replace('-', '')
             self.profile_photo.name = uuid_str + os.path.splitext(self.profile_photo.name)[-1]
-        self.password = make_password(self.password, None, 'pbkdf2_sha1')
+        self.password = make_password(self.password)
         super().save()
 
     class Meta:
@@ -47,7 +47,7 @@ class StudentProfile(models.Model):
         if len(self.profile_photo.name) < 32:
             uuid_str = str(uuid.uuid4()).replace('-', '')
             self.profile_photo.name = uuid_str + os.path.splitext(self.profile_photo.name)[-1]
-        self.password = make_password(self.password, None, 'pbkdf2_sha1')
+        self.password = make_password(self.password)
         super().save()
 
     class Meta:

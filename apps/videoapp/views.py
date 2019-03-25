@@ -56,10 +56,10 @@ class Player(View):
             course_obj = Course.objects.filter(id=courseid).first()
             video_obj = Video.objects.filter(course_id=courseid).all()  # 该课程的所有视频
             first_video = Video.objects.filter(id=videoid).first()  # 默认播放第一个视频
-            return render(request, 'video-player.html', locals())
+            return render(request, 'video_player.html', locals())
         except Exception as e:
             print(e)
-            return render(request, 'video-player.html', locals())
+            return render(request, 'video_player.html', locals())
 
 
 # 统计点击量

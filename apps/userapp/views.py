@@ -67,22 +67,19 @@ class TeacherReg(View):
                     return JsonResponse({'status': 'error', 'code': 'ok'})  # 验证正确但学号存在
                 else:
                     # 不存在新建
-                    t = TeacherProfile.objects.create(number=t_reg_number, name=t_reg_name,
-                                                      password=make_password(t_reg_password, None, 'pbkdf2_sha1'),
-                                                      identity=t_reg_selection_id)
-                    if t:
-                        t.save()  # 保存
+                    new_teacher = TeacherProfile.objects.create(number=t_reg_number, name=t_reg_name,
+                                                                password=t_reg_password, identity=t_reg_selection_id)
+                    if new_teacher:
                         request.session['user'] = {
-                            'number': t_reg_number,
-                            'name': t_reg_name,
-                            'identity': t_reg_selection_id,
-                            'photo': json.dumps(
-                                str(TeacherProfile.objects.filter(number=t_reg_number).first().profile_photo))[1:-1],
+                            'number': new_teacher.number,
+                            'name': new_teacher.name,
+                            'identity': new_teacher.identity,
+                            'photo': json.dumps(str(new_teacher.profile_photo))[1:-1],
                         }  # 将信息保存到session中
                         request.session.set_expiry(60 * 60 * 24)  # session失效时间
                         return JsonResponse({'status': 'ok', 'code': 'ok'})
                     else:
-                        t.delete()  # 出错删除
+                        new_teacher.delete()  # 出错删除
                         return JsonResponse({'status': 'stop'})  # 服务器出错
             else:
                 return JsonResponse({'code': 'error'})  # 注册码不正确
@@ -97,17 +94,16 @@ class TeacherLog(View):
         pass
 
     def post(self, request):
-        t_log_number = request.POST.get('t_log_number')
-        t_log_password = request.POST.get('t_log_password')
-        t_log_selection_id = request.POST.get('t_log_selection_id')
         try:
+            t_log_number = request.POST.get('t_log_number')
+            t_log_password = request.POST.get('t_log_password')
             teacher = TeacherProfile.objects.filter(number=t_log_number).first()  # 判断是否存在
             if teacher:
                 if check_password(t_log_password, teacher.password):  # 密码认证:
                     request.session['user'] = {
                         'number': teacher.number,
                         'name': teacher.name,
-                        'identity': t_log_selection_id,
+                        'identity': teacher.identity,
                         'photo': json.dumps(str(teacher.profile_photo))[1:-1],
                     }
                     request.session.set_expiry(60 * 60 * 24)  # session失效时间
@@ -137,22 +133,19 @@ class StudentReg(View):
                 return JsonResponse({'status': 'error'})  # 学号存在
             else:
                 # 不存在新建
-                s = StudentProfile.objects.create(number=s_reg_number, name=s_reg_name,
-                                                  password=make_password(s_reg_password, None, 'pbkdf2_sha1'),
-                                                  identity=s_reg_selection_id)
-                if s:
-                    s.save()  # 保存
+                new_student = StudentProfile.objects.create(number=s_reg_number, name=s_reg_name,
+                                                            password=s_reg_password, identity=s_reg_selection_id)
+                if new_student:
                     request.session['user'] = {
-                        'number': s_reg_number,
-                        'name': s_reg_name,
-                        'identity': s_reg_selection_id,
-                        'photo': json.dumps(
-                            str(StudentProfile.objects.filter(number=s_reg_number).first().profile_photo))[1:-1],
+                        'number': new_student.number,
+                        'name': new_student.name,
+                        'identity': new_student.identity,
+                        'photo': json.dumps(str(new_student.profile_photo))[1:-1],
                     }  # 将信息保存到session中
                     request.session.set_expiry(60 * 60 * 24)  # session失效时间
                     return JsonResponse({'status': 'ok'})
                 else:
-                    s.delete()  # 出错删除
+                    new_student.delete()  # 出错删除
                     return JsonResponse({'status': 'stop'})  # 服务器出错
         except Exception as e:
             print('注册出错啦：', e)
@@ -167,7 +160,6 @@ class StudentLog(View):
     def post(self, request):
         s_log_number = request.POST.get('s_log_number')
         s_log_password = request.POST.get('s_log_password')
-        s_log_selection_id = request.POST.get('s_log_selection_id')
         try:
             student = StudentProfile.objects.filter(number=s_log_number).first()  # 判断是否存在
             if student:
@@ -175,7 +167,7 @@ class StudentLog(View):
                     request.session['user'] = {
                         'number': student.number,
                         'name': student.name,
-                        'identity': s_log_selection_id,
+                        'identity': student.identity,
                         'photo': json.dumps(str(student.profile_photo))[1:-1],
                     }
                     request.session.set_expiry(60 * 60 * 24)  # session失效时间
@@ -187,6 +179,35 @@ class StudentLog(View):
         except Exception as e:
             print("登录出错啦：", e)
             return JsonResponse({'status': 'log_stop'})  # 服务器出错
+
+
+class ResetPassword(View):
+
+    def get(self, request):
+        pass
+
+    def post(self, request):
+        try:
+            password = request.POST.get('reset_password_1')
+            number = request.session['user']['number']
+            identity = request.session['user']['identity']
+            if identity == 'student':
+                student = StudentProfile.objects.filter(number=number).update(password=make_password(password))
+                if student:
+                    logout(request)
+                    return JsonResponse({'status': 'success'})
+                else:
+                    return JsonResponse({'status': 'error'})
+            elif identity == 'teacher':
+                teacher = TeacherProfile.objects.filter(number=number).update(password=make_password(password))
+                if teacher:
+                    logout(request)
+                    return JsonResponse({'status': 'success'})
+                else:
+                    return JsonResponse({'status': 'error'})
+        except Exception as e:
+            print("ResetPassword error:", e)
+            return JsonResponse({'status': 'stop'})  # 服务器出错
 
 
 class LoginOut(View):

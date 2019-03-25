@@ -32,6 +32,20 @@ $(function () {
         $('#loginModal').modal('show') //登录弹出框
     });
 
+    $('#resetpassword').click(function () {
+        $('#resetPasswordModal').modal('show') //修改密码弹出框
+    });
+
+    $('.dropdown-toggle').mouseover(function () {
+        $(this).attr("aria-expanded", true);
+        $(".dropdown").addClass("open")
+    });
+    $(".dropdown-menu li").mouseover(function () {
+        $(this).children('a').css("color", "#12a7ff");
+    });
+    $(".dropdown-menu li").mouseout(function () {
+        $(this).children('a').css("color", "#333333");
+    });
 
     $(".r-st").change(function () {
         if ($(this).val() == "teacher") {
@@ -63,28 +77,28 @@ $(function () {
                 var s_reg_password = $("input[name='register-password']").val();
                 var s_reg_selection_id = $(".r-st:checked").val();
                 if (s_reg_number.length < 8) {
-                    $(".r-number-tip").html("不能小于8位");
+                    $(".r-number-tip").css("display", "block").html("不能小于8位");
                     $("input[name='register-number']").change(function () {
                         $(".r-number-tip").html("")
                     });
                 } else if (s_reg_number.length > 15) {
-                    $(".r-number-tip").html("不能大于15位");
+                    $(".r-number-tip").css("display", "block").html("不能大于15位");
                     $("input[name='register-number']").change(function () {
                         $(".r-number-tip").html("")
                     });
                 } else if (/^[0-9]+$/.test(s_reg_number)) {
                     if (s_reg_password.length < 6) {
-                        $(".r-password-tip").html("不能小于6位");
+                        $(".r-password-tip").css("display", "block").html("不能小于6位");
                         $("input[name='register-password']").change(function () {
                             $(".r-password-tip").html("")
                         });
                     } else if (s_reg_password.length > 15) {
-                        $(".r-password-tip").html("不能大于15位");
+                        $(".r-password-tip").css("display", "block").html("不能大于15位");
                         $("input[name='register-password']").change(function () {
                             $(".r-password-tip").html("")
                         });
                     } else if ($("input[name='register-password']").val() != $("input[name='register-password-2']").val()) {
-                        $(".r-password-tip-2").html("两次输入的密码不一致");
+                        $(".r-password-tip-2").css("display", "block").html("两次输入的密码不一致");
                         $("input[name='register-password']").change(function () {
                             $(".r-password-tip-2").html("")
                         });
@@ -109,7 +123,6 @@ $(function () {
 
                                     function a() {
                                         if (tt == 1) {
-                                            $("#allvideo").removeAttr("hidden");
                                             window.location.reload() //注册成功后定时刷新网页
                                         } else {
                                             tt--;
@@ -120,13 +133,13 @@ $(function () {
                                     setInterval(a, 1000);
 
                                 } else if (data["status"] == "error") {
-                                    $(".r-number-tip").html("学号已存在<a id='reset' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>不是本人？请联系管理员</a>");
+                                    $(".r-number-tip").css("display", "block").html("学号已存在<a id='reset' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>不是本人？请联系管理员</a>");
 
                                     $("input[name='register-number']").change(function () {
                                         $(".r-number-tip").html("")
                                     });
                                 } else if (data["status"] == "stop") {
-                                    $(".r-name-tip").html("服务器出错，请重新提交");
+                                    $(".r-name-tip").css("display", "block").html("服务器出错，请重新提交");
                                     $("input[name='register-name']").change(function () {
                                         $(".r-name-tip").html("")
                                     });
@@ -135,7 +148,7 @@ $(function () {
                         });
                     }
                 } else {
-                    $(".r-number-tip").html("必须全为数字");
+                    $(".r-number-tip").css("display", "block").html("必须全为数字");
                     $("input[name='register-number']").change(function () {
                         $(".r-number-tip").html("")
                     });
@@ -149,30 +162,30 @@ $(function () {
                 var t_reg_password = $("input[name='register-password']").val();
                 var t_reg_selection_id = $(".r-st:checked").val();
                 if (t_reg_number.length < 8) {
-                    $(".r-number-tip").html("不能小于8位");
+                    $(".r-number-tip").css("display", "block").html("不能小于8位");
                     $("input[name='register-number']").change(function () {
                         $(".r-number-tip").html("")
                     });
                 } else if (t_reg_number.length > 15) {
-                    $(".r-number-tip").html("不能大于15位");
+                    $(".r-number-tip").css("display", "block").html("不能大于15位");
                     $("input[name='register-number']").change(function () {
                         $(".r-number-tip").html("")
                     });
                 } else if (/^[0-9]+$/.test(t_reg_number)) {
                     if (t_reg_password.length < 6) {
-                        $(".r-password-tip").html("不能小于6位");
+                        $(".r-password-tip").css("display", "block").html("不能小于6位");
                         $("input[name='register-password']").change(function () {
                             $(".r-password-tip").html("")
                         });
                     } else if (t_reg_password.length > 15) {
-                        $(".r-password-tip").html("不能大于15位");
+                        $(".r-password-tip").css("display", "block").html("不能大于15位");
                         $("input[name='register-password']").change(function () {
                             $(".r-password-tip").html("")
                         });
                     } else {
                         if ($("input[name='code-tip']").val() != "") {
                             if ($("input[name='register-password']").val() != $("input[name='register-password-2']").val()) {
-                                $(".r-password-tip-2").html("两次输入的密码不一致");
+                                $(".r-password-tip-2").css("display", "block").html("两次输入的密码不一致");
                                 $("input[name='register-password']").change(function () {
                                     $(".r-password-tip-2").html("")
                                 });
@@ -209,19 +222,19 @@ $(function () {
                                                 setInterval(a, 1000);
 
                                             } else if (data["status"] == "error") {
-                                                $(".r-number-tip").html("学号已存在<a id='reset' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>不是本人？请联系管理员</a>");
+                                                $(".r-number-tip").css("display", "block").html("学号已存在<a id='reset' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>不是本人？请联系管理员</a>");
 
                                                 $("input[name='register-number']").change(function () {
                                                     $(".r-number-tip").html("")
                                                 });
                                             } else if (data["status"] == "stop") {
-                                                $(".r-name-tip").html("服务器出错，请重新提交");
+                                                $(".r-name-tip").css("display", "block").html("服务器出错，请重新提交");
                                                 $("input[name='register-name']").change(function () {
                                                     $(".r-name-tip").html("")
                                                 });
                                             }
                                         } else if (data["code"] == "error") {
-                                            $(".code-tip").html("注册码不正确");
+                                            $(".code-tip").css("display", "block").html("注册码不正确");
                                             $("input[name='code-tip']").change(function () {
                                                 $(".code-tip").html("")
                                             })
@@ -231,7 +244,7 @@ $(function () {
                             }
 
                         } else {
-                            $(".code-tip").html("注册码不能为空");
+                            $(".code-tip").css("display", "block").html("注册码不能为空");
                             $("input[name='code-tip']").change(function () {
                                 $(".code-tip").html("")
                             })
@@ -239,13 +252,13 @@ $(function () {
 
                     }
                 } else {
-                    $(".r-number-tip").html("必须全为数字");
+                    $(".r-number-tip").css("display", "block").html("必须全为数字");
                     $("input[name='register-number']").change(function () {
                         $(".r-number-tip").html("")
                     });
                 }
             } else {
-                $(".r-password-tip-2").html("请选择你的身份"); //两个身份都未选择时提示
+                $(".r-password-tip-2").css("display", "block").html("请选择你的身份"); //两个身份都未选择时提示
                 $(".r-st").change(function () {
                     $(".r-password-tip-2").html("");
                 })
@@ -256,42 +269,42 @@ $(function () {
         else {
             //判断哪一个为空
             if ($("input[name='register-name']").val() == "") {
-                $(".r-name-tip").html("姓名不能为空")
+                $(".r-name-tip").css("display", "block").html("姓名不能为空")
             }
             if ($("input[name='register-number']").val() == "") {
-                $(".r-number-tip").html("学号不能为空")
+                $(".r-number-tip").css("display", "block").html("学号不能为空")
             }
             if ($("input[name='register-password']").val() == "") {
-                $(".r-password-tip").html("密码不能为空")
+                $(".r-password-tip").css("display", "block").html("密码不能为空")
             }
             if ($("input[name='register-password-2']").val() == "") {
-                $(".r-password-tip-2").html("此处不能为空")
+                $(".r-password-tip-2").css("display", "block").html("此处不能为空")
             }
 
             $("input[name='register-name']").change(function () {
                 if ($(this).val() == "") {
-                    $(".r-name-tip").html("姓名不能为空")
+                    $(".r-name-tip").css("display", "block").html("姓名不能为空")
                 } else {
                     $(".r-name-tip").html("")
                 }
             });
             $("input[name='register-number']").change(function () {
                 if ($(this).val() == "") {
-                    $(".r-number-tip").html("学号不能为空")
+                    $(".r-number-tip").css("display", "block").html("学号不能为空")
                 } else {
                     $(".r-number-tip").html("")
                 }
             });
             $("input[name='register-password']").change(function () {
                 if ($(this).val() == "") {
-                    $(".r-password-tip").html("密码不能为空")
+                    $(".r-password-tip").css("display", "block").html("密码不能为空")
                 } else {
                     $(".r-password-tip").html("")
                 }
             });
             $("input[name='register-password-2']").change(function () {
                 if ($(this).val() == "") {
-                    $(".r-password-tip-2").html("此处不能为空")
+                    $(".r-password-tip-2").css("display", "block").html("此处不能为空")
                 } else {
                     $(".r-password-tip-2").html("")
                 }
@@ -340,7 +353,6 @@ $(function () {
 
                             function b() {
                                 if (tt == 1) {
-                                    $("#allvideo").removeAttr("hidden");
                                     window.location.reload() //注册成功后定时刷新网页
                                 } else {
                                     tt--;
@@ -350,18 +362,18 @@ $(function () {
 
                             setInterval(b, 1000);
                         } else if (data["status"] == "log_error") {
-                            $(".l-password-tip").html("密码错误<a hidden data-toggle='modal' id='forget' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>忘记密码请联系管理员</a>");
+                            $(".l-password-tip").css("display", "block").html("密码错误<a hidden data-toggle='modal' id='forget' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>忘记密码请联系管理员</a>");
 
                             $("input[name='login-password']").change(function () {
                                 $(".l-password-tip").html("")
                             })
                         } else if (data["status"] == "log_stop") {
-                            $(".l-password-tip").html("服务器出错，请重新登录");
+                            $(".l-password-tip").css("display", "block").html("服务器出错，请重新登录");
                             $("input[name='login-password']").change(function () {
                                 $(".l-password-tip").html("")
                             })
                         } else if (data["status"] == "log_empty") {
-                            $(".l-number-tip").html("学号不存在，请先注册");
+                            $(".l-number-tip").css("display", "block").html("学号不存在，请先注册");
                             $("input[name='login-number']").change(function () {
                                 $(".l-number-tip").html("")
                             })
@@ -402,18 +414,18 @@ $(function () {
 
                             setInterval(b, 1000);
                         } else if (data["status"] == "log_error") {
-                            $(".l-password-tip").html("密码错误<a data-toggle='modal' id='forget' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>忘记密码请联系管理员</a>");
+                            $(".l-password-tip").css("display", "block").html("密码错误<a data-toggle='modal' id='forget' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>忘记密码请联系管理员</a>");
 
                             $("input[name='login-password']").change(function () {
                                 $(".l-password-tip").html("")
                             })
                         } else if (data["status"] == "log_stop") {
-                            $(".l-password-tip").html("服务器出错，请重新登录");
+                            $(".l-password-tip").css("display", "block").html("服务器出错，请重新登录");
                             $("input[name='login-password']").change(function () {
                                 $(".l-password-tip").html("")
                             })
                         } else if (data["status"] == "log_empty") {
-                            $(".l-number-tip").html("学号不存在，请先注册");
+                            $(".l-number-tip").css("display", "block").html("学号不存在，请先注册");
                             $("input[name='login-number']").change(function () {
                                 $(".l-number-tip").html("")
                             })
@@ -421,7 +433,7 @@ $(function () {
                     }
                 });
             } else {
-                $(".l-password-tip").html("请选择你的身份"); //两个身份都未选择时提示
+                $(".l-password-tip").css("display", "block").html("请选择你的身份"); //两个身份都未选择时提示
                 $(".tt").change(function () {
                     $(".l-password-tip").html("");
                 })
@@ -431,26 +443,119 @@ $(function () {
         else {
             //判断哪一个为空
             if ($("input[name='login-number']").val() == "") {
-                $(".l-number-tip").html("学号不能为空")
+                $(".l-number-tip").css("display", "block").html("学号不能为空")
             }
             if ($("input[name='login-password']").val() == "") {
-                $(".l-password-tip").html("密码不能为空")
+                $(".l-password-tip").css("display", "block").html("密码不能为空")
             }
 
             $("input[name='login-number']").change(function () {
                 if ($(this).val() == "") {
-                    $(".l-number-tip").html("学号不能为空")
+                    $(".l-number-tip").css("display", "block").html("学号不能为空")
                 } else {
                     $(".l-number-tip").html("")
                 }
             });
             $("input[name='login-password']").change(function () {
                 if ($(this).val() == "") {
-                    $(".l-password-tip").html("密码不能为空")
+                    $(".l-password-tip").css("display", "block").html("密码不能为空")
                 } else {
                     $(".l-password-tip").html("")
                 }
             })
+        }
+    });
+
+    // 修改密码
+    $(".reset-password-submit").click(function () {
+        var reset_password_1 = $("input[name='reset-password-1']").val();
+        var reset_password_2 = $("input[name='reset-password-2']").val();
+        if (reset_password_1 !== "" && reset_password_2 !== "") {
+            if (reset_password_1.length < 6) {
+                $(".reset-password-tip-1").css("display", "block").html("不能小于6位");
+                $("input[name='register-password']").change(function () {
+                    $(".reset-password-tip-1").html("")
+                });
+            } else if (reset_password_1.length > 15) {
+                $(".reset-password-tip-1").css("display", "block").html("不能大于15位");
+                $("input[name='register-password']").change(function () {
+                    $(".reset-password-tip-1").html("")
+                });
+            } else if (reset_password_1 !== reset_password_2) {
+                $(".reset-password-tip-2").css("display", "block").html("两次输入的密码不一致");
+                $("input[name='reset-password-1']").change(function () {
+                    $(".reset-password-tip-2").html("")
+                });
+                $("input[name='reset-password-2']").change(function () {
+                    $(".reset-password-tip-2").html("")
+                });
+            } else {
+                $.ajax({
+                    url: "/mine/resetpassword/",
+                    type: "post",
+                    data: {
+                        "reset_password_1": reset_password_1,
+                        "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val()
+                    },
+                    success: function (data) {
+                        if (data["status"] == "success") {
+                            $(".tips3").html("<div>修改成功！</div><br><div><span id='mes'>3</span>秒后自动跳转...</div>");
+                            $(".tips3").css({"text-align": "center", "font-size": "20px"});
+
+                            var tt = 3;
+
+                            function a() {
+                                if (tt == 1) {
+                                    window.location.reload() //修改成功后定时刷新网页
+                                } else {
+                                    tt--;
+                                    $("#mes").html(tt);
+                                }
+                            }
+
+                            setInterval(a, 1000);
+                        } else if (data["status"] == "error") {
+                            $(".reset-password-tip-2").css("display", "block").html("不能修改<a id='reset' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>请联系管理员</a>");
+
+                            $("input[name='reset-password-1']").change(function () {
+                                $(".reset-password-tip-1").html("")
+                            });
+                            $("input[name='reset-password-2']").change(function () {
+                                $(".reset-password-tip-2").html("")
+                            });
+                        } else if (data["status"] == "stop") {
+                            $(".reset-password-tip-2").css("display", "block").html("服务器出错，请重新提交");
+                            $("input[name='reset-password-1']").change(function () {
+                                $(".reset-password-tip-1").html("")
+                            });
+                            $("input[name='reset-password-2']").change(function () {
+                                $(".reset-password-tip-2").html("")
+                            });
+                        }
+                    }
+                });
+            }
+        } else {
+            if ($("input[name='reset-password-1']").val() === "") {
+                $(".reset-password-tip-1").css("display", "block").html("密码不能为空")
+            }
+            if ($("input[name='reset-password-2']").val() === "") {
+                $(".reset-password-tip-2").css("display", "block").html("密码不能为空")
+            }
+            $("input[name='reset-password-1']").change(function () {
+                if ($(this).val() === "") {
+                    $(".reset-password-tip-1").css("display", "block").html("密码不能为空")
+                } else {
+                    $(".reset-password-tip-1").html("")
+                }
+            });
+            $("input[name='reset-password-2']").change(function () {
+                if ($(this).val() === "") {
+                    $(".reset-password-tip-2").css("display", "block").html("密码不能为空")
+                } else {
+                    $(".reset-password-tip-2").html("")
+                }
+            });
         }
     });
 
@@ -459,11 +564,11 @@ $(function () {
         if (login_password_eye_icon.hasClass("glyphicon-eye-close")) {
             login_password_eye_icon.removeClass("glyphicon-eye-close");
             login_password_eye_icon.addClass("glyphicon-eye-open");
-            $("input[name='login-password']").attr("type","text")
+            $("input[name='login-password']").attr("type", "text")
         } else if (login_password_eye_icon.hasClass("glyphicon-eye-open")) {
             login_password_eye_icon.removeClass("glyphicon-eye-open");
             login_password_eye_icon.addClass("glyphicon-eye-close");
-            $("input[name='login-password']").attr("type","password")
+            $("input[name='login-password']").attr("type", "password")
         }
     });
     $(".register-password-eye-1").click(function () {
@@ -471,11 +576,11 @@ $(function () {
         if (register_password_eye_icon_1.hasClass("glyphicon-eye-close")) {
             register_password_eye_icon_1.removeClass("glyphicon-eye-close");
             register_password_eye_icon_1.addClass("glyphicon-eye-open");
-            $("input[name='register-password']").attr("type","text")
+            $("input[name='register-password']").attr("type", "text")
         } else if (register_password_eye_icon_1.hasClass("glyphicon-eye-open")) {
             register_password_eye_icon_1.removeClass("glyphicon-eye-open");
             register_password_eye_icon_1.addClass("glyphicon-eye-close");
-            $("input[name='register-password']").attr("type","password")
+            $("input[name='register-password']").attr("type", "password")
         }
     });
     $(".register-password-eye-2").click(function () {
@@ -483,11 +588,37 @@ $(function () {
         if (register_password_eye_icon_2.hasClass("glyphicon-eye-close")) {
             register_password_eye_icon_2.removeClass("glyphicon-eye-close");
             register_password_eye_icon_2.addClass("glyphicon-eye-open");
-            $("input[name='register-password-2']").attr("type","text")
+            $("input[name='register-password-2']").attr("type", "text")
         } else if (register_password_eye_icon_2.hasClass("glyphicon-eye-open")) {
             register_password_eye_icon_2.removeClass("glyphicon-eye-open");
             register_password_eye_icon_2.addClass("glyphicon-eye-close");
-            $("input[name='register-password-2']").attr("type","password")
+            $("input[name='register-password-2']").attr("type", "password")
         }
     });
+    $(".reset-password-eye-1").click(function () {
+        var reset_password_eye_icon_1 = $(".reset-password-eye-icon-1");
+        if (reset_password_eye_icon_1.hasClass("glyphicon-eye-close")) {
+            reset_password_eye_icon_1.removeClass("glyphicon-eye-close");
+            reset_password_eye_icon_1.addClass("glyphicon-eye-open");
+            $("input[name='reset-password-1']").attr("type", "text")
+        } else if (reset_password_eye_icon_1.hasClass("glyphicon-eye-open")) {
+            reset_password_eye_icon_1.removeClass("glyphicon-eye-open");
+            reset_password_eye_icon_1.addClass("glyphicon-eye-close");
+            $("input[name='reset-password-1']").attr("type", "password")
+        }
+    });
+
+    $(".reset-password-eye-2").click(function () {
+        var reset_password_eye_icon_2 = $(".reset-password-eye-icon-2");
+        if (reset_password_eye_icon_2.hasClass("glyphicon-eye-close")) {
+            reset_password_eye_icon_2.removeClass("glyphicon-eye-close");
+            reset_password_eye_icon_2.addClass("glyphicon-eye-open");
+            $("input[name='reset-password-2']").attr("type", "text")
+        } else if (reset_password_eye_icon_2.hasClass("glyphicon-eye-open")) {
+            reset_password_eye_icon_2.removeClass("glyphicon-eye-open");
+            reset_password_eye_icon_2.addClass("glyphicon-eye-close");
+            $("input[name='reset-password-2']").attr("type", "password")
+        }
+    });
+
 });
