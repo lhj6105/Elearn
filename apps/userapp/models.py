@@ -13,7 +13,7 @@ class TeacherProfile(models.Model):
     identity = models.CharField(max_length=20, default='teacher', verbose_name='身份', editable=False)  # 学生还是教师
     date_joined = models.DateTimeField(auto_now_add=True, verbose_name='注册时间')
     profile_photo = models.ImageField(upload_to='images/user_profile/',
-                                      default='images/user_profile/default_teacher.png', editable=False)
+                                      default='images/user_profile/default/default_teacher.png', editable=False)
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
@@ -40,7 +40,7 @@ class StudentProfile(models.Model):
     date_joined = models.DateTimeField(auto_now_add=True, verbose_name='注册时间')
     total_time = models.CharField(max_length=20, default=0, verbose_name='观看视频总时长', editable=False)
     profile_photo = models.ImageField(upload_to='images/user_profile/',
-                                      default='images/user_profile/default_student.png', editable=False)
+                                      default='images/user_profile/default/default_student.png', editable=False)
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):

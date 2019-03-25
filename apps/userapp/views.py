@@ -210,6 +210,62 @@ class ResetPassword(View):
             return JsonResponse({'status': 'stop'})  # 服务器出错
 
 
+class HeadPicture(View):
+
+    def get(self, request):
+        pass
+
+    def post(self, request):
+        try:
+            head_picture = request.FILES.get('head-picture')
+            number = request.session['user']['number']
+            identity = request.session['user']['identity']
+            photo_dir = os.path.join(settings.BASE_DIR, 'static/')
+            uuid_str = str(uuid.uuid4()).replace('-', '')
+            file_name = os.path.join('images/user_profile/', uuid_str + os.path.splitext(head_picture.name)[-1])
+            profile_photo = ''
+            with open(os.path.join(photo_dir, file_name), 'wb') as f:
+                for chunk in head_picture.chunks():
+                    f.write(chunk)
+            if identity == 'student':
+                student_obj = StudentProfile.objects.filter(number=number)
+                if str(student_obj.first().profile_photo) != str('images/user_profile/default/default_student.png'):
+                    profile_photo = os.path.join(photo_dir, str(student_obj.first().profile_photo))
+                student = student_obj.update(profile_photo=file_name)
+                if student:
+                    if profile_photo:
+                        os.remove(profile_photo)
+                    request.session['user'] = {
+                        'number': student_obj.first().number,
+                        'name': student_obj.first().name,
+                        'identity': student_obj.first().identity,
+                        'photo': json.dumps(str(student_obj.first().profile_photo))[1:-1],
+                    }
+                    return JsonResponse({'status': 'success', "photo": file_name})
+                else:
+                    return JsonResponse({'status': 'error'})
+            elif identity == 'teacher':
+                teacher_obj = TeacherProfile.objects.filter(number=number)
+                if str(teacher_obj.first().profile_photo) != 'images/user_profile/default/default_teacher.png':
+                    profile_photo = os.path.join(photo_dir, str(teacher_obj.first().profile_photo))
+                teacher = teacher_obj.update(profile_photo=file_name)
+                if teacher:
+                    if profile_photo:
+                        os.remove(profile_photo)
+                    request.session['user'] = {
+                        'number': teacher_obj.first().number,
+                        'name': teacher_obj.first().name,
+                        'identity': teacher_obj.first().identity,
+                        'photo': json.dumps(str(teacher_obj.first().profile_photo))[1:-1],
+                    }
+                    return JsonResponse({'status': 'success', "photo": file_name})
+                else:
+                    return JsonResponse({'status': 'error'})
+        except Exception as e:
+            print("HeadPicture error:", e)
+            return JsonResponse({'status': 'stop'})  # 服务器出错
+
+
 class LoginOut(View):
 
     def get(self, request):

@@ -43,14 +43,14 @@
     </div>
     <div class="header-index-text">
         {% if request.session.user %}
-            <div class="mod-header__user-avatar dropdown">
+            <div class="mod-header__user-avatar dropdown personal-center">
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                    data-close-others="false" data-leday="500" aria-expanded="false">
                     <img class="profile-photo" src="/static/{{ request.session.user.photo }}">
                     <span>{{ request.session.user.name }}</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a tabindex="-1" href="javascript:void(0)">修改头像</a></li>
+                    <li><a id="resethead" tabindex="-1" href="javascript:void(0)">修改头像</a></li>
                     <li class="divider"></li>
                     <li><a id="resetpassword" tabindex="-1" href="javascript:void(0)">修改密码</a></li>
                     <li class="divider"></li>
@@ -144,7 +144,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1">
-                                        <img class="input-img" src="{% static 'images/filebg/student_name.png' %}">
+                                        <img class="input-img" src="{% static 'images/filebg/name_picture.png' %}">
                                     </span>
                                     <input type="text" class="form-control" name="register-name" placeholder="姓名"
                                            aria-describedby="basic-addon1">
@@ -154,7 +154,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
-                                    <img class="input-img" src="{% static 'images/filebg/student_number.png' %}">
+                                    <img class="input-img" src="{% static 'images/filebg/number_picture.png' %}">
                                 </span>
                                     <input type="text" class="form-control" name="register-number" placeholder="学号"
                                            aria-describedby="basic-addon1">
@@ -164,7 +164,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
-                                    <img class="input-img" src="{% static 'images/filebg/student_password.png' %}">
+                                    <img class="input-img" src="{% static 'images/filebg/password_picture.png' %}">
                                 </span>
                                     <input type="password" class="form-control" placeholder="密码"
                                            aria-describedby="basic-addon1" name="register-password">
@@ -177,7 +177,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
-                                    <img class="input-img" src="{% static 'images/filebg/student_password.png' %}">
+                                    <img class="input-img" src="{% static 'images/filebg/password_picture.png' %}">
                                 </span>
                                     <input type="password" class="form-control" placeholder="确认密码"
                                            aria-describedby="basic-addon1" name="register-password-2">
@@ -237,7 +237,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
-                                    <img class="input-img" src="{% static 'images/filebg/student_number.png' %}">
+                                    <img class="input-img" src="{% static 'images/filebg/number_picture.png' %}">
                                 </span>
                                     <input type="text" class="form-control" placeholder="学号"
                                            aria-describedby="basic-addon1" name="login-number">
@@ -247,7 +247,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
-                                    <img class="input-img" src="{% static 'images/filebg/student_password.png' %}">
+                                    <img class="input-img" src="{% static 'images/filebg/password_picture.png' %}">
                                 </span>
                                     <input type="password" class="form-control" placeholder="密码"
                                            aria-describedby="basic-addon1" name="login-password">
@@ -298,7 +298,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1">
-                                        <img class="input-img" src="{% static 'images/filebg/student_name.png' %}">
+                                        <img class="input-img" src="{% static 'images/filebg/name_picture.png' %}">
                                     </span>
                                         <input type="text" class="form-control"
                                                placeholder="{{ request.session.user.name }}&nbsp;(联系管理员修改)"
@@ -308,7 +308,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
-                                    <img class="input-img" src="{% static 'images/filebg/student_number.png' %}">
+                                    <img class="input-img" src="{% static 'images/filebg/number_picture.png' %}">
                                 </span>
                                         <input type="text" class="form-control"
                                                placeholder="{{ request.session.user.number }}&nbsp;(联系管理员修改)"
@@ -318,7 +318,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
-                                    <img class="input-img" src="{% static 'images/filebg/student_password.png' %}">
+                                    <img class="input-img" src="{% static 'images/filebg/password_picture.png' %}">
                                 </span>
                                         <input type="password" class="form-control" placeholder="新密码"
                                                aria-describedby="basic-addon1" name="reset-password-1">
@@ -331,7 +331,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
-                                    <img class="input-img" src="{% static 'images/filebg/student_password.png' %}">
+                                    <img class="input-img" src="{% static 'images/filebg/password_picture.png' %}">
                                 </span>
                                         <input type="password" class="form-control" placeholder="确认密码"
                                                aria-describedby="basic-addon1" name="reset-password-2">
@@ -343,6 +343,51 @@
                                 </div>
                                 <div class="submit-menu">
                                     <button type="button" class="btn reset-password-submit">确&nbsp;认&nbsp;修&nbsp;改
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 修改头像 -->
+    <div class="modal fade" id="resetheadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content head-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <img class="head-img" src="{% static 'images/filebg/head_picture_header_night.png' %}">
+                </div>
+                <div class="modal-body">
+                    <div class="row myrow head-row">
+                        <div class="col-xs-3 col-sm-3 col-md-3"></div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 tips4">
+                            <form id="head-picture-form" method="post"  enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group head-group">
+                                    <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">
+                                        <img class="input-img" src="{% static 'images/filebg/head_picture.png' %}">
+                                    </span>
+                                        <a href="javascript:void(0)" class="head-picture-upload form-control">
+                                            <input type="file" name="head-picture" aria-describedby="basic-addon1"
+                                                   id="xdaTanFileImg" onchange="xmTanUploadImg(this)" accept="image/*">点击选择文件
+                                        </a>
+                                    </div>
+                                    <span class="head-picture-tip" style="margin-left: 5px;color: red;display: none;">请选择文件</span>
+                                </div>
+                                <div class="form-control preview-picture">
+                                    <img id="xmTanImg">
+                                </div>
+                                <span class="head-picture-error-tip">设置失败，请重新设置！</span>
+                                <div class="submit-menu">
+                                    <button type="button" class="btn head-picture-submit">确&nbsp;认&nbsp;修&nbsp;改
                                     </button>
                                 </div>
                             </form>

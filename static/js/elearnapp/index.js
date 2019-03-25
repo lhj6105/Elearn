@@ -38,13 +38,17 @@ $(function () {
 
     $('.dropdown-toggle').mouseover(function () {
         $(this).attr("aria-expanded", true);
-        $(".dropdown").addClass("open")
+        $(".personal-center").addClass("open")
     });
     $(".dropdown-menu li").mouseover(function () {
         $(this).children('a').css("color", "#12a7ff");
     });
     $(".dropdown-menu li").mouseout(function () {
         $(this).children('a').css("color", "#333333");
+    });
+
+    $('#resethead').click(function () {
+        $('#resetheadModal').modal('show') //修改头像弹出框
     });
 
     $(".r-st").change(function () {
@@ -620,5 +624,85 @@ $(function () {
             $("input[name='reset-password-2']").attr("type", "password")
         }
     });
-
+    $(".head-picture-submit").click(function () {
+        var head_picture = $("input[name='head-picture']").val();
+        var formData = new FormData($('#head-picture-form')[0]);
+        if (head_picture !== "") {
+            $.ajax({
+                url: "/mine/headpicture/",
+                type: "post",
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                // data: {
+                //     "head_picture": head_picture,
+                //     "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
+                // },
+                success: function (data) {
+                    if (data["status"] === "success") {
+                        $(".profile-photo").attr("src", "/static/" + data["photo"]);
+                        $('#resetheadModal').modal('hide') //修改头像弹出框
+                    } else if (data["status"] === "error") {
+                        $(".head-picture-error-tip").css("display", "block")
+                    } else if (data["status"] === "stop") {
+                        $(".head-picture-error-tip").css("display", "block")
+                    }
+                }
+            })
+        } else {
+            $(".head-picture-tip").css("display", "block")
+        }
+    });
+    $("input[name='head-picture']").change(function () {
+        if ($("input[name='head-picture']").val() !== "") {
+            $(".head-picture-tip").css("display", "none");
+        }
+        $(".head-picture-error-tip").css("display", "none")
+    })
 });
+//判断浏览器是否支持FileReader接口
+if (typeof FileReader == 'undefined') {
+    document.getElementById("xmTanDiv").InnerHTML = "<h1>当前浏览器不支持FileReader接口</h1>";
+    //使选择控件不可操作
+    document.getElementById("xdaTanFileImg").setAttribute("disabled", "disabled");
+}
+
+//选择图片，马上预览
+function xmTanUploadImg(obj) {
+    var file = obj.files[0];
+
+    // console.log(obj);
+    // console.log(file);
+    // console.log("file.size = " + file.size);  //file.size 单位为byte
+    if (file.size <= 524288) {
+        var reader = new FileReader();
+        //读取文件过程方法
+        // reader.onloadstart = function (e) {
+        //     console.log("开始读取....");
+        // };
+        // reader.onprogress = function (e) {
+        //     console.log("正在读取中....");
+        // };
+        // reader.onabort = function (e) {
+        //     console.log("中断读取....");
+        // };
+        // reader.onerror = function (e) {
+        //     console.log("读取异常....");
+        // };
+        reader.onload = function (e) {
+            // console.log("成功读取....");
+            var img = document.getElementById("xmTanImg");
+            $(".preview-picture").css("display","block");
+            $(".head-content").css("height","600px");
+            img.height = "284";
+            img.width = "284";
+            img.src = e.target.result;
+            //或者 img.src = this.result;  //e.target == this
+        };
+        reader.readAsDataURL(file)
+    } else {
+        $("input[name='head-picture']").val("");
+        alert("图片不能大于512KB");
+    }
+}

@@ -119,7 +119,13 @@ img {
 .register-content {
     margin-top: 50px;
 }
+
 .resetpassword-content {
+    margin-top: 50px;
+}
+
+.head-content {
+    height: 300px;
     margin-top: 50px;
 }
 
@@ -217,6 +223,7 @@ img {
     width: 36px !important;
     height: 36px !important;
     border-radius: 50%;
+    border: 1px solid #cccccc;
 }
 
 .mod-header__user-avatar {
@@ -249,8 +256,8 @@ img {
     top: 3px;
 }
 
-.login-password-eye,.register-password-eye-1,.register-password-eye-2,
-.reset-password-eye-1,.reset-password-eye-2 {
+.login-password-eye, .register-password-eye-1, .register-password-eye-2,
+.reset-password-eye-1, .reset-password-eye-2 {
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -260,10 +267,65 @@ img {
     cursor: pointer;
     top: 5px;
 }
+
 .dropdown-menu .divider {
     margin: 3px 0;
 }
-.dropdown-menu{
+
+.dropdown-menu {
     top: 90%;
     min-width: 100px;
+}
+
+.head-row {
+    margin-top: 10px;
+}
+
+.head-group {
+    margin-bottom: 20px;
+}
+.preview-picture{
+    height: 284px;
+    margin-bottom: 20px;
+    padding: 0;
+    border-radius: 0;
+    display: none;
+}
+.head-picture-upload {
+    padding: 4px 10px;
+    text-align: center;
+    width: 250px;
+    height: 40px;
+    margin-top: 20px;
+    line-height: 30px;
+    position: relative;
+    cursor: pointer;
+    color: #666666;
+    background: #eeeeee;
+    border: 1px solid #cccccc;
+    border-radius: 0 4px 4px 0 !important;
+    overflow: hidden;
+    float: none !important;
+}
+
+.head-picture-upload input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.head-picture-upload:hover {
+    color: #444;
+    background: #dddddd;
+    border-color: #ccc;
+    text-decoration: none
+}
+.head-picture-error-tip{
+    display: none;
+    margin-top: -20px;
+    color: red;
 }
