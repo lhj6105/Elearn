@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6514c482-bc98-4c5b-8f4d-37bdc434f2c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/images/filebg/head_picture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/filebg/head_picture_header_night.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/user_profile/default/default_student.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/userapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/userapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/userapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/userapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/userapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/userapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/elearnapp/elearn.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/elearnapp/elearn.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/filebg/student_name.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/filebg/name_picture.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/filebg/student_number.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/filebg/number_picture.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/filebg/student_password.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/filebg/password_picture.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/user_profile/default_teacher.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/user_profile/default/default_teacher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/elearnapp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/elearnapp/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -236,11 +223,6 @@
               <item name="Elearn" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -258,19 +240,19 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Qin\Elearn\static\images\user_profile\default" />
-      <recent name="E:\Qin\Elearn\static\images\filebg" />
-      <recent name="E:\Qin\Elearn\static\bootstrap\js" />
-      <recent name="D:\Qin\Elearn\static" />
-      <recent name="$PROJECT_DIR$/ext_apps/xadmin/static/xadmin/vendor" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Qin\Elearn\static\images\user_profile\default" />
       <recent name="E:\Qin\Elearn\static\js\homeworkapp" />
       <recent name="D:\Qin\Elearn\templates\search\indexes\videoapp" />
       <recent name="$PROJECT_DIR$/apps" />
       <recent name="$PROJECT_DIR$/static/css/coursewareapp" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Qin\Elearn\static\images\user_profile\default" />
+      <recent name="E:\Qin\Elearn\static\images\filebg" />
+      <recent name="E:\Qin\Elearn\static\bootstrap\js" />
+      <recent name="D:\Qin\Elearn\static" />
+      <recent name="$PROJECT_DIR$/ext_apps/xadmin/static/xadmin/vendor" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -376,10 +358,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Django server.Elearn" />
       <item itemvalue="Python.123" />
       <item itemvalue="Python.tests (1)" />
       <item itemvalue="Python.tests" />
+      <item itemvalue="Django server.Elearn" />
     </list>
     <recent_temporary>
       <list>
@@ -428,7 +410,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236533000" />
+    <option name="totallyTimeSpent" value="236657000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -442,7 +424,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19235925" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19235925" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -456,7 +438,7 @@
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49463806" visible="true" weight="0.37393767" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49463806" visible="true" weight="0.3569405" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Statistic" order="13" weight="0.58498585" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
