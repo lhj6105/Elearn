@@ -2,52 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6514c482-bc98-4c5b-8f4d-37bdc434f2c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Elearn/media/cover/20190326/2a56a45c8d944b3b9b5714308f19c0b2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Elearn/media/video/20190326/0594ffb651414359a02cd2a4bff4d9a5.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/coursewareapp/migrations/0002_auto_20190326_1545.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/coursewareapp/migrations/0003_auto_20190326_1552.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/userapp/migrations/0002_auto_20190326_1545.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/videoapp/migrations/0002_auto_20190326_1545.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/videoapp/migrations/0003_auto_20190326_1552.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/upload/cover/20190326/0828b0b80e395f75bd116487c1069fa1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/upload/video/20190326/818fabab62914368be247a184629e6ce.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/upload/video/20190326/e446fef6bf4b4c1dbff829413fb8b213.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/user_profile/1d4ae25101f14bf6a3ddf1b775067b9e.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/user_profile/8e4cdda75af94d1c9742dddf732627a2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/project_error/403.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/project_error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/project_error/500.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elearn/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elearn/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elearn/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elearn/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/coursewareapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/coursewareapp/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/coursewareapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/coursewareapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/coursewareapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/coursewareapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/elearnapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/elearnapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/elearnapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/elearnapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/userapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/userapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/videoapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/videoapp/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/videoapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/videoapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/videoapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/videoapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ext_apps/xadmin/plugins/importexport.py" beforeDir="false" afterPath="$PROJECT_DIR$/ext_apps/xadmin/plugins/importexport.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/videoapp/search.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/videoapp/video-player.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/videoapp/video.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/videoapp/video.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/coursewareapp/courseware.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/coursewareapp/courseware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/elearnapp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/elearnapp/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/elearnapp/mine.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/elearnapp/mine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/homeworkapp/homework.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/homeworkapp/homework.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/videoapp/video-click-nums.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/videoapp/video-player.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/videoapp/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/videoapp/video.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/courseware.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/courseware.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/video_player.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/video_player.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -268,58 +223,7 @@
             <path>
               <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
               <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
               <item name="media" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-              <item name="cover" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-              <item name="cover" type="462c0819:PsiDirectoryNode" />
-              <item name="20190326" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-              <item name="video" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-              <item name="video" type="462c0819:PsiDirectoryNode" />
-              <item name="20190326" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -456,10 +360,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Django server.Elearn" />
       <item itemvalue="Python.123" />
       <item itemvalue="Python.tests (1)" />
       <item itemvalue="Python.tests" />
+      <item itemvalue="Django server.Elearn" />
     </list>
     <recent_temporary>
       <list>
@@ -510,7 +414,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250463000" />
+    <option name="totallyTimeSpent" value="250803000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -524,7 +428,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18364611" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21715818" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -538,7 +442,7 @@
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49396783" visible="true" weight="0.31586403" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49396783" visible="true" weight="0.46600565" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Statistic" order="13" weight="0.58498585" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -653,9 +557,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/media/upload/cover/20190326/0828b0b80e395f75bd116487c1069fa1_WWgwhN4.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/media/upload/cover/20190326/0828b0b80e395f75bd116487c1069fa1_WWgwhN4.gif" />
     <entry file="file://$PROJECT_DIR$/Elearn/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="804">
@@ -676,20 +578,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/videoapp/video-click-nums.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/videoapp/video-player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/videoapp/video-click-nums.js" />
+    <entry file="file://$PROJECT_DIR$/static/js/videoapp/video-player.js" />
     <entry file="file://$PROJECT_DIR$/templates/answer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -753,9 +643,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/videoapp/search.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/videoapp/search.css" />
     <entry file="file://$PROJECT_DIR$/static/css/videoapp/video.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -763,9 +651,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/videoapp/video-player.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/videoapp/video-player.css" />
     <entry file="file://$PROJECT_DIR$/templates/search/search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -780,20 +666,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/admin/js/admin/DateTimeShortcuts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-504">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/admin/css/base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-693" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admin/js/admin/DateTimeShortcuts.js" />
+    <entry file="file://$PROJECT_DIR$/static/admin/css/base.css" />
     <entry file="file://$PROJECT_DIR$/templates/video_player.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
