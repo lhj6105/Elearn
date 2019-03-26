@@ -3,27 +3,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="text/javascript" src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
-    <script type="text/javascript">
-        var tt = 3;
-
-        function b() {
-            if (tt === 1) {
-                window.location.href = "http://localhost:8000" //注册成功后定时刷新网页
-            } else {
-                tt--;
-                $("#mes").html(tt)
-            }
+    <title>页面错误</title>
+    <style>
+        body {
+            background-color: #292c33;
         }
 
-        setInterval(b, 1000);
-    </script>
+        .page-error-500 {
+            text-align: center;
+        }
+
+        .page-error-500 span {
+            display: block;
+            margin-top: -158px;
+            color: white;
+            font-size: 18px;
+        }
+
+        .page-error-500 a {
+            display: inline-block;
+            width: 66px;
+            font-size: 15px;
+            text-decoration: none;
+            color: orangered;
+        }
+    </style>
 </head>
 <body>
-<div>500</div>
 <div>
-    <span id="mes">3</span><span>秒后自动跳转...</span>
+    <div>
+        <div class="page-error-500">
+            <img src="{% static 'images/filebg/500.jpg' %}">
+            <span>抱歉，您访问的页面有误！
+                <a href="{% url 'home:home' %}">返回首页</a>
+            </span>
+        </div>
+    </div>
 </div>
 </body>
 </html>

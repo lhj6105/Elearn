@@ -22,6 +22,11 @@ from django.views.static import serve
 import xadmin
 from elearnapp.views import page_not_found, page_error, permission_denied
 
+
+handler403 = permission_denied
+handler404 = page_not_found
+handler500 = page_error
+
 urlpatterns = [
     path('admin/', xadmin.site.urls),
     path('', include('elearnapp.urls', namespace='home')),
@@ -34,6 +39,3 @@ urlpatterns = [
 
 urlpatterns += static('/media/', document_root=settings.MEDIA_ROOT)  #加上这一行
 
-handler403 = "elearnapp.views.permission_denied"
-handler404 = "elearnapp.views.page_not_found"
-handler500 = "elearnapp.views.page_error"
