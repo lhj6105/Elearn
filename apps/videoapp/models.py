@@ -14,7 +14,7 @@ from userapp.models import TeacherProfile
 
 class Course(models.Model):
     title = models.CharField(max_length=100, verbose_name='课程标题')
-    cover = models.ImageField(upload_to='resources/cover/%Y%m%d', max_length=200, verbose_name='课程封面')
+    cover = models.ImageField(upload_to='upload/cover/%Y%m%d', max_length=200, verbose_name='课程封面')
     describe = models.CharField(max_length=300, verbose_name='课程描述', blank=True)
     click_nums = models.IntegerField(default=0, verbose_name="点击量", editable=False)
     add_time = models.DateTimeField(auto_now_add=True, verbose_name="添加时间")
@@ -49,7 +49,7 @@ class Course(models.Model):
 
 
 # 计算视频时长
-file_dir = os.path.join(settings.BASE_DIR, 'static/')
+file_dir = os.path.join(settings.BASE_DIR, 'media/')
 
 
 class FileCheck():
@@ -80,7 +80,7 @@ class FileCheck():
 class Video(models.Model):
     course = models.ForeignKey(Course, verbose_name='课程', on_delete=models.CASCADE)  # 关联课程
     title = models.CharField(max_length=100, verbose_name='视频标题')
-    file = models.FileField(upload_to='resources/video/%Y%m%d', max_length=200, verbose_name='视频')
+    file = models.FileField(upload_to='upload/video/%Y%m%d', max_length=200, verbose_name='视频')
     duration = models.CharField(max_length=30, verbose_name='视频时长', default=0, editable=False)
     add_time = models.DateTimeField(auto_now_add=True, verbose_name='添加时间')
 

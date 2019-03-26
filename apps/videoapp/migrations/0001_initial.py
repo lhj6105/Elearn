@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100, verbose_name='课程标题')),
-                ('cover', models.ImageField(max_length=200, upload_to='resources/cover/%Y%m%d', verbose_name='课程封面')),
+                ('cover', models.ImageField(max_length=200, upload_to='upload/cover/%Y%m%d', verbose_name='课程封面')),
                 ('describe', models.CharField(blank=True, max_length=300, verbose_name='课程描述')),
                 ('click_nums', models.IntegerField(default=0, editable=False, verbose_name='点击量')),
                 ('add_time', models.DateTimeField(auto_now_add=True, verbose_name='添加时间')),
@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100, verbose_name='视频标题')),
-                ('file', models.FileField(max_length=200, upload_to='resources/video/%Y%m%d', verbose_name='视频')),
+                ('file', models.FileField(max_length=200, upload_to='upload/video/%Y%m%d', verbose_name='视频')),
                 ('duration', models.CharField(default=0, editable=False, max_length=30, verbose_name='视频时长')),
                 ('add_time', models.DateTimeField(auto_now_add=True, verbose_name='添加时间')),
                 ('course', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='videoapp.Course', verbose_name='课程')),

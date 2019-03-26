@@ -20,10 +20,10 @@ class Foo(models.Model):
 
 +++ adminx.py +++
 import xadmin
-from import_export import resources
+from import_export import upload
 from .models import Foo
 
-class FooResource(resources.ModelResource):
+class FooResource(upload.ModelResource):
 
     class Meta:
         model = Foo

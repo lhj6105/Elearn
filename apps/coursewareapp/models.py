@@ -4,7 +4,7 @@ from django.db import models
 from Elearn import settings
 from userapp.models import *
 
-file_dir = os.path.join(settings.BASE_DIR, 'static/')
+file_dir = os.path.join(settings.BASE_DIR, 'media/')
 
 class FileCheck():
 
@@ -31,7 +31,7 @@ class FileCheck():
 
 class Courseware(models.Model):
     name = models.CharField(max_length=100, verbose_name='课件名称')
-    file = models.FileField(upload_to='resources/courseware/%Y%m%d', max_length=200, verbose_name='课件路径')
+    file = models.FileField(upload_to='upload/courseware/%Y%m%d', max_length=200, verbose_name='课件路径')
     size = models.CharField(max_length=20, verbose_name='课件大小', editable=False)
     add_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间', editable=False)
     download_nums = models.CharField(max_length=10, editable=False, default=0, verbose_name='下载量')

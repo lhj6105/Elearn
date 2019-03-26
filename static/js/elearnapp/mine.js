@@ -1,36 +1,36 @@
 $(function () {
     $(".mine-item-title li").click(function () {
-        if ($(this).children("a").html() === "上传视频") {
+        if ($(this).children("a").html() == "上传视频") {
             $(".mine-item-title li").removeAttr("style");
             $(this).css("background-color", "#23b8ff");
             $(".mine-item-content").children("div").attr("hidden", "hidden");
             $(".mine-item-upload-video").removeAttr("hidden")
-        } else if ($(this).children("a").html() === "上传课件") {
+        } else if ($(this).children("a").html() == "上传课件") {
             $(".mine-item-title li").removeAttr("style");
             $(this).css("background-color", "#23b8ff");
             $(".mine-item-content").children("div").attr("hidden", "hidden");
             $(".mine-item-upload-courseware").removeAttr("hidden")
-        } else if ($(this).children("a").html() === "添加作业") {
+        } else if ($(this).children("a").html() == "添加作业") {
             $(".mine-item-title li").removeAttr("style");
             $(this).css("background-color", "#23b8ff");
             $(".mine-item-content").children("div").attr("hidden", "hidden");
             $(".mine-item-add-questions").removeAttr("hidden")
-        } else if ($(this).children("a").html() === "我的作业") {
+        } else if ($(this).children("a").html() == "我的作业") {
             $(".mine-item-title li").removeAttr("style");
             $(this).css("background-color", "#23b8ff");
             $(".mine-item-content").children("div").attr("hidden", "hidden");
             $(".mine-item-myhomework").removeAttr("hidden")
-        } else if ($(this).children("a").html() === "批改作业") {
+        } else if ($(this).children("a").html() == "批改作业") {
             $(".mine-item-title li").removeAttr("style");
             $(this).css("background-color", "#23b8ff");
             $(".mine-item-content").children("div").attr("hidden", "hidden");
             $(".mine-item-correct-homework").removeAttr("hidden")
-        } else if ($(this).children("a").html() === "学习详情") {
+        } else if ($(this).children("a").html() == "学习详情") {
             $(".mine-item-title li").removeAttr("style");
             $(this).css("background-color", "#23b8ff");
             $(".mine-item-content").children("div").attr("hidden", "hidden");
             $(".mine-item-student-details").removeAttr("hidden")
-        } else if ($(this).children("a").html() === "学生分数") {
+        } else if ($(this).children("a").html() == "学生分数") {
             $(".mine-item-title li").removeAttr("style");
             $(this).css("background-color", "#23b8ff");
             $(".mine-item-content").children("div").attr("hidden", "hidden");
@@ -71,10 +71,10 @@ $(function () {
 
     //上传课程
     $(".upload-course").click(function () {
-        if ($("input[name='course-name']").val() === "") {
+        if ($("input[name='course-name']").val() == "") {
             $(".course-name-tip").css("display", "inline-block");
             return false;
-        } else if ($("input[name='course-file']").val() === "") {
+        } else if ($("input[name='course-file']").val() == "") {
             $(".course-file-tip").css("display", "inline-block");
             return false;
         } else {
@@ -87,7 +87,7 @@ $(function () {
                 processData: false,
                 contentType: false,
                 success: function (data) {
-                    if (data["status"] === "success") {
+                    if (data["status"] == "success") {
                         $("input[name='course-name']").val("");
                         $("input[name='course-desc']").val("");
                         $("input[name='course-file']").val("");
@@ -97,8 +97,8 @@ $(function () {
                         setTimeout(function () {
                             $(".upload-course-success").css("display", "none");
                             window.location.href = "http://localhost:8000/mine";
-                        }, 2000);
-                    } else if (data["status"] === "error") {
+                        }, 1000);
+                    } else if (data["status"] == "error") {
                         $(".upload-course-success").css("display", "none");
                         $(".upload-course-error").css("display", "block");
                         setTimeout(function () {
@@ -112,12 +112,12 @@ $(function () {
 
     //上传视频
     $(".upload-video").click(function () {
-        if ($("select[name='course-select'] option:selected").val() === undefined) {
+        if ($("select[name='course-select'] option:selected").val() == undefined) {
             $(".option-tip2").css("display", "none");
             $(".option-tip").css("display", "inline-block");
-        } else if ($("input[name='video-name']").val() === "") {
+        } else if ($("input[name='video-name']").val() == "") {
             $(".video-name-tip").css("display", "inline-block");
-        } else if ($("input[name='video-file']").val() === "") {
+        } else if ($("input[name='video-file']").val() == "") {
             $(".video-file-tip").css("display", "inline-block");
         } else {
             var formData = new FormData($('#upload-video')[0]);
@@ -129,7 +129,7 @@ $(function () {
                 processData: false,
                 contentType: false,
                 success: function (data) {
-                    if (data["status"] === "success") {
+                    if (data["status"] == "success") {
                         $("input[name='video-title']").val("");
                         $("input[name='video-file']").val("");
                         $(".upload-video-error").css("display", "none");
@@ -137,7 +137,7 @@ $(function () {
                         setTimeout(function () {
                             $(".upload-video-success").css("display", "none");
                         }, 5000);
-                    } else if (data["status"] === "error") {
+                    } else if (data["status"] == "error") {
                         $(".upload-video-success").css("display", "none");
                         $(".upload-video-error").css("display", "block");
                         setTimeout(function () {
@@ -151,9 +151,9 @@ $(function () {
 
     //上传课件
     $(".upload").click(function () {
-        if ($("input[name='courseware-name']").val() === "") {
+        if ($("input[name='courseware-name']").val() == "") {
             $(".courseware-name-tip").css("display", "inline-block")
-        } else if ($("input[name='courseware-file']").val() === "") {
+        } else if ($("input[name='courseware-file']").val() == "") {
             $(".courseware-file-tip").css("display", "inline-block")
         } else {
             var formData = new FormData($('#upload-courseware')[0]);
@@ -165,7 +165,7 @@ $(function () {
                 processData: false,
                 contentType: false,
                 success: function (data) {
-                    if (data["status"] === "success") {
+                    if (data["status"] == "success") {
                         $("input[name='courseware-name']").val("");
                         $("input[name='courseware-file']").val("");
                         $(".upload-error").css("display", "none");
@@ -173,7 +173,7 @@ $(function () {
                         setTimeout(function () {
                             $(".upload-success").css("display", "none");
                         }, 5000);
-                    } else if (data["status"] === "error") {
+                    } else if (data["status"] == "error") {
                         $(".upload-success").css("display", "none");
                         $(".upload-error").css("display", "block");
                         setTimeout(function () {
@@ -187,7 +187,7 @@ $(function () {
 
     //增加作业
     $(".upload-homework").click(function () {
-        if ($("input[name='homework-name']").val() === "") {
+        if ($("input[name='homework-name']").val() == "") {
             $(".homework-name-tip").css("display", "inline-block")
         } else {
             var formData = new FormData($('#upload-homework')[0]);
@@ -199,7 +199,7 @@ $(function () {
                 processData: false,
                 contentType: false,
                 success: function (data) {
-                    if (data["status"] === "success") {
+                    if (data["status"] == "success") {
                         $("input[name='homework-name']").val("");
                         $("input[name='homework-id']").val("");
                         $("input[name='homework-desc']").val("");
@@ -208,8 +208,8 @@ $(function () {
                         setTimeout(function () {
                             $(".upload-homework-success").css("display", "none");
                             window.location.href = "http://localhost:8000/mine";
-                        }, 2000);
-                    } else if (data["status"] === "error") {
+                        }, 1000);
+                    } else if (data["status"] == "error") {
                         $(".upload-homework-success").css("display", "none");
                         $(".upload-homework-error").css("display", "block");
                         setTimeout(function () {
@@ -223,11 +223,11 @@ $(function () {
 
     //增加判断题
     $(".add-pd-question").click(function () {
-        if ($("select[name='homework-select'] option:selected").val() === undefined) {
+        if ($("select[name='homework-select'] option:selected").val() == undefined) {
             $(".homework-select-tip").css("display", "block")
-        } else if ($("textarea[name='pd-question']").val() === "") {
+        } else if ($("textarea[name='pd-question']").val() == "") {
             $(".pd-question-tip").css("display", "block")
-        } else if ($("input[name='pd-answer']:checked").val() === undefined) {
+        } else if ($("input[name='pd-answer']:checked").val() == undefined) {
             $(".pd-answer-tip").css("display", "block")
         } else {
             $.ajax({
@@ -240,7 +240,7 @@ $(function () {
                     "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
                 },
                 success: function (data) {
-                    if (data["status"] === "success") {
+                    if (data["status"] == "success") {
                         $("textarea[name='pd-question']").val("");
                         $("input[name='pd-answer']").removeAttr("checked");
                         $(".add-question-error").css("display", "none");
@@ -248,7 +248,7 @@ $(function () {
                         setTimeout(function () {
                             $(".add-question-success").css("display", "none");
                         }, 5000);
-                    } else if (data["status"] === "error") {
+                    } else if (data["status"] == "error") {
                         $(".add-question-success").css("display", "none");
                         $(".add-question-error").css("display", "block");
                         setTimeout(function () {
@@ -271,19 +271,19 @@ $(function () {
 
     //增加选择题
     $(".add-xz-question").click(function () {
-        if ($("select[name='homework-select'] option:selected").val() === undefined) {
+        if ($("select[name='homework-select'] option:selected").val() == undefined) {
             $(".homework-select-tip").css("display", "block")
-        } else if ($("textarea[name='xz-question']").val() === "") {
+        } else if ($("textarea[name='xz-question']").val() == "") {
             $(".xz-question-tip").css("display", "block")
-        } else if ($("input[name='xz-answer-A']").val() === "") {
+        } else if ($("input[name='xz-answer-A']").val() == "") {
             $(".xz-answer-A-tip").css("display", "block")
-        } else if ($("input[name='xz-answer-B']").val() === "") {
+        } else if ($("input[name='xz-answer-B']").val() == "") {
             $(".xz-answer-B-tip").css("display", "block")
-        } else if ($("input[name='xz-answer-C']").val() === "") {
+        } else if ($("input[name='xz-answer-C']").val() == "") {
             $(".xz-answer-C-tip").css("display", "block")
-        } else if ($("input[name='xz-answer-D']").val() === "") {
+        } else if ($("input[name='xz-answer-D']").val() == "") {
             $(".xz-answer-D-tip").css("display", "block")
-        } else if ($("input[name='xz-answer']:checked").val() === undefined) {
+        } else if ($("input[name='xz-answer']:checked").val() == undefined) {
             $(".xz-answer-tip").css("display", "block")
         } else {
             $.ajax({
@@ -300,7 +300,7 @@ $(function () {
                     "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
                 },
                 success: function (data) {
-                    if (data["status"] === "success") {
+                    if (data["status"] == "success") {
                         $("textarea[name='xz-question']").val("");
                         $("input[name='xz-answer-A']").val("");
                         $("input[name='xz-answer-B']").val("");
@@ -312,7 +312,7 @@ $(function () {
                         setTimeout(function () {
                             $(".add-question-success").css("display", "none");
                         }, 5000);
-                    } else if (data["status"] === "error") {
+                    } else if (data["status"] == "error") {
                         $(".add-question-success").css("display", "none");
                         $(".add-question-error").css("display", "block");
                         setTimeout(function () {
@@ -345,9 +345,9 @@ $(function () {
 
     //简答题
     $(".add-jd-question").click(function () {
-        if ($("select[name='homework-select'] option:selected").val() === undefined) {
+        if ($("select[name='homework-select'] option:selected").val() == undefined) {
             $(".homework-select-tip").css("display", "block")
-        } else if ($("textarea[name='jd-question']").val() === "") {
+        } else if ($("textarea[name='jd-question']").val() == "") {
             $(".jd-question-tip").css("display", "block")
         } else {
             $.ajax({
@@ -360,7 +360,7 @@ $(function () {
                     "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
                 },
                 success: function (data) {
-                    if (data["status"] === "success") {
+                    if (data["status"] == "success") {
                         $("textarea[name='jd-question']").val("");
                         $("textarea[name='jd-answer']").val("");
                         $(".add-question-error").css("display", "none");
@@ -368,7 +368,7 @@ $(function () {
                         setTimeout(function () {
                             $(".add-question-success").css("display", "none");
                         }, 5000);
-                    } else if (data["status"] === "error") {
+                    } else if (data["status"] == "error") {
                         $(".add-question-success").css("display", "none");
                         $(".add-question-error").css("display", "block");
                         setTimeout(function () {
@@ -446,7 +446,7 @@ $(function () {
                 "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val()
             },
             success: function (data) {
-                if (data["status"] === "success") {
+                if (data["status"] == "success") {
                     alert("发布成功");
                     window.location.href = "http://localhost:8000/mine/"
                 } else {

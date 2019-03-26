@@ -31,3 +31,15 @@ class Home(View):
 
     def post(self, request):
         pass
+
+
+def permission_denied(request):
+    return render(request, 'project_error/403.html')
+
+
+def page_not_found(request):
+    return render(request, 'project_error/404.html')
+
+
+def page_error(request):
+    return render(request, 'project_error/500.html')

@@ -13,10 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+from django.conf import settings
+from django.conf.urls import handler403, handler404, handler500
+from django.conf.urls.static import static
 from django.urls import path, include
+from django.views.static import serve
 
 import xadmin
+from elearnapp.views import page_not_found, page_error, permission_denied
 
 urlpatterns = [
     path('admin/', xadmin.site.urls),
@@ -27,3 +31,9 @@ urlpatterns = [
     path('mine/', include('userapp.urls', namespace='mine')),
     path('search/', include('haystack.urls')),
 ]
+
+urlpatterns += static('/media/', document_root=settings.MEDIA_ROOT)  #加上这一行
+
+handler403 = "elearnapp.views.permission_denied"
+handler404 = "elearnapp.views.page_not_found"
+handler500 = "elearnapp.views.page_error"

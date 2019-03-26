@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=100, verbose_name='课件名称')),
-                ('file', models.FileField(max_length=200, upload_to='resources/courseware/%Y%m%d', verbose_name='课件路径')),
+                ('file', models.FileField(max_length=200, upload_to='upload/courseware/%Y%m%d', verbose_name='课件路径')),
                 ('size', models.CharField(editable=False, max_length=20, verbose_name='课件大小')),
                 ('add_time', models.DateTimeField(auto_now_add=True, verbose_name='创建时间')),
                 ('download_nums', models.CharField(default=0, editable=False, max_length=10, verbose_name='下载量')),

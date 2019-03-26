@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script type="text/javascript">
+        var tt = 3;
+
+        function b() {
+            if (tt === 1) {
+                window.location.href = "http://localhost:8000" //注册成功后定时刷新网页
+            } else {
+                tt--;
+                $("#mes").html(tt)
+            }
+        }
+
+        setInterval(b, 1000);
+    </script>
+</head>
+<body>
+<div>500</div>
+<div>
+    <span id="mes">3</span><span>秒后自动跳转...</span>
+</div>
+</body>
+</html>

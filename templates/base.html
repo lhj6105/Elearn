@@ -1,21 +1,22 @@
 <!DOCTYPE html>
+
 {% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/elearnapp/elearn.css' %}">
-    {% block css %}
 
-    {% endblock %}
+    {% block css %}{% endblock %}
+
     <script type="text/javascript" src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap-hover-dropdown.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/elearnapp/index.js' %}"></script>
-    {% block js %}
 
-    {% endblock %}
+    {% block js %}{% endblock %}
 </head>
 <body>
 
@@ -368,7 +369,7 @@
                     <div class="row myrow head-row">
                         <div class="col-xs-3 col-sm-3 col-md-3"></div>
                         <div class="col-xs-6 col-sm-6 col-md-6 tips4">
-                            <form id="head-picture-form" method="post"  enctype="multipart/form-data">
+                            <form id="head-picture-form" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="form-group head-group">
                                     <div class="input-group">

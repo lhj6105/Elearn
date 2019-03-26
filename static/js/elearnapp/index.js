@@ -1,7 +1,7 @@
 $(function () {
     $(".nav").find("li").each(function () {
         var a = $(this).find("a:first")[0];
-        if ($(a).attr("href") === location.pathname) {
+        if ($(a).attr("href") == location.pathname) {
             $(this).addClass("active");
             $(this).children("a").css("background-color", "#23b8ff")
         } else {
@@ -9,7 +9,7 @@ $(function () {
             $(this).children("a").css("background-color", "#ffffff")
         }
 
-        if ($(a).attr("href") === "/" + location.pathname.split("/")[1] + "/") {
+        if ($(a).attr("href") == "/" + location.pathname.split("/")[1] + "/") {
             $(this).addClass("active");
             $(this).children("a").css("background-color", "#23b8ff")
         } else {
@@ -503,7 +503,7 @@ $(function () {
                     },
                     success: function (data) {
                         if (data["status"] == "success") {
-                            $(".tips3").html("<div>修改成功！</div><br><div><span id='mes'>3</span>秒后自动跳转...</div>");
+                            $(".tips3").html("<div>密码修改成功，请重新登录！</div><br><div><span id='mes'>3</span>秒后自动跳转...</div>");
                             $(".tips3").css({"text-align": "center", "font-size": "20px"});
 
                             var tt = 3;
@@ -535,26 +535,34 @@ $(function () {
                             $("input[name='reset-password-2']").change(function () {
                                 $(".reset-password-tip-2").html("")
                             });
+                        } else if (data["status"] == "same") {
+                            $(".reset-password-tip-2").css("display", "block").html("新密码不能与原密码相同");
+                            $("input[name='reset-password-1']").change(function () {
+                                $(".reset-password-tip-1").html("")
+                            });
+                            $("input[name='reset-password-2']").change(function () {
+                                $(".reset-password-tip-2").html("")
+                            });
                         }
                     }
                 });
             }
         } else {
-            if ($("input[name='reset-password-1']").val() === "") {
+            if ($("input[name='reset-password-1']").val() == "") {
                 $(".reset-password-tip-1").css("display", "block").html("密码不能为空")
             }
-            if ($("input[name='reset-password-2']").val() === "") {
+            if ($("input[name='reset-password-2']").val() == "") {
                 $(".reset-password-tip-2").css("display", "block").html("密码不能为空")
             }
             $("input[name='reset-password-1']").change(function () {
-                if ($(this).val() === "") {
+                if ($(this).val() == "") {
                     $(".reset-password-tip-1").css("display", "block").html("密码不能为空")
                 } else {
                     $(".reset-password-tip-1").html("")
                 }
             });
             $("input[name='reset-password-2']").change(function () {
-                if ($(this).val() === "") {
+                if ($(this).val() == "") {
                     $(".reset-password-tip-2").css("display", "block").html("密码不能为空")
                 } else {
                     $(".reset-password-tip-2").html("")
@@ -640,12 +648,12 @@ $(function () {
                 //     "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
                 // },
                 success: function (data) {
-                    if (data["status"] === "success") {
+                    if (data["status"] == "success") {
                         $(".profile-photo").attr("src", "/static/" + data["photo"]);
                         $('#resetheadModal').modal('hide') //修改头像弹出框
-                    } else if (data["status"] === "error") {
+                    } else if (data["status"] == "error") {
                         $(".head-picture-error-tip").css("display", "block")
-                    } else if (data["status"] === "stop") {
+                    } else if (data["status"] == "stop") {
                         $(".head-picture-error-tip").css("display", "block")
                     }
                 }
@@ -693,8 +701,8 @@ function xmTanUploadImg(obj) {
         reader.onload = function (e) {
             // console.log("成功读取....");
             var img = document.getElementById("xmTanImg");
-            $(".preview-picture").css("display","block");
-            $(".head-content").css("height","600px");
+            $(".preview-picture").css("display", "block");
+            $(".head-content").css("height", "600px");
             img.height = "284";
             img.width = "284";
             img.src = e.target.result;

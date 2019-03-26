@@ -14,7 +14,7 @@ python manage.py migrate
 
 python manage.py createsuperuser
 
-修改static/js/videoapp/video-player.js第 56 行为服务器地址
+修改static/js/videoapp/video.js第 110 行为服务器地址
 
 修改static/js/elearn/mine.js第 451 行为服务器地址
 
@@ -30,3 +30,5 @@ http.cors.allow-origin:  "*"
 npm install elasticsearch_head_master
 npm start
 打开 http://localhost:9100, 
+
+联系方式：QQ：1224706052，邮箱：1224706052@qq.com

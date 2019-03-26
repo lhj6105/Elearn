@@ -6,13 +6,13 @@
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/video-js.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/videoapp/video-player.css' %}">
+    <link rel="stylesheet" href="{% static 'css/videoapp/video.css' %}">
 {% endblock %}
 
 {% block js %}
     <script type="text/javascript" src="{% static 'js/video.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/videojs-ie8.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/videoapp/video-player.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/videoapp/video.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -22,9 +22,9 @@
                 <div style="width:900px;height: 550px;">
                     <video id="example_video_1" class="video-js vjs-default-skin" controls preload="auto" width="900"
                            height="550" data-setup='{"example_option":true}' onended="time_function()">
-                        <source src="/static/{{ first_video.file }}" type='video/mp4'/>
-                        <source src="/static/{{ first_video.file }}" type='video/webm'>
-                        <source src="/static/{{ first_video.file }}" type='video/ogg'>
+                        <source src="{{ first_video.file.url }}" type='video/mp4'/>
+                        <source src="{{ first_video.file.url }}" type='video/webm'>
+                        <source src="{{ first_video.file.url }}" type='video/ogg'>
                         <input id="click_course" type="text" value="{{ first_video.course_id }}" hidden>
                         <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a
                             web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports
@@ -53,7 +53,9 @@
                             <div>
                                 {% csrf_token %}
                                 <span class="task-item--suffix">{{ video.duration }}</span>
-                                <button class="btn btn-sm delete-video" value="{{ video.id }}">删除</button>
+                                {% if request.session.user.identity == 'teacher' %}
+                                    <button class="btn btn-sm delete-video" value="{{ video.id }}">删除</button>
+                                {% endif %}
                             </div>
                         </li>
                     {% endfor %}

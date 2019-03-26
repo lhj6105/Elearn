@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% load static %}
+
 {% block title %}视频{% endblock %}
+
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/elearnapp/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/videoapp/video.css' %}">
@@ -9,7 +11,6 @@
 
 {% block js %}
     <script type="text/javascript" src="{% static 'js/videoapp/video.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/videoapp/video-click-nums.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -24,14 +25,16 @@
                                 <a href="{% url 'video:player' %}?course={{ course.id }}&videoid={{ course.video_set.first.id }}"
                                    class="item-img-link">
                                     <input hidden="hidden" value="{{ course.id }}" name="courseid">
-                                    <img src="/static/{{ course.cover }}">
+                                    <img src="{{ course.cover.url }}">
                                 </a>
                                 <div class="item-status">
                                     <span>视频数（共{{ course.video_set.all.count }}节）</span>
                                 </div>
                                 <h4 class="item-tt">
                                     <a href="{% url 'video:player' %}?course={{ course.id }}&videoid={{ course.video_set.first.id }}"
-                                       class="item-tt-link">{{ course.title }}<input hidden="hidden" value="{{ course.id }}" name="courseid">
+                                       class="item-tt-link">{{ course.title }}<input hidden="hidden"
+                                                                                     value="{{ course.id }}"
+                                                                                     name="courseid">
                                     </a>
                                 </h4>
                                 <div class="item-line">

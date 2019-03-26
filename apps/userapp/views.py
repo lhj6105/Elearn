@@ -192,19 +192,27 @@ class ResetPassword(View):
             number = request.session['user']['number']
             identity = request.session['user']['identity']
             if identity == 'student':
-                student = StudentProfile.objects.filter(number=number).update(password=make_password(password))
-                if student:
-                    logout(request)
-                    return JsonResponse({'status': 'success'})
+                student_obj = StudentProfile.objects.filter(number=number)
+                if check_password(password, student_obj.first().password):
+                    return JsonResponse({'status': 'same'})
                 else:
-                    return JsonResponse({'status': 'error'})
+                    student = student_obj.update(password=make_password(password))
+                    if student:
+                        logout(request)
+                        return JsonResponse({'status': 'success'})
+                    else:
+                        return JsonResponse({'status': 'error'})
             elif identity == 'teacher':
-                teacher = TeacherProfile.objects.filter(number=number).update(password=make_password(password))
-                if teacher:
-                    logout(request)
-                    return JsonResponse({'status': 'success'})
+                teacher_obj = TeacherProfile.objects.filter(number=number)
+                if check_password(password, teacher_obj.first().password):
+                    return JsonResponse({'status': 'same'})
                 else:
-                    return JsonResponse({'status': 'error'})
+                    teacher = teacher_obj.update(password=make_password(password))
+                    if teacher:
+                        logout(request)
+                        return JsonResponse({'status': 'success'})
+                    else:
+                        return JsonResponse({'status': 'error'})
         except Exception as e:
             print("ResetPassword error:", e)
             return JsonResponse({'status': 'stop'})  # 服务器出错

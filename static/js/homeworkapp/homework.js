@@ -1,7 +1,7 @@
 $(function () {
     $("button[name='delete-question']").click(function () {
         var mymessage = confirm("确认删除问题？");
-        if (mymessage === true) {
+        if (mymessage == true) {
             var delete_obj = $(this);
             $.ajax({
                 url: "/homework/deletequestion/",
@@ -12,9 +12,9 @@ $(function () {
                     "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
                 },
                 success: function (data) {
-                    if (data["status"] === "success") {
+                    if (data["status"] == "success") {
                         delete_obj.parent("li").remove();
-                    } else if (data["status"] === "error") {
+                    } else if (data["status"] == "error") {
                         alert("删除失败")
                     }
                 }
@@ -23,7 +23,7 @@ $(function () {
     });
     $(".delete-homework").click(function () {
         var mymessage = confirm("确认删除作业？");
-        if (mymessage === true) {
+        if (mymessage == true) {
             var delete_obj = $(this);
             $.ajax({
                 url: "/homework/deletehomework/",
@@ -33,9 +33,9 @@ $(function () {
                     "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
                 },
                 success: function (data) {
-                    if (data["status"] === "success") {
+                    if (data["status"] == "success") {
                         delete_obj.parent("span").parent("div").parent("li").remove();
-                    } else if (data["status"] === "error") {
+                    } else if (data["status"] == "error") {
                         alert("删除失败")
                     }
                 }

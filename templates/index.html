@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block js %}
-    <script type="text/javascript" src="{% static 'js/videoapp/video-click-nums.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/videoapp/video.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -36,7 +36,7 @@
                                 <a href="{% url 'video:player' %}?course={{ course.id }}&videoid={{ course.video_set.first.id }}"
                                    class="item-carouel-img-link">
                                     <input hidden="hidden" value="{{ course.id }}" name="courseid">
-                                    <img src="/static/{{ course.cover }}" alt="...">
+                                    <img src="{{ course.cover.url }}" alt="...">
                                 </a>
                                 <div class="carousel-caption">
                                     {{ course.title }}
@@ -47,7 +47,7 @@
                                 <a href="{% url 'video:player' %}?course={{ course.id }}&videoid={{ course.video_set.first.id }}"
                                    class="item-carouel-img-link">
                                     <input hidden="hidden" value="{{ course.id }}" name="courseid">
-                                    <img src="/static/{{ course.cover }}" alt="...">
+                                    <img src="{{ course.cover.url }}" alt="...">
                                 </a>
                                 <div class="carousel-caption">
                                     {{ course.title }}
@@ -82,7 +82,7 @@
                                 <a href="{% url 'video:player' %}?course={{ course.id }}&videoid={{ course.video_set.first.id }}"
                                    class="item-img-link">
                                     <input hidden="hidden" value="{{ course.id }}" name="courseid">
-                                    <img src="/static/{{ course.cover }}">
+                                    <img src="{{ course.cover.url }}">
                                 </a>
                                 <div class="item-status">
                                     <span>视频数（{{ course.video_set.all.count }}节）</span>

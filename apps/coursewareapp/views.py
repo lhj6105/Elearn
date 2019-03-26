@@ -58,7 +58,7 @@ class DownloadFile(View):
         try:
             file_id = request.GET.get('file')
             courseware_obj = Courseware.objects.get(id=file_id)
-            courseware_dir = os.path.join(settings.BASE_DIR, 'static/')
+            courseware_dir = os.path.join(settings.BASE_DIR, 'media/')
             # 拼接路径
             file_path = os.path.join(courseware_dir, str(courseware_obj.file))
             # 拼接下载文件名和格式
@@ -124,7 +124,7 @@ class DeleteCourseware(View):
             filename = str(courseware_obj.first().file)
             courseware_delete_obj = courseware_obj.delete()
             if courseware_delete_obj[1]:
-                os.remove(os.path.join(settings.BASE_DIR, 'static/' + filename))
+                os.remove(os.path.join(settings.BASE_DIR, 'media/' + filename))
                 return JsonResponse({'status': 'success'})
             else:
                 return JsonResponse({'status': 'error'})

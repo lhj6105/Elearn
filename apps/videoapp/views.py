@@ -1,13 +1,8 @@
-import mimetypes
-import re
-from wsgiref.util import FileWrapper
-
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import JsonResponse, StreamingHttpResponse, QueryDict
-from django.shortcuts import render, redirect
+from django.core.paginator import Paginator
+from django.http import JsonResponse,  QueryDict
+from django.shortcuts import render
 
 # Create your views here.
-from django.urls import reverse
 from django.views import View
 
 from userapp.models import *
@@ -175,12 +170,12 @@ class DeleteVideo(View):
             filename = str(video_obj.first().file)
             video_delete_obj = video_obj.delete()
             if video_delete_obj[1]:
-                os.remove(os.path.join(settings.BASE_DIR, 'static/' + filename))
+                os.remove(os.path.join(settings.BASE_DIR, 'media/' + filename))
                 if course.first().video_set.count() == 0:
                     covername = str(course.first().cover)
                     course_delete_obj = course.delete()
                     if course_delete_obj[1]:
-                        os.remove(os.path.join(settings.BASE_DIR, 'static/' + covername))
+                        os.remove(os.path.join(settings.BASE_DIR, 'media/' + covername))
                         return JsonResponse({'status': 'remove'})
                 return JsonResponse({'status': 'success'})
             else:
