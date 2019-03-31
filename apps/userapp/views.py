@@ -60,6 +60,7 @@ class TeacherReg(View):
         t_reg_password = request.POST.get('t_reg_password')
         t_reg_selection_id = request.POST.get('t_reg_selection_id')
         t_reg_code = request.POST.get('t_reg_code')
+        t_reg_college = request.POST.get('t_reg_college')
         try:
             if t_reg_code == '123456':
                 teacher = TeacherProfile.objects.filter(number=t_reg_number).first()  # 判断学号是否存在
@@ -68,7 +69,8 @@ class TeacherReg(View):
                 else:
                     # 不存在新建
                     new_teacher = TeacherProfile.objects.create(number=t_reg_number, name=t_reg_name,
-                                                                password=t_reg_password, identity=t_reg_selection_id)
+                                                                password=t_reg_password, identity=t_reg_selection_id,
+                                                                college_id=t_reg_college)
                     if new_teacher:
                         request.session['user'] = {
                             'number': new_teacher.number,
@@ -127,6 +129,8 @@ class StudentReg(View):
         s_reg_number = request.POST.get('s_reg_number')
         s_reg_password = request.POST.get('s_reg_password')
         s_reg_selection_id = request.POST.get('s_reg_selection_id')
+        s_reg_college = request.POST.get('s_reg_college')
+        s_reg_specialty = request.POST.get('s_reg_specialty')
         try:
             student = StudentProfile.objects.filter(number=s_reg_number).first()  # 判断学号是否存在
             if student:
@@ -134,7 +138,8 @@ class StudentReg(View):
             else:
                 # 不存在新建
                 new_student = StudentProfile.objects.create(number=s_reg_number, name=s_reg_name,
-                                                            password=s_reg_password, identity=s_reg_selection_id)
+                                                            password=s_reg_password, identity=s_reg_selection_id,
+                                                            college_id=s_reg_college, specialty_id=s_reg_specialty)
                 if new_student:
                     request.session['user'] = {
                         'number': new_student.number,
@@ -198,7 +203,12 @@ class ResetPassword(View):
                 else:
                     student = student_obj.update(password=make_password(password))
                     if student:
-                        logout(request)
+                        request.session['user'] = {
+                            'number': student_obj.first().number,
+                            'name': student_obj.first().name,
+                            'identity': student_obj.first().identity,
+                            'photo': json.dumps(str(student_obj.first().profile_photo))[1:-1],
+                        }
                         return JsonResponse({'status': 'success'})
                     else:
                         return JsonResponse({'status': 'error'})
@@ -209,7 +219,12 @@ class ResetPassword(View):
                 else:
                     teacher = teacher_obj.update(password=make_password(password))
                     if teacher:
-                        logout(request)
+                        request.session['user'] = {
+                            'number': teacher_obj.first().number,
+                            'name': teacher_obj.first().name,
+                            'identity': teacher_obj.first().identity,
+                            'photo': json.dumps(str(teacher_obj.first().profile_photo))[1:-1],
+                        }
                         return JsonResponse({'status': 'success'})
                     else:
                         return JsonResponse({'status': 'error'})

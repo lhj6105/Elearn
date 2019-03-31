@@ -8,12 +8,16 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/elearnapp/elearn.css' %}">
-
+    <link rel="stylesheet" href="{% static 'bootstrap-select/css/bootstrap-select.min.css' %}">
     {% block css %}{% endblock %}
 
     <script type="text/javascript" src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap-hover-dropdown.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap-select/js/defaults-zh_CN.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/video.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/videojs-ie8.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/elearnapp/index.js' %}"></script>
 
     {% block js %}{% endblock %}
@@ -142,6 +146,23 @@
                     <div class="col-xs-6 col-sm-6 col-md-6 tips">
                         <form>
                             {% csrf_token %}
+                            <div class="form-group college-select-outter-div">
+                                <select id="college-select" class="form-control" name="college-select" title="选择你的学院">
+                                    {% for college in college_obj %}
+                                        {% if forloop.first %}
+                                            <option value="{{ college.id }}" selected>{{ college.name }}</option>
+                                        {% else %}
+                                            <option value="{{ college.id }}">{{ college.name }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            <span class="college-select-tip" style="display: none">请选择你的学院</span>
+                            </div>
+                            <div class="form-group specialty-select-outter-div">
+                                <select id="specialty-select" class="form-control" name="specialty-select" title="选择你的专业">
+                                </select>
+                                <span class="specialty-select-tip" style="display: none">请选择你的专业</span>
+                            </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1">

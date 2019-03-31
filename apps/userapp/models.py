@@ -5,6 +5,30 @@ from django.contrib.auth.hashers import make_password
 from django.db import models
 
 
+class College(models.Model):
+    id = models.IntegerField(primary_key=True, verbose_name='学院编号')
+    name = models.CharField(max_length=30, verbose_name='学院名称')
+
+    class Meta:
+        db_table = 'colleges'
+        verbose_name = '学院表'
+        verbose_name_plural = verbose_name
+
+
+class Specialty(models.Model):
+    id = models.IntegerField(primary_key=True, verbose_name='专业编号')
+    name = models.CharField(max_length=30, verbose_name='专业名称')
+    college = models.ForeignKey(College, on_delete=models.CASCADE, verbose_name='学院')
+
+    class Meta:
+        db_table = 'specialtys'
+        verbose_name = '专业表'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
+
+
 # Create your models here.
 class TeacherProfile(models.Model):
     number = models.CharField(primary_key=True, max_length=20, verbose_name='学号')
@@ -14,6 +38,8 @@ class TeacherProfile(models.Model):
     date_joined = models.DateTimeField(auto_now_add=True, verbose_name='注册时间')
     profile_photo = models.ImageField(upload_to='images/user_profile/',
                                       default='images/user_profile/default/default_teacher.png', editable=False)
+    college = models.ForeignKey(College, on_delete=models.CASCADE, verbose_name='学院')
+    specialty = models.ManyToManyField(Specialty, through='SpecialtyTeacher')
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
@@ -32,6 +58,16 @@ class TeacherProfile(models.Model):
         return self.name
 
 
+class SpecialtyTeacher(models.Model):
+    specialty = models.ForeignKey(Specialty, on_delete=models.CASCADE, verbose_name='专业')
+    teacher = models.ForeignKey(TeacherProfile, on_delete=models.CASCADE, verbose_name='教师')
+
+    class Meta:
+        db_table = 'specialty_teacher'
+        verbose_name = '专业教师多对多中间表'
+        verbose_name_plural = verbose_name
+
+
 class StudentProfile(models.Model):
     number = models.CharField(primary_key=True, max_length=20, verbose_name='学号')
     name = models.CharField(max_length=30, verbose_name='姓名')
@@ -41,6 +77,9 @@ class StudentProfile(models.Model):
     total_time = models.CharField(max_length=20, default=0, verbose_name='观看视频总时长', editable=False)
     profile_photo = models.ImageField(upload_to='images/user_profile/',
                                       default='images/user_profile/default/default_student.png', editable=False)
+    college = models.ForeignKey(College, on_delete=models.CASCADE, verbose_name='学院')
+    specialty = models.ForeignKey(Specialty, on_delete=models.CASCADE, verbose_name='专业')
+    teacher = models.ManyToManyField(TeacherProfile, through='TeacherStudent')
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
@@ -57,3 +96,13 @@ class StudentProfile(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class TeacherStudent(models.Model):
+    teacher = models.ForeignKey(TeacherProfile, on_delete=models.CASCADE, verbose_name='教师')
+    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, verbose_name='学生')
+
+    class Meta:
+        db_table = 'teacher_student'
+        verbose_name = '教师学生多对多中间表'
+        verbose_name_plural = verbose_name

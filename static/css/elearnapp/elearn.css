@@ -20,9 +20,14 @@
     width: 280px;
 }
 
-.header-index-search input, .header-index-search button {
+.header-index-search input {
     font-size: 14px !important;
+    border-radius: 4px 0 0 4px !important;
+}
 
+.header-index-search button {
+    font-size: 14px !important;
+    border-radius: 0 4px 4px 0 !important;
 }
 
 .header-index-search button:active, .header-index-search button:focus {
@@ -114,10 +119,12 @@ img {
 
 .modal-content {
     margin-top: 100px;
+    background-color: lightcyan;
 }
 
 .register-content {
     margin-top: 50px;
+    background-color: lightcyan;
 }
 
 .resetpassword-content {
@@ -152,12 +159,13 @@ img {
 }
 
 .myrow {
-    margin-top: 35px;
+    margin-top: 20px;
     margin-bottom: 35px;
 }
 
 .form-control {
     height: 40px;
+    border-radius: 0 4px 4px 0 !important;
 }
 
 .form-group {
@@ -284,13 +292,15 @@ img {
 .head-group {
     margin-bottom: 20px;
 }
-.preview-picture{
+
+.preview-picture {
     height: 284px;
     margin-bottom: 20px;
     padding: 0;
     border-radius: 0;
     display: none;
 }
+
 .head-picture-upload {
     padding: 4px 10px;
     text-align: center;
@@ -324,8 +334,36 @@ img {
     border-color: #ccc;
     text-decoration: none
 }
-.head-picture-error-tip{
+
+.head-picture-error-tip {
     display: none;
     margin-top: -20px;
     color: red;
+}
+
+.college-select-outter-div > div, .specialty-select-outter-div > div {
+    width: 100% !important;
+    background-color: lightcyan;
+}
+
+.college-select-outter-div button, .specialty-select-outter-div button {
+    line-height: 2;
+    background-color: #eeeeee;
+}
+
+.college-select-outter-div .filter-option-inner-inner, .specialty-select-outter-div .filter-option-inner-inner {
+    color: #999999;
+}
+
+.college-select-outter-div .bs-searchbox, .specialty-select-outter-div .bs-searchbox {
+    display: none;
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: lightskyblue;
+}
+
+#college-select, #specialty-select {
+    border-radius: 4px 4px 4px 4px !important;
+    background-color: #eeeeee;
 }

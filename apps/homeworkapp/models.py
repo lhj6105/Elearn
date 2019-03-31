@@ -14,7 +14,7 @@ class Homework(models.Model):
     release = models.BooleanField(default=False, verbose_name='是否发布')
 
     class Meta:
-        db_table = 'homework'
+        db_table = 'homeworks'
         verbose_name = '作业'
         verbose_name_plural = verbose_name
         ordering = ['-add_time']

@@ -39,7 +39,7 @@ class Course(models.Model):
             os.remove(os.path.join(file_dir, str(self.cover.name)))
 
     class Meta:
-        db_table = 'course'
+        db_table = 'courses'
         verbose_name = '课程'
         verbose_name_plural = verbose_name
         ordering = ['click_nums']
@@ -100,7 +100,7 @@ class Video(models.Model):
         os.remove(os.path.join(file_dir, str(self.file.name)))
 
     class Meta:
-        db_table = 'video'
+        db_table = 'videos'
         verbose_name = '视频'
         verbose_name_plural = verbose_name
 

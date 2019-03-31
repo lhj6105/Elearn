@@ -55,11 +55,13 @@ $(function () {
         if ($(this).val() == "teacher") {
             $(".v-code").removeAttr("hidden"); //如果选择教师注册，显示注册码输入框
             $(".r-st[value='student']").removeAttr("checked");
-            $(".r-st[value='teacher']").attr('checked', 'checked')
+            $(".r-st[value='teacher']").attr('checked', 'checked');
+            $(".specialty-select-outter-div").attr("hidden", "hidden")
         } else {
             $(".v-code").attr("hidden", "hidden"); //如果选择教师注册，隐藏注册码输入框
             $(".r-st[value='student']").attr('checked', 'checked');
-            $(".r-st[value='teacher']").removeAttr("checked")
+            $(".r-st[value='teacher']").removeAttr("checked");
+            $(".specialty-select-outter-div").removeAttr("hidden")
         }
     });
 
@@ -67,254 +69,293 @@ $(function () {
     //注册验证
     $(".register-submit").click(function () {
 
-        //如果注册信息没有一个为空执行if
-        if ($("input[name='register-name']").val() != "" && $("input[name='register-number']").val() != ""
-            && $("input[name='register-password']").val() != "" && $("input[name='register-password-2']").val() != "") {
-            $(".r-name-tip").html("");
-            $(".r-number-tip").html(""); //清空三个提示
-            $(".r-password-tip").html("");
+            //如果注册信息没有一个为空执行if
+            if ($("#college-select option:selected").val() != "" &&
+                $("input[name='register-name']").val() != "" &&
+                $("input[name='register-number']").val() != "" &&
+                $("input[name='register-password']").val() != "" &&
+                $("input[name='register-password-2']").val() != "") {
+                $(".college-select-tip").css("display", "none");
+                $(".specialty-select-tip").css("display", "none");
+                $(".r-name-tip").html("");
+                $(".r-number-tip").html(""); //清空三个提示
+                $(".r-password-tip").html("");
 
-            //如果选择学生注册
-            if ($(".r-st:checked").val() == "student") {
-                var s_reg_name = $("input[name='register-name']").val();
-                var s_reg_number = $("input[name='register-number']").val();
-                var s_reg_password = $("input[name='register-password']").val();
-                var s_reg_selection_id = $(".r-st:checked").val();
-                if (s_reg_number.length < 8) {
-                    $(".r-number-tip").css("display", "block").html("不能小于8位");
-                    $("input[name='register-number']").change(function () {
-                        $(".r-number-tip").html("")
-                    });
-                } else if (s_reg_number.length > 15) {
-                    $(".r-number-tip").css("display", "block").html("不能大于15位");
-                    $("input[name='register-number']").change(function () {
-                        $(".r-number-tip").html("")
-                    });
-                } else if (/^[0-9]+$/.test(s_reg_number)) {
-                    if (s_reg_password.length < 6) {
-                        $(".r-password-tip").css("display", "block").html("不能小于6位");
-                        $("input[name='register-password']").change(function () {
-                            $(".r-password-tip").html("")
+                //如果选择学生注册
+                if ($(".r-st:checked").val() == "student") {
+                    var s_reg_college = $("#college-select option:selected").val();
+                    var s_reg_specialty = $("#specialty-select option:selected").val();
+                    var s_reg_name = $("input[name='register-name']").val();
+                    var s_reg_number = $("input[name='register-number']").val();
+                    var s_reg_password = $("input[name='register-password']").val();
+                    var s_reg_selection_id = $(".r-st:checked").val();
+                    if ($("#specialty-select option:selected").val() == "") {
+                        $(".specialty-select-tip").css("display", "block")
+                    } else if (s_reg_number.length < 8) {
+                        $(".r-number-tip").css("display", "block").html("不能小于8位");
+                        $("input[name='register-number']").change(function () {
+                            $(".r-number-tip").html("")
                         });
-                    } else if (s_reg_password.length > 15) {
-                        $(".r-password-tip").css("display", "block").html("不能大于15位");
-                        $("input[name='register-password']").change(function () {
-                            $(".r-password-tip").html("")
+                    } else if (s_reg_number.length > 15) {
+                        $(".r-number-tip").css("display", "block").html("不能大于15位");
+                        $("input[name='register-number']").change(function () {
+                            $(".r-number-tip").html("")
                         });
-                    } else if ($("input[name='register-password']").val() != $("input[name='register-password-2']").val()) {
-                        $(".r-password-tip-2").css("display", "block").html("两次输入的密码不一致");
-                        $("input[name='register-password']").change(function () {
-                            $(".r-password-tip-2").html("")
-                        });
-                        $("input[name='register-password-2']").change(function () {
-                            $(".r-password-tip-2").html("")
-                        });
-                    } else {
-                        $.ajax({
-                            url: "/mine/studentregister/",
-                            type: "post",
-                            data: {
-                                "s_reg_name": s_reg_name, "s_reg_number": s_reg_number,
-                                "s_reg_password": s_reg_password, "s_reg_selection_id": s_reg_selection_id,
-                                "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val()
-                            },
-                            success: function (data) {
-                                if (data["status"] == "ok") {
-                                    $(".tips").html("<div>注册成功！</div><br><div><span id='mes'>3</span>秒后自动跳转...</div>");
-                                    $(".tips").css({"text-align": "center", "font-size": "20px"});
+                    } else if (/^[0-9]+$/.test(s_reg_number)) {
+                        if (s_reg_password.length < 6) {
+                            $(".r-password-tip").css("display", "block").html("不能小于6位");
+                            $("input[name='register-password']").change(function () {
+                                $(".r-password-tip").html("")
+                            });
+                        } else if (s_reg_password.length > 15) {
+                            $(".r-password-tip").css("display", "block").html("不能大于15位");
+                            $("input[name='register-password']").change(function () {
+                                $(".r-password-tip").html("")
+                            });
+                        } else if ($("input[name='register-password']").val() != $("input[name='register-password-2']").val()) {
+                            $(".r-password-tip-2").css("display", "block").html("两次输入的密码不一致");
+                            $("input[name='register-password']").change(function () {
+                                $(".r-password-tip-2").html("")
+                            });
+                            $("input[name='register-password-2']").change(function () {
+                                $(".r-password-tip-2").html("")
+                            });
+                        } else {
+                            $.ajax({
+                                url: "/mine/studentregister/",
+                                type: "post",
+                                data: {
+                                    "s_reg_college": s_reg_college,
+                                    "s_reg_specialty": s_reg_specialty,
+                                    "s_reg_name": s_reg_name,
+                                    "s_reg_number": s_reg_number,
+                                    "s_reg_password": s_reg_password,
+                                    "s_reg_selection_id": s_reg_selection_id,
+                                    "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val()
+                                },
+                                success: function (data) {
+                                    if (data["status"] == "ok") {
+                                        $(".tips").html("<div>注册成功！</div><br><div><span id='mes'>3</span>秒后自动跳转...</div>");
+                                        $(".tips").css({"text-align": "center", "font-size": "20px"});
 
-                                    var tt = 3;
+                                        var tt = 3;
 
-                                    function a() {
-                                        if (tt == 1) {
-                                            window.location.reload() //注册成功后定时刷新网页
-                                        } else {
-                                            tt--;
-                                            $("#mes").html(tt);
+                                        function a() {
+                                            if (tt == 1) {
+                                                window.location.reload() //注册成功后定时刷新网页
+                                            } else {
+                                                tt--;
+                                                $("#mes").html(tt);
+                                            }
                                         }
+
+                                        setInterval(a, 1000);
+
+                                    } else if (data["status"] == "error") {
+                                        $(".r-number-tip").css("display", "block").html("学号已存在<a id='reset' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>不是本人？请联系管理员</a>");
+
+                                        $("input[name='register-number']").change(function () {
+                                            $(".r-number-tip").html("")
+                                        });
+                                    } else if (data["status"] == "stop") {
+                                        $(".r-name-tip").css("display", "block").html("服务器出错，请重新提交");
+                                        $("input[name='register-name']").change(function () {
+                                            $(".r-name-tip").html("")
+                                        });
                                     }
+                                }
+                            });
+                        }
+                    } else {
+                        $(".specialty-select-tip").css("display", "none");
+                        $(".r-number-tip").css("display", "block").html("必须全为数字");
+                        $("input[name='register-number']").change(function () {
+                            $(".r-number-tip").html("")
+                        });
+                    }
 
-                                    setInterval(a, 1000);
-
-                                } else if (data["status"] == "error") {
-                                    $(".r-number-tip").css("display", "block").html("学号已存在<a id='reset' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>不是本人？请联系管理员</a>");
-
-                                    $("input[name='register-number']").change(function () {
-                                        $(".r-number-tip").html("")
+                }
+                //如果选择教师注册
+                else if ($(".r-st:checked").val() == "teacher") {
+                    var t_reg_college = $("#college-select option:selected").val();
+                    var t_reg_name = $("input[name='register-name']").val();
+                    var t_reg_number = $("input[name='register-number']").val();
+                    var t_reg_password = $("input[name='register-password']").val();
+                    var t_reg_selection_id = $(".r-st:checked").val();
+                    if (t_reg_number.length < 8) {
+                        $(".r-number-tip").css("display", "block").html("不能小于8位");
+                        $("input[name='register-number']").change(function () {
+                            $(".r-number-tip").html("")
+                        });
+                    } else if (t_reg_number.length > 15) {
+                        $(".r-number-tip").css("display", "block").html("不能大于15位");
+                        $("input[name='register-number']").change(function () {
+                            $(".r-number-tip").html("")
+                        });
+                    } else if (/^[0-9]+$/.test(t_reg_number)) {
+                        if (t_reg_password.length < 6) {
+                            $(".r-password-tip").css("display", "block").html("不能小于6位");
+                            $("input[name='register-password']").change(function () {
+                                $(".r-password-tip").html("")
+                            });
+                        } else if (t_reg_password.length > 15) {
+                            $(".r-password-tip").css("display", "block").html("不能大于15位");
+                            $("input[name='register-password']").change(function () {
+                                $(".r-password-tip").html("")
+                            });
+                        } else {
+                            if ($("input[name='code-tip']").val() != "") {
+                                if ($("input[name='register-password']").val() != $("input[name='register-password-2']").val()) {
+                                    $(".r-password-tip-2").css("display", "block").html("两次输入的密码不一致");
+                                    $("input[name='register-password']").change(function () {
+                                        $(".r-password-tip-2").html("")
                                     });
-                                } else if (data["status"] == "stop") {
-                                    $(".r-name-tip").css("display", "block").html("服务器出错，请重新提交");
-                                    $("input[name='register-name']").change(function () {
-                                        $(".r-name-tip").html("")
+                                    $("input[name='register-password-2']").change(function () {
+                                        $(".r-password-tip-2").html("")
+                                    });
+                                } else {
+                                    $.ajax({
+                                        url: "/mine/teacherregister/",
+                                        type: "post",
+                                        data: {
+                                            "t_reg_college": t_reg_college,
+                                            "t_reg_name": t_reg_name,
+                                            "t_reg_number": t_reg_number,
+                                            "t_reg_password": t_reg_password,
+                                            "t_reg_selection_id": t_reg_selection_id,
+                                            "t_reg_code": $("input[name='code-tip']").val(),
+                                            "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val()
+                                        },
+                                        success: function (data) {
+                                            if (data["code"] == "ok") {
+                                                if (data["status"] == "ok") {
+                                                    $(".tips").html("<div>注册成功！</div><br><div><span id='mes'>3</span>秒后自动跳转...</div>");
+                                                    $(".tips").css({"text-align": "center", "font-size": "20px"});
+
+                                                    var tt = 3;
+
+                                                    function a() {
+                                                        if (tt == 1) {
+                                                            window.location.reload() //注册成功后定时刷新网页
+                                                        } else {
+                                                            tt--;
+                                                            $("#mes").html(tt);
+                                                        }
+                                                    }
+
+                                                    setInterval(a, 1000);
+
+                                                } else if (data["status"] == "error") {
+                                                    $(".r-number-tip").css("display", "block").html("学号已存在<a id='reset' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>不是本人？请联系管理员</a>");
+
+                                                    $("input[name='register-number']").change(function () {
+                                                        $(".r-number-tip").html("")
+                                                    });
+                                                } else if (data["status"] == "stop") {
+                                                    $(".r-name-tip").css("display", "block").html("服务器出错，请重新提交");
+                                                    $("input[name='register-name']").change(function () {
+                                                        $(".r-name-tip").html("")
+                                                    });
+                                                }
+                                            } else if (data["code"] == "error") {
+                                                $(".code-tip").css("display", "block").html("注册码不正确");
+                                                $("input[name='code-tip']").change(function () {
+                                                    $(".code-tip").html("")
+                                                })
+                                            }
+                                        }
                                     });
                                 }
-                            }
-                        });
-                    }
-                } else {
-                    $(".r-number-tip").css("display", "block").html("必须全为数字");
-                    $("input[name='register-number']").change(function () {
-                        $(".r-number-tip").html("")
-                    });
-                }
 
-            }
-            //如果选择教师注册
-            else if ($(".r-st:checked").val() == "teacher") {
-                var t_reg_name = $("input[name='register-name']").val();
-                var t_reg_number = $("input[name='register-number']").val();
-                var t_reg_password = $("input[name='register-password']").val();
-                var t_reg_selection_id = $(".r-st:checked").val();
-                if (t_reg_number.length < 8) {
-                    $(".r-number-tip").css("display", "block").html("不能小于8位");
-                    $("input[name='register-number']").change(function () {
-                        $(".r-number-tip").html("")
-                    });
-                } else if (t_reg_number.length > 15) {
-                    $(".r-number-tip").css("display", "block").html("不能大于15位");
-                    $("input[name='register-number']").change(function () {
-                        $(".r-number-tip").html("")
-                    });
-                } else if (/^[0-9]+$/.test(t_reg_number)) {
-                    if (t_reg_password.length < 6) {
-                        $(".r-password-tip").css("display", "block").html("不能小于6位");
-                        $("input[name='register-password']").change(function () {
-                            $(".r-password-tip").html("")
-                        });
-                    } else if (t_reg_password.length > 15) {
-                        $(".r-password-tip").css("display", "block").html("不能大于15位");
-                        $("input[name='register-password']").change(function () {
-                            $(".r-password-tip").html("")
-                        });
-                    } else {
-                        if ($("input[name='code-tip']").val() != "") {
-                            if ($("input[name='register-password']").val() != $("input[name='register-password-2']").val()) {
-                                $(".r-password-tip-2").css("display", "block").html("两次输入的密码不一致");
-                                $("input[name='register-password']").change(function () {
-                                    $(".r-password-tip-2").html("")
-                                });
-                                $("input[name='register-password-2']").change(function () {
-                                    $(".r-password-tip-2").html("")
-                                });
                             } else {
-                                $.ajax({
-                                    url: "/mine/teacherregister/",
-                                    type: "post",
-                                    data: {
-                                        "t_reg_name": t_reg_name, "t_reg_number": t_reg_number,
-                                        "t_reg_password": t_reg_password, "t_reg_selection_id": t_reg_selection_id,
-                                        "t_reg_code": $("input[name='code-tip']").val(),
-                                        "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val()
-                                    },
-                                    success: function (data) {
-                                        if (data["code"] == "ok") {
-                                            if (data["status"] == "ok") {
-                                                $(".tips").html("<div>注册成功！</div><br><div><span id='mes'>3</span>秒后自动跳转...</div>");
-                                                $(".tips").css({"text-align": "center", "font-size": "20px"});
-
-                                                var tt = 3;
-
-                                                function a() {
-                                                    if (tt == 1) {
-                                                        window.location.reload() //注册成功后定时刷新网页
-                                                    } else {
-                                                        tt--;
-                                                        $("#mes").html(tt);
-                                                    }
-                                                }
-
-                                                setInterval(a, 1000);
-
-                                            } else if (data["status"] == "error") {
-                                                $(".r-number-tip").css("display", "block").html("学号已存在<a id='reset' href='javascript:void(0)' style='display: block;text-decoration: none;text-align: right;margin-top: -20px;'>不是本人？请联系管理员</a>");
-
-                                                $("input[name='register-number']").change(function () {
-                                                    $(".r-number-tip").html("")
-                                                });
-                                            } else if (data["status"] == "stop") {
-                                                $(".r-name-tip").css("display", "block").html("服务器出错，请重新提交");
-                                                $("input[name='register-name']").change(function () {
-                                                    $(".r-name-tip").html("")
-                                                });
-                                            }
-                                        } else if (data["code"] == "error") {
-                                            $(".code-tip").css("display", "block").html("注册码不正确");
-                                            $("input[name='code-tip']").change(function () {
-                                                $(".code-tip").html("")
-                                            })
-                                        }
-                                    }
-                                });
+                                $(".code-tip").css("display", "block").html("注册码不能为空");
+                                $("input[name='code-tip']").change(function () {
+                                    $(".code-tip").html("")
+                                })
                             }
 
-                        } else {
-                            $(".code-tip").css("display", "block").html("注册码不能为空");
-                            $("input[name='code-tip']").change(function () {
-                                $(".code-tip").html("")
-                            })
                         }
-
+                    } else {
+                        $(".r-number-tip").css("display", "block").html("必须全为数字");
+                        $("input[name='register-number']").change(function () {
+                            $(".r-number-tip").html("")
+                        });
                     }
                 } else {
-                    $(".r-number-tip").css("display", "block").html("必须全为数字");
-                    $("input[name='register-number']").change(function () {
-                        $(".r-number-tip").html("")
-                    });
+                    $(".r-password-tip-2").css("display", "block").html("请选择你的身份"); //两个身份都未选择时提示
+                    $(".r-st").change(function () {
+                        $(".r-password-tip-2").html("");
+                    })
                 }
-            } else {
-                $(".r-password-tip-2").css("display", "block").html("请选择你的身份"); //两个身份都未选择时提示
-                $(".r-st").change(function () {
-                    $(".r-password-tip-2").html("");
+            }
+            //如果注册信息有一个为空执行else
+            else {
+                //判断哪一个为空
+                if ($("#college-select option:selected").val() == "") {
+                    $(".college-select-tip").css("display", "block")
+                }
+                if ($("input[name='register-name']").val() == "") {
+                    $(".r-name-tip").css("display", "block").html("姓名不能为空")
+                }
+                if ($("input[name='register-number']").val() == "") {
+                    $(".r-number-tip").css("display", "block").html("学号不能为空")
+                }
+                if ($("input[name='register-password']").val() == "") {
+                    $(".r-password-tip").css("display", "block").html("密码不能为空")
+                }
+                if ($("input[name='register-password-2']").val() == "") {
+                    $(".r-password-tip-2").css("display", "block").html("此处不能为空")
+                }
+
+                $("#college-select").change(function () {
+                    if ($(this).val() == "") {
+                        $(".college-select-tip").css("display", "block")
+                    } else {
+                        $(".college-select-tip").css("display", "none")
+                    }
+                });
+
+                $("input[name='register-name']").change(function () {
+                    if ($(this).val() == "") {
+                        $(".r-name-tip").css("display", "block").html("姓名不能为空")
+                    } else {
+                        $(".r-name-tip").html("")
+                    }
+                });
+                $("input[name='register-number']").change(function () {
+                    if ($(this).val() == "") {
+                        $(".r-number-tip").css("display", "block").html("学号不能为空")
+                    } else {
+                        $(".r-number-tip").html("")
+                    }
+                });
+                $("input[name='register-password']").change(function () {
+                    if ($(this).val() == "") {
+                        $(".r-password-tip").css("display", "block").html("密码不能为空")
+                    } else {
+                        $(".r-password-tip").html("")
+                    }
+                });
+                $("input[name='register-password-2']").change(function () {
+                    if ($(this).val() == "") {
+                        $(".r-password-tip-2").css("display", "block").html("此处不能为空")
+                    } else {
+                        $(".r-password-tip-2").html("")
+                    }
                 })
             }
+            if ($("#specialty-select option:selected").val() == "") {
+                $(".specialty-select-tip").css("display", "block")
+            }
+            $("#specialty-select").change(function () {
+                if ($(this).val() == "") {
+                    $(".specialty-select-tip").css("display", "block")
+                } else {
+                    $(".specialty-select-tip").css("display", "none")
+                }
+            });
         }
-
-        //如果注册信息有一个为空执行else
-        else {
-            //判断哪一个为空
-            if ($("input[name='register-name']").val() == "") {
-                $(".r-name-tip").css("display", "block").html("姓名不能为空")
-            }
-            if ($("input[name='register-number']").val() == "") {
-                $(".r-number-tip").css("display", "block").html("学号不能为空")
-            }
-            if ($("input[name='register-password']").val() == "") {
-                $(".r-password-tip").css("display", "block").html("密码不能为空")
-            }
-            if ($("input[name='register-password-2']").val() == "") {
-                $(".r-password-tip-2").css("display", "block").html("此处不能为空")
-            }
-
-            $("input[name='register-name']").change(function () {
-                if ($(this).val() == "") {
-                    $(".r-name-tip").css("display", "block").html("姓名不能为空")
-                } else {
-                    $(".r-name-tip").html("")
-                }
-            });
-            $("input[name='register-number']").change(function () {
-                if ($(this).val() == "") {
-                    $(".r-number-tip").css("display", "block").html("学号不能为空")
-                } else {
-                    $(".r-number-tip").html("")
-                }
-            });
-            $("input[name='register-password']").change(function () {
-                if ($(this).val() == "") {
-                    $(".r-password-tip").css("display", "block").html("密码不能为空")
-                } else {
-                    $(".r-password-tip").html("")
-                }
-            });
-            $("input[name='register-password-2']").change(function () {
-                if ($(this).val() == "") {
-                    $(".r-password-tip-2").css("display", "block").html("此处不能为空")
-                } else {
-                    $(".r-password-tip-2").html("")
-                }
-            })
-        }
-    });
+    );
 
 
     $(".l-st").change(function () {
@@ -503,7 +544,7 @@ $(function () {
                     },
                     success: function (data) {
                         if (data["status"] == "success") {
-                            $(".tips3").html("<div>密码修改成功，请重新登录！</div><br><div><span id='mes'>3</span>秒后自动跳转...</div>");
+                            $(".tips3").html("<div>密码修改成功！</div><br><div><span id='mes'>3</span>秒后自动跳转...</div>");
                             $(".tips3").css({"text-align": "center", "font-size": "20px"});
 
                             var tt = 3;
@@ -667,6 +708,44 @@ $(function () {
             $(".head-picture-tip").css("display", "none");
         }
         $(".head-picture-error-tip").css("display", "none")
+    });
+
+
+    $.ajax({
+        url: "/specialty/",
+        type: "get",
+        data: {
+            "college": Number($("#college-select option:selected").val())
+        },
+        success: function (data) {
+            for (var i = -1; i < data["data"].length; i++) {
+                if (i == -1) {
+                    $("#specialty-select").append("<option value=''></option>");
+                } else {
+                    $("#specialty-select").append("<option value=" + data['data'][i]['id'] + ">" + data['data'][i]['name'] + "</option>");
+                }
+
+            }
+        }
+    });
+    $("#college-select").change(function () {
+        $("#specialty-select").empty();
+        $.ajax({
+            url: "/specialty/",
+            type: "get",
+            data: {
+                "college": Number($(this).val())
+            },
+            success: function (data) {
+                for (var i = -1; i < data["data"].length; i++) {
+                    if (i == -1) {
+                        $("#specialty-select").append("<option value=''></option>");
+                    } else {
+                        $("#specialty-select").append("<option value=" + data['data'][i]['id'] + ">" + data['data'][i]['name'] + "</option>");
+                    }
+                }
+            }
+        })
     })
 });
 //判断浏览器是否支持FileReader接口

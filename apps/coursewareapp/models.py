@@ -38,7 +38,7 @@ class Courseware(models.Model):
     teacher = models.ForeignKey(TeacherProfile, on_delete=models.CASCADE, verbose_name='老师')
 
     class Meta:
-        db_table = 'courseware'
+        db_table = 'coursewares'
         verbose_name = '课件'
         verbose_name_plural = verbose_name
         ordering = ['add_time']
