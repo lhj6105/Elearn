@@ -165,7 +165,6 @@ img {
 
 .form-control {
     height: 40px;
-    border-radius: 0 4px 4px 0 !important;
 }
 
 .form-group {
@@ -365,5 +364,5 @@ img {
 
 #college-select, #specialty-select {
     border-radius: 4px 4px 4px 4px !important;
-    background-color: #eeeeee;
+    background-color: #ffffff;
 }

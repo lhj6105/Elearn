@@ -35,6 +35,11 @@ $(function () {
             $(this).css("background-color", "#23b8ff");
             $(".mine-item-content").children("div").attr("hidden", "hidden");
             $(".mine-item-student-score").removeAttr("hidden")
+        }else if ($(this).children("a").html() == "教授专业") {
+            $(".mine-item-title li").removeAttr("style");
+            $(this).css("background-color", "#23b8ff");
+            $(".mine-item-content").children("div").attr("hidden", "hidden");
+            $(".mine-item-add-specialty").removeAttr("hidden")
         }
     });
 
@@ -271,17 +276,22 @@ $(function () {
 
     //增加选择题
     $(".add-xz-question").click(function () {
+        var xz_question = $("textarea[name='xz-question']").val();
+        var xz_answer_A = $("input[name='xz-answer-A']").val();
+        var xz_answer_B = $("input[name='xz-answer-B']").val();
+        var xz_answer_C = $("input[name='xz-answer-C']").val();
+        var xz_answer_D = $("input[name='xz-answer-D']").val();
         if ($("select[name='homework-select'] option:selected").val() == undefined) {
             $(".homework-select-tip").css("display", "block")
-        } else if ($("textarea[name='xz-question']").val() == "") {
+        } else if (xz_question == "") {
             $(".xz-question-tip").css("display", "block")
-        } else if ($("input[name='xz-answer-A']").val() == "") {
+        } else if (xz_answer_A == "") {
             $(".xz-answer-A-tip").css("display", "block")
-        } else if ($("input[name='xz-answer-B']").val() == "") {
+        } else if (xz_answer_B == "") {
             $(".xz-answer-B-tip").css("display", "block")
-        } else if ($("input[name='xz-answer-C']").val() == "") {
+        } else if (xz_answer_C == "") {
             $(".xz-answer-C-tip").css("display", "block")
-        } else if ($("input[name='xz-answer-D']").val() == "") {
+        } else if (xz_answer_D == "") {
             $(".xz-answer-D-tip").css("display", "block")
         } else if ($("input[name='xz-answer']:checked").val() == undefined) {
             $(".xz-answer-tip").css("display", "block")
@@ -291,11 +301,11 @@ $(function () {
                 type: "post",
                 data: {
                     "homework": $("select[name='homework-select'] option:selected").val(),
-                    "xz-question": $("textarea[name='xz-question']").val(),
-                    "xz-answer-A": $("input[name='xz-answer-A']").val(),
-                    "xz-answer-B": $("input[name='xz-answer-B']").val(),
-                    "xz-answer-C": $("input[name='xz-answer-C']").val(),
-                    "xz-answer-D": $("input[name='xz-answer-D']").val(),
+                    "xz-question": xz_question,
+                    "xz-answer-A": xz_answer_A,
+                    "xz-answer-B": xz_answer_B,
+                    "xz-answer-C": xz_answer_C,
+                    "xz-answer-D": xz_answer_D,
                     "xz-answer": $("input[name='xz-answer']:checked").val(),
                     "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val(),
                 },

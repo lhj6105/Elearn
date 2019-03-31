@@ -14,6 +14,9 @@ class College(models.Model):
         verbose_name = '学院表'
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.name
+
 
 class Specialty(models.Model):
     id = models.IntegerField(primary_key=True, verbose_name='专业编号')
@@ -64,7 +67,7 @@ class SpecialtyTeacher(models.Model):
 
     class Meta:
         db_table = 'specialty_teacher'
-        verbose_name = '专业教师多对多中间表'
+        verbose_name = '专业教师表'
         verbose_name_plural = verbose_name
 
 
@@ -104,5 +107,5 @@ class TeacherStudent(models.Model):
 
     class Meta:
         db_table = 'teacher_student'
-        verbose_name = '教师学生多对多中间表'
+        verbose_name = '教师学生表'
         verbose_name_plural = verbose_name

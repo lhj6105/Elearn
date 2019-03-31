@@ -165,7 +165,7 @@
     float: left;
     text-align: center;
     width: 120px;
-    height: 280px;
+    height: 300px;
     background-color: rgba(1, 1, 1, 0.05);
 }
 
@@ -324,50 +324,80 @@ input[type='button']:hover {
     width: 500px;
 }
 
-.mine-item-all-student-inner ul, .mine-item-student-score ul ,.mine-item-student-details-inner ul{
+.mine-item-all-student-inner ul, .mine-item-student-score ul, .mine-item-student-details-inner ul {
     list-style: none;
     font-size: 15px;
     line-height: 25px;
     margin-left: -40px;
 }
-.mine-item-myhomework-inner a{
+
+.mine-item-myhomework-inner a {
     text-decoration: none;
     color: #12a7ff;
 }
-.mine-item-myhomework-inner a:hover{
+
+.mine-item-myhomework-inner a:hover {
     text-decoration: none;
     color: rgb(35, 184, 255);
 }
-.mine-item-student-score{
+
+.mine-item-student-score {
     width: 100%;
 }
-.mine-item-student-score ul{
+
+.mine-item-student-score ul {
     margin-left: -40px;
 }
-.mine-item-student-score div{
+
+.mine-item-student-score div {
     display: inline-block;
 }
-.mine-item-student-score li>div:nth-child(1),.mine-item-student-details-inner li>div:nth-child(1){
+
+.mine-item-student-score li > div:nth-child(1) {
     width: 150px;
 }
 
-.mine-item-student-score li>div:nth-child(2),.mine-item-student-score li>div:nth-child(3){
+.mine-item-student-details-inner li > div:nth-child(1), .mine-item-student-details-inner li > div:nth-child(2) {
+    width: 200px;
+}
+
+.mine-item-student-score li > div:nth-child(2), .mine-item-student-score li > div:nth-child(3) {
     width: 300px;
 }
-.mine-item-student-score hr,.mine-item-student-details-inner hr{
+
+.mine-item-student-score hr, .mine-item-student-details-inner hr {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-.student_total_time{
+.student_total_time {
     margin-left: 40px;
 }
-.student_total_time hr{
+
+.student_total_time hr {
     margin-bottom: 0;
 }
-.mine-item-student-details-inner ul{
+
+.mine-item-student-details-inner ul {
     margin-left: -40px;
 }
-.mine-item-student-details-inner div{
+
+.mine-item-student-details-inner div {
     display: inline-block;
+}
+
+.mine-item-add-specialty select {
+    width: 20%;
+}
+
+.mine-item-add-specialty ul {
+    list-style: none;
+    line-height: 30px;
+    font-size: 15px;
+    margin-left: -40px;
+}
+
+.mine-item-add-specialty hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

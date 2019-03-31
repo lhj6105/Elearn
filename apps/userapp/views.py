@@ -27,19 +27,25 @@ class Mine(View):
                 total = StudentProfile.objects.filter(number=stu).first().total_time
                 total_time = FileCheck.timeConvert(self, int(total))
             elif request.session['user']['identity'] == 'teacher':
-                tea = request.session['user']['number']
-                my_homework = Homework.objects.filter(teacher_id=tea)
+                teacher = request.session['user']['number']
+                my_homework = Homework.objects.filter(teacher_id=teacher)
+                college = TeacherProfile.objects.filter(number=teacher).first().college_id
+                specialtys = SpecialtyTeacher.objects.filter(teacher_id=teacher).all()  # 该教师教授专业
+                all_student_details = []
+                for specialty in specialtys:
+                    all_student_details.append(StudentProfile.objects.filter(specialty_id=specialty.specialty_id).all()) # 该教师教授所有专业所有学生学习情况
                 all_student_score = StudentScore.objects.all()
-                all_student_details = StudentProfile.objects.all()
                 student_list = []
                 for student in all_student_details:
-                    s = []
-                    l = []
-                    one_time = FileCheck.timeConvert(self, int(student.total_time))
-                    s.append(student.name)
-                    s.append(one_time)
-                    l.append(s)
-                    student_list.extend(l)
+                    for student2 in student:
+                        s = []
+                        l = []
+                        one_time = FileCheck.timeConvert(self, int(student2.total_time))
+                        s.append(student2.name)
+                        s.append(student2.specialty)
+                        s.append(one_time)
+                        l.append(s)
+                        student_list.extend(l)
             return render(request, 'mine.html', locals())
         except Exception as e:
             print(e)
@@ -55,22 +61,21 @@ class TeacherReg(View):
         pass
 
     def post(self, request):
-        t_reg_name = request.POST.get('t_reg_name')
-        t_reg_number = request.POST.get('t_reg_number')
-        t_reg_password = request.POST.get('t_reg_password')
-        t_reg_selection_id = request.POST.get('t_reg_selection_id')
-        t_reg_code = request.POST.get('t_reg_code')
-        t_reg_college = request.POST.get('t_reg_college')
+        name = request.POST.get('name')
+        number = request.POST.get('number')
+        password = request.POST.get('password')
+        identity = request.POST.get('identity')
+        code = request.POST.get('code')
+        college = request.POST.get('college')
         try:
-            if t_reg_code == '123456':
-                teacher = TeacherProfile.objects.filter(number=t_reg_number).first()  # 判断学号是否存在
+            if code == '123456':
+                teacher = TeacherProfile.objects.filter(number=number).first()  # 判断学号是否存在
                 if teacher:
                     return JsonResponse({'status': 'error', 'code': 'ok'})  # 验证正确但学号存在
                 else:
                     # 不存在新建
-                    new_teacher = TeacherProfile.objects.create(number=t_reg_number, name=t_reg_name,
-                                                                password=t_reg_password, identity=t_reg_selection_id,
-                                                                college_id=t_reg_college)
+                    new_teacher = TeacherProfile.objects.create(number=number, name=name, password=password,
+                                                                identity=identity, college_id=college)
                     if new_teacher:
                         request.session['user'] = {
                             'number': new_teacher.number,
@@ -97,11 +102,11 @@ class TeacherLog(View):
 
     def post(self, request):
         try:
-            t_log_number = request.POST.get('t_log_number')
-            t_log_password = request.POST.get('t_log_password')
-            teacher = TeacherProfile.objects.filter(number=t_log_number).first()  # 判断是否存在
+            number = request.POST.get('number')
+            password = request.POST.get('password')
+            teacher = TeacherProfile.objects.filter(number=number).first()  # 判断是否存在
             if teacher:
-                if check_password(t_log_password, teacher.password):  # 密码认证:
+                if check_password(password, teacher.password):  # 密码认证:
                     request.session['user'] = {
                         'number': teacher.number,
                         'name': teacher.name,
@@ -125,21 +130,21 @@ class StudentReg(View):
         pass
 
     def post(self, request):
-        s_reg_name = request.POST.get('s_reg_name')
-        s_reg_number = request.POST.get('s_reg_number')
-        s_reg_password = request.POST.get('s_reg_password')
-        s_reg_selection_id = request.POST.get('s_reg_selection_id')
-        s_reg_college = request.POST.get('s_reg_college')
-        s_reg_specialty = request.POST.get('s_reg_specialty')
+        name = request.POST.get('name')
+        number = request.POST.get('number')
+        password = request.POST.get('password')
+        identity = request.POST.get('identity')
+        college = request.POST.get('college')
+        specialty = request.POST.get('specialty')
         try:
-            student = StudentProfile.objects.filter(number=s_reg_number).first()  # 判断学号是否存在
+            student = StudentProfile.objects.filter(number=number).first()  # 判断学号是否存在
             if student:
                 return JsonResponse({'status': 'error'})  # 学号存在
             else:
                 # 不存在新建
-                new_student = StudentProfile.objects.create(number=s_reg_number, name=s_reg_name,
-                                                            password=s_reg_password, identity=s_reg_selection_id,
-                                                            college_id=s_reg_college, specialty_id=s_reg_specialty)
+                new_student = StudentProfile.objects.create(number=number, name=name, password=password,
+                                                            identity=identity, college_id=college,
+                                                            specialty_id=specialty)
                 if new_student:
                     request.session['user'] = {
                         'number': new_student.number,
@@ -163,12 +168,12 @@ class StudentLog(View):
         pass
 
     def post(self, request):
-        s_log_number = request.POST.get('s_log_number')
-        s_log_password = request.POST.get('s_log_password')
+        number = request.POST.get('number')
+        password = request.POST.get('password')
         try:
-            student = StudentProfile.objects.filter(number=s_log_number).first()  # 判断是否存在
+            student = StudentProfile.objects.filter(number=number).first()  # 判断是否存在
             if student:
-                if check_password(s_log_password, student.password):  # 密码认证
+                if check_password(password, student.password):  # 密码认证
                     request.session['user'] = {
                         'number': student.number,
                         'name': student.name,
@@ -193,7 +198,7 @@ class ResetPassword(View):
 
     def post(self, request):
         try:
-            password = request.POST.get('reset_password_1')
+            password = request.POST.get('password')
             number = request.session['user']['number']
             identity = request.session['user']['identity']
             if identity == 'student':
@@ -287,6 +292,28 @@ class HeadPicture(View):
         except Exception as e:
             print("HeadPicture error:", e)
             return JsonResponse({'status': 'stop'})  # 服务器出错
+
+
+
+class SelectSpecialty(View):
+
+    def get(self, request):
+        try:
+            college = request.GET.get('college')
+            specialty_obj = Specialty.objects.filter(college_id=college).all()
+            specialty_list = []
+            for s in specialty_obj:
+                specialty = {}
+                specialty['id'] = s.id
+                specialty['name'] = s.name
+                specialty_list.append(specialty)
+            return JsonResponse({'data': specialty_list})
+        except Exception as e:
+            print('SelectSpecialty error:', e)
+
+    def post(self, request):
+        pass
+
 
 
 class LoginOut(View):

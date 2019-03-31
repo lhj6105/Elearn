@@ -141,10 +141,11 @@ $(function () {
             countTime(click_nums);  //向后台发数据
         });
         var closeBtn = player.controlBar.addChild("button").addClass("vjs-close");
-        $(".vjs-close").attr("title", "close");
-        $(".vjs-close").children("span:nth-child(1)").removeClass("vjs-icon-placeholder");
-        $(".vjs-close").children("span:nth-child(1)").addClass("glyphicon glyphicon-stop");
-        $(".vjs-close").click(function () {
+        var vjs_close = $(".vjs-close");
+        vjs_close.attr("title", "close");
+        vjs_close.children("span:nth-child(1)").removeClass("vjs-icon-placeholder");
+        vjs_close.children("span:nth-child(1)").addClass("glyphicon glyphicon-stop");
+        vjs_close.click(function () {
             player.pause();
             player.hide();
             window.clearInterval(time1);

@@ -65,6 +65,7 @@
                         <li><a href="javascript:void(0)">批改作业</a></li>
                         <li><a href="javascript:void(0)">学习详情</a></li>
                         <li><a href="javascript:void(0)">学生分数</a></li>
+                        <li><a href="javascript:void(0)">教授专业</a></li>
                     </ul>
                 </div>
                 <div class="mine-item-content">
@@ -301,7 +302,10 @@
                                         <div>
                                             <span>{{ student.0 }}</span>
                                         </div>
-                                        <div><span>观看视频时长：{{ student.1 }}</span></div>
+                                        <div>
+                                            <span>{{ student.1 }}</span>
+                                        </div>
+                                        <div><span>观看视频时长：{{ student.2 }}</span></div>
                                     </li>
                                     <hr/>
                                 {% endfor %}
@@ -311,7 +315,7 @@
 
                     {# 学生分数 #}
                     <div class="mine-item-student-score" hidden="hidden">
-                        <div class="mine-item-student-score">
+                        <div class="mine-item-student-score-inner">
                             <ul>
                                 {% for score in all_student_score %}
                                     <li>
@@ -330,7 +334,19 @@
                             </ul>
                         </div>
                     </div>
-
+                    {# 教授专业 #}
+                    <div class="mine-item-add-specialty" hidden="hidden">
+                        <div class="form-group mine-item-add-specialty-inner">
+                            <ul>
+                                {% for specialty in specialtys %}
+                                    <li>
+                                        {{ specialty.specialty.name }}
+                                    </li>
+                                    <hr/>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
