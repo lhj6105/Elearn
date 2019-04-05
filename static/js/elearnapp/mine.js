@@ -35,7 +35,7 @@ $(function () {
             $(this).css("background-color", "#23b8ff");
             $(".mine-item-content").children("div").attr("hidden", "hidden");
             $(".mine-item-student-score").removeAttr("hidden")
-        }else if ($(this).children("a").html() == "教授专业") {
+        } else if ($(this).children("a").html() == "教授专业") {
             $(".mine-item-title li").removeAttr("style");
             $(this).css("background-color", "#23b8ff");
             $(".mine-item-content").children("div").attr("hidden", "hidden");
@@ -156,7 +156,9 @@ $(function () {
 
     //上传课件
     $(".upload").click(function () {
-        if ($("input[name='courseware-name']").val() == "") {
+        if ($("select[name='courseware-specialty-select'] option:selected") == "") {
+            $(".courseware-specialty-select-tip").css("display", "inline-block")
+        } else if ($("input[name='courseware-name']").val() == "") {
             $(".courseware-name-tip").css("display", "inline-block")
         } else if ($("input[name='courseware-file']").val() == "") {
             $(".courseware-file-tip").css("display", "inline-block")
@@ -192,7 +194,9 @@ $(function () {
 
     //增加作业
     $(".upload-homework").click(function () {
-        if ($("input[name='homework-name']").val() == "") {
+        if ($("select[name='homework-specialty-select'] option:selected") == "") {
+            $(".homework-specialty-select-tip").css("display", "inline-block")
+        } else if ($("input[name='homework-name']").val() == "") {
             $(".homework-name-tip").css("display", "inline-block")
         } else {
             var formData = new FormData($('#upload-homework')[0]);
@@ -206,7 +210,6 @@ $(function () {
                 success: function (data) {
                     if (data["status"] == "success") {
                         $("input[name='homework-name']").val("");
-                        $("input[name='homework-id']").val("");
                         $("input[name='homework-desc']").val("");
                         $(".upload-homework-error").css("display", "none");
                         $(".upload-homework-success").css("display", "block");

@@ -87,7 +87,7 @@
                     <a href="{% url 'video:video' %}">视频</a>
                 </li>
                 <li role="presentation">
-                    <a href="{% url 'courseware:courseware' %}">课件</a>
+                    <a href="{% url 'courseware:courseware' %}">资料</a>
                 </li>
                 <li role="presentation">
                     <a href="{% url 'homework:homework' %}">作业</a>
@@ -148,18 +148,22 @@
                             {% csrf_token %}
                             <div class="form-group college-select-outter-div">
                                 <select id="college-select" class="form-control" name="college-select" title="选择你的学院">
+                                    <option value="" selected hidden>选择学院</option>
                                     {% for college in college_obj %}
                                         {% if forloop.first %}
-                                            <option value="{{ college.id }}" selected>{{ college.name }}</option>
+                                            <option value="{{ college.id }}">{{ college.name }}</option>
                                         {% else %}
                                             <option value="{{ college.id }}">{{ college.name }}</option>
                                         {% endif %}
                                     {% endfor %}
                                 </select>
-                            <span class="college-select-tip" style="display: none">请选择你的学院</span>
+                                <span class="college-select-tip" style="display: none">请选择你的学院</span>
                             </div>
                             <div class="form-group specialty-select-outter-div">
-                                <select id="specialty-select" class="form-control" name="specialty-select" title="选择你的专业">
+
+                                <select id="specialty-select" class="form-control" name="specialty-select"
+                                        title="选择你的专业">
+                                    <option value="" selected hidden>选择专业</option>
                                 </select>
                                 <span class="specialty-select-tip" style="display: none">请选择你的专业</span>
                             </div>

@@ -15,7 +15,15 @@ class CoursewareView(View):
     def get(self, request):
         try:
             page_number = request.GET.get('page', default='1')
-            all_courseware = Courseware.objects.all().order_by('-add_time')
+            number = request.session['user']['number']
+            identity = request.session['user']['identity']
+            if identity == 'student':
+                specialty = StudentProfile.objects.filter(number=number).first().specialty
+                # 学生只能看到所在专业的资料
+                all_courseware = Courseware.objects.filter(specialty=specialty).all().order_by('-add_time')
+            elif identity == 'teacher':
+                # 教师只能看见自己发布的资料
+                all_courseware = Courseware.objects.filter(teacher_id=number).all()
             paginator = Paginator(all_courseware, 10)  # 实例化分页器对象，第一个参数是数据源，第二个参数是每页显示的条数
             page = paginator.page(page_number)  # 返回page_number页的数据，以Page对象的方式封装该页数据
             return render(request, 'courseware.html', locals())
@@ -37,9 +45,12 @@ class UploadFile(View):
         try:
             courseware_name = request.POST.get('courseware-name')
             courseware_file = request.FILES.get('courseware-file')
+            specialty = request.POST.get('courseware-specialty-select')
+            print(specialty)
             teacher = request.session['user']['number']
             # 将数据保存到数据库中
-            courseware_obj = Courseware.objects.create(name=courseware_name, file=courseware_file, teacher_id=teacher)
+            courseware_obj = Courseware.objects.create(name=courseware_name, file=courseware_file, teacher_id=teacher,
+                                                       specialty_id=specialty)
             if courseware_obj:
                 courseware_obj.save()
                 return JsonResponse({'status': 'success'})

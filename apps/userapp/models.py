@@ -38,7 +38,6 @@ class TeacherProfile(models.Model):
     name = models.CharField(max_length=30, verbose_name='姓名')
     password = models.CharField(max_length=200, verbose_name='密码')
     identity = models.CharField(max_length=20, default='teacher', verbose_name='身份', editable=False)  # 学生还是教师
-    date_joined = models.DateTimeField(auto_now_add=True, verbose_name='注册时间')
     profile_photo = models.ImageField(upload_to='images/user_profile/',
                                       default='images/user_profile/default/default_teacher.png', editable=False)
     college = models.ForeignKey(College, on_delete=models.CASCADE, verbose_name='学院')
@@ -76,13 +75,11 @@ class StudentProfile(models.Model):
     name = models.CharField(max_length=30, verbose_name='姓名')
     password = models.CharField(max_length=200, verbose_name='密码')
     identity = models.CharField(max_length=20, default='student', verbose_name='身份', editable=False)  # 学生还是教师
-    date_joined = models.DateTimeField(auto_now_add=True, verbose_name='注册时间')
     total_time = models.CharField(max_length=20, default=0, verbose_name='观看视频总时长', editable=False)
     profile_photo = models.ImageField(upload_to='images/user_profile/',
                                       default='images/user_profile/default/default_student.png', editable=False)
     college = models.ForeignKey(College, on_delete=models.CASCADE, verbose_name='学院')
     specialty = models.ForeignKey(Specialty, on_delete=models.CASCADE, verbose_name='专业')
-    teacher = models.ManyToManyField(TeacherProfile, through='TeacherStudent')
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
@@ -99,13 +96,3 @@ class StudentProfile(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class TeacherStudent(models.Model):
-    teacher = models.ForeignKey(TeacherProfile, on_delete=models.CASCADE, verbose_name='教师')
-    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, verbose_name='学生')
-
-    class Meta:
-        db_table = 'teacher_student'
-        verbose_name = '教师学生表'
-        verbose_name_plural = verbose_name

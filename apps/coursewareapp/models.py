@@ -36,6 +36,7 @@ class Courseware(models.Model):
     add_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间', editable=False)
     download_nums = models.CharField(max_length=10, editable=False, default=0, verbose_name='下载量')
     teacher = models.ForeignKey(TeacherProfile, on_delete=models.CASCADE, verbose_name='老师')
+    specialty = models.ForeignKey(Specialty, on_delete=models.CASCADE, verbose_name='专业')
 
     class Meta:
         db_table = 'coursewares'

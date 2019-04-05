@@ -18,9 +18,6 @@ class Mine(View):
 
     def get(self, request):
         try:
-            all_course = Course.objects.all()
-            all_homework = Homework.objects.all()
-            questions = Questions.objects.all()
             if request.session['user']['identity'] == 'student':
                 stu = request.session['user']['number']
                 s_score = StudentScore.objects.filter(student_id=stu)
@@ -28,12 +25,15 @@ class Mine(View):
                 total_time = FileCheck.timeConvert(self, int(total))
             elif request.session['user']['identity'] == 'teacher':
                 teacher = request.session['user']['number']
-                my_homework = Homework.objects.filter(teacher_id=teacher)
+                all_course = Course.objects.filter(teacher_id=teacher).all()
+                all_homework = Homework.objects.filter(teacher_id=teacher).all()
+                my_homework = Homework.objects.filter(teacher_id=teacher).all()
                 college = TeacherProfile.objects.filter(number=teacher).first().college_id
                 specialtys = SpecialtyTeacher.objects.filter(teacher_id=teacher).all()  # 该教师教授专业
                 all_student_details = []
                 for specialty in specialtys:
-                    all_student_details.append(StudentProfile.objects.filter(specialty_id=specialty.specialty_id).all()) # 该教师教授所有专业所有学生学习情况
+                    all_student_details.append(
+                        StudentProfile.objects.filter(specialty_id=specialty.specialty_id).all())  # 该教师教授所有专业所有学生学习情况
                 all_student_score = StudentScore.objects.all()
                 student_list = []
                 for student in all_student_details:
@@ -212,6 +212,7 @@ class ResetPassword(View):
                             'number': student_obj.first().number,
                             'name': student_obj.first().name,
                             'identity': student_obj.first().identity,
+                            'specialty': student_obj.first().specialty,
                             'photo': json.dumps(str(student_obj.first().profile_photo))[1:-1],
                         }
                         return JsonResponse({'status': 'success'})
@@ -294,7 +295,6 @@ class HeadPicture(View):
             return JsonResponse({'status': 'stop'})  # 服务器出错
 
 
-
 class SelectSpecialty(View):
 
     def get(self, request):
@@ -313,7 +313,6 @@ class SelectSpecialty(View):
 
     def post(self, request):
         pass
-
 
 
 class LoginOut(View):

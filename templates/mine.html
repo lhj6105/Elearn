@@ -126,6 +126,17 @@
                         <div class="mine-item-upload-courseware-inner">
                             <form id="upload-courseware" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
+                                <select class="selectpicker form-control" multiple data-live-search="true"
+                                        data-max-options="1" name="courseware-specialty-select"
+                                        data-style="btn-info" title="选择专业">
+                                    {% for sp in specialtys %}
+                                        <option value="{{ sp.specialty_id }}">
+                                            {{ sp.specialty }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <span class="courseware-specialty-select-tip" style="display: none;color: red">请选择专业</span>
+                                <br/>
                                 <input type="text" class="form-control" name="courseware-name"
                                        placeholder="课件名"><span
                                     class="courseware-name-tip"
@@ -147,10 +158,20 @@
                         <div class="mine-item-add-homework-inner">
                             <form id="upload-homework" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
+                                <select class="selectpicker form-control" multiple data-live-search="true"
+                                        data-max-options="1" name="homework-specialty-select"
+                                        data-style="btn-info" title="选择专业">
+                                    {% for sp in specialtys %}
+                                        <option value="{{ sp.specialty_id }}">
+                                            {{ sp.specialty }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <span class="homework-specialty-select-tip" style="display: none;color: red">请选择专业</span>
+                                <br/>
                                 <input type="text" class="form-control" name="homework-name" placeholder="作业名"><span
                                     class="homework-name-tip"
                                     style="margin-left: 5px;color: red;display: none;">请输入作业名</span>
-                                <input type="text" class="form-control" name="homework-id" placeholder="作业号(可为空)">
                                 <input type="text" class="form-control" name="homework-desc" placeholder="作业描述(可为空)">
                                 <input type="button" class="form-control upload-homework" value="添加">
                             </form>

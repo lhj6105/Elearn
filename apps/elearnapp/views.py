@@ -21,7 +21,7 @@ class Home(View):
     def get(self, request):
         try:
             # 获取点击量最高的视频
-            hot_course = Course.objects.all().order_by('-click_nums')
+            hot_course = Course.objects.all().order_by('-click_nums')[:8]
             hot_course_list = []
             for course in hot_course:
                 if course.video_set.count():

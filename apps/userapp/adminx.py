@@ -23,30 +23,22 @@ class SpecialtyTeacherAdmin:
     model_icon = 'glyphicon glyphicon-user'
 
 
-class TeacherStudentAdmin:
-    list_display = ('id', 'teacher', 'student')
-    list_per_page = 10  # 每页显示条目数
-    ordering = ('id', 'teacher',)  # 按发布日期排序
-    model_icon = 'glyphicon glyphicon-user'
-
-
 class TeacherAdmin:
-    list_display = ('number', 'name', 'identity', 'profile_photo', 'date_joined')
+    list_display = ('number', 'name', 'college', 'identity', 'profile_photo')
     list_per_page = 10  # 每页显示条目数
-    ordering = ('number', '-date_joined',)  # 按发布日期排序
+    ordering = ('number', 'name', 'college')  # 按发布日期排序
     model_icon = 'glyphicon glyphicon-user'
 
 
 class StudentAdmin:
-    list_display = ('number', 'name', 'identity', 'profile_photo', 'date_joined', 'total_time')
+    list_display = ('number', 'name', 'college', 'specialty', 'identity', 'profile_photo', 'total_time')
     list_per_page = 10  # 每页显示条目数
-    ordering = ('number', '-date_joined',)  # 按发布日期排序
+    ordering = ('number', 'name', 'college', 'specialty')  # 按发布日期排序
     model_icon = 'fa fa-graduation-cap'
 
 
 xadmin.site.register(College, CollegeAdmin)
 xadmin.site.register(Specialty, SpecialtyAdmin)
 xadmin.site.register(SpecialtyTeacher, SpecialtyTeacherAdmin)
-xadmin.site.register(TeacherStudent, TeacherStudentAdmin)
 xadmin.site.register(TeacherProfile, TeacherAdmin)
 xadmin.site.register(StudentProfile, StudentAdmin)

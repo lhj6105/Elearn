@@ -15,8 +15,14 @@ class HomeworkView(View):
     def get(self, request):
         try:
             page_number = request.GET.get('page', default='1')
+            number = request.session['user']['number']
+            identity = request.session['user']['identity']
             # 挑选出已发布的所有作业
-            all_homework = Homework.objects.filter(release=True).all()
+            if identity == 'student':
+                specialty = StudentProfile.objects.filter(number=number).first().specialty
+                all_homework = Homework.objects.filter(specialty=specialty).all()
+            elif identity == 'teacher':
+                all_homework = Homework.objects.filter(teacher_id=number, release=True).all()
             all_homework_list = []
             for h in all_homework:
                 if h.questions_set.all():
@@ -158,15 +164,13 @@ class UploadHomework(View):
     def post(self, request):
         try:
             homework_name = request.POST.get('homework-name')
-            homework_id = request.POST.get('homework-id')
             homework_desc = request.POST.get('homework-desc')
+            specialty = request.POST.get('homework-specialty-select')
             teacher = request.session['user']['number']
-            if homework_id == '':
-                homework_id = 'hwm0000'
             if homework_desc == '':
                 homework_desc = '无'
-            homework_obj = Homework.objects.create(name=homework_name, number=homework_id, desc=homework_desc,
-                                                   teacher_id=teacher)
+            homework_obj = Homework.objects.create(name=homework_name, describe=homework_desc,
+                                                   teacher_id=teacher, specialty_id=specialty)
             if homework_obj:
                 homework_obj.save()
                 return JsonResponse({'status': 'success'})

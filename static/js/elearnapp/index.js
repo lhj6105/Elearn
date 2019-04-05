@@ -634,6 +634,7 @@ $(function () {
         }
     });
     $(".register-password-eye-1").click(function () {
+        var password = $("input[name='register-password']");
         var register_password_eye_icon_1 = $(".register-password-eye-icon-1");
         if (register_password_eye_icon_1.hasClass("glyphicon-eye-close")) {
             register_password_eye_icon_1.removeClass("glyphicon-eye-close");
@@ -646,6 +647,7 @@ $(function () {
         }
     });
     $(".register-password-eye-2").click(function () {
+        var password2 = $("input[name='register-password-2']");
         var register_password_eye_icon_2 = $(".register-password-eye-icon-2");
         if (register_password_eye_icon_2.hasClass("glyphicon-eye-close")) {
             register_password_eye_icon_2.removeClass("glyphicon-eye-close");
@@ -748,7 +750,7 @@ $(function () {
             success: function (data) {
                 for (var i = -1; i < data["data"].length; i++) {
                     if (i == -1) {
-                        $("#specialty-select").append("<option value=''></option>");
+                        $("#specialty-select").append("<option value='' selected hidden>选择专业</option>");
                     } else {
                         $("#specialty-select").append("<option value=" + data['data'][i]['id'] + ">" + data['data'][i]['name'] + "</option>");
                     }

@@ -51,7 +51,7 @@
                             <div>
                                 {% csrf_token %}
                                 <span class="task-item--suffix">{{ video.duration }}</span>
-                                {% if request.session.user.identity == 'teacher' %}
+                                {% if request.session.user.identity == 'teacher' and video.course.teacher.number == request.session.user.number %}
                                     <button class="btn btn-sm delete-video" value="{{ video.id }}">删除</button>
                                 {% endif %}
                             </div>

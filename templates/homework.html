@@ -23,16 +23,16 @@
                     <hr class="homework-hr"/>
                 </ul>
                 <ul>
-                    {% for homework in all_homework_list %}
+                    {% for homework in all_homework %}
                         <li>
                             <div class="homework-name">
                                 <a href="{% url 'homework:details' %}?list={{ homework.id }}">{{ homework.name }}</a>
                             </div>
                             <div class="homework-teacher-name">
-                                <span>{{ homework.teacher.teacher_name }}</span>
+                                <span>{{ homework.teacher.name }}</span>
                             </div>
                             <div class="homework-desc">
-                                <span>{{ homework.desc }}</span>
+                                <span>{{ homework.describe }}</span>
                             </div>
                             <div class="homework-time">
                                 <span>

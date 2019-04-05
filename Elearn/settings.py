@@ -49,11 +49,17 @@ INSTALLED_APPS = [
     'haystack',
 ]
 
+# HAYSTACK_CONNECTIONS = {
+#     'default': {
+#         'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
+#         'URL': 'localhost:9200/',
+#         'INDEX_NAME': 'videoapp_index',
+#     },
+# }
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
-        'URL': 'localhost:9200/',
-        'INDEX_NAME': 'videoapp_index',
+        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'videoapp_index'),
     },
 }
 

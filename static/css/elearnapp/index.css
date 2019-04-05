@@ -208,7 +208,7 @@ input[name='video-title'], input[name='courseware-name'], input[name='homework-n
     display: inline-block;
 }
 
-input[name='course-name'], input[name='courseware-name'], input[name='homework-name'] {
+input[name='course-name']{
     margin-top: 0;
     margin-bottom: 5px;
     display: inline-block;

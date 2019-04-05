@@ -1,1 +1,4 @@
 {{ object.title }}
+{{ object.teacher.name }}
+{{ object.video_set.all.title }}
+{{ object.describe }}

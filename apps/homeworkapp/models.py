@@ -6,9 +6,9 @@ from userapp.models import *
 
 class Homework(models.Model):
     teacher = models.ForeignKey(TeacherProfile, verbose_name='老师', on_delete=models.CASCADE)
+    specialty = models.ForeignKey(Specialty, on_delete=models.CASCADE, verbose_name='专业')
     name = models.CharField(max_length=100, verbose_name='作业名')
-    number = models.CharField(max_length=20, verbose_name='作业号', default='hwm0000')
-    desc = models.CharField(max_length=400, verbose_name='作业说明', blank=True, default='无')
+    describe = models.CharField(max_length=200, verbose_name='作业说明', blank=True, default='无')
     add_time = models.DateTimeField(auto_now_add=True, verbose_name='添加时间')
     answer_nums = models.CharField(max_length=10, editable=False, default=0, verbose_name='作答人数')
     release = models.BooleanField(default=False, verbose_name='是否发布')
@@ -77,7 +77,7 @@ class StudentAnswerLog(models.Model):
                                     verbose_name='题目类型')
     answer = models.TextField(verbose_name='用户答案')
     score = models.FloatField(max_length=100, verbose_name='分数', default=0)
-    add_time = models.DateField(auto_now_add=True, verbose_name='作答时间')
+    add_time = models.DateTimeField(auto_now_add=True, verbose_name='作答时间')
 
     class Meta:
         db_table = 'student_answer_log'
