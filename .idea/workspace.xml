@@ -3,41 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6514c482-bc98-4c5b-8f4d-37bdc434f2c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elearn/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elearn/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/coursewareapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/coursewareapp/migrations/0002_auto_20190330_1808.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/coursewareapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/coursewareapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/coursewareapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/coursewareapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/elearnapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/elearnapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homeworkapp/adminx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/migrations/0002_auto_20190330_1808.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homeworkapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homeworkapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homeworkapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/userapp/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/userapp/adminx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/userapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/userapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/userapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/userapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/userapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/videoapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/videoapp/migrations/0002_auto_20190330_1808.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ext_apps/xadmin/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ext_apps/xadmin/migrations/0002_log.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ext_apps/xadmin/migrations/0003_auto_20160715_0100.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/elearnapp/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/elearnapp/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/user_profile/1d4ae25101f14bf6a3ddf1b775067b9e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/user_profile/7151eab752fa4451b3709be375d0d37b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/user_profile/8e4cdda75af94d1c9742dddf732627a2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/elearnapp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/elearnapp/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/elearnapp/mine.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/elearnapp/mine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/courseware.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/courseware.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homework.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homework.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mine.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mine.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/search/indexes/videoapp/course_text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search/indexes/videoapp/course_text.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/video_player.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/video_player.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/videoapp_index/MAIN_nq1kwmsofvxhpyoj.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/videoapp_index/_MAIN_1.toc" beforeDir="false" afterPath="$PROJECT_DIR$/videoapp_index/_MAIN_1.toc" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +38,29 @@
     <option name="myModuleName" value="Elearn" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/videoapp/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="327">
+              <caret line="167" column="52" selection-start-line="167" selection-start-column="52" selection-end-line="167" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/search/indexes/videoapp/course_text.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -145,7 +135,6 @@
         <option value="E:/Anaconda3/EnvsHome/ElearnEnv/Lib/site-packages/haystack/backends/chinese_analyzer.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/video.html" />
-        <option value="$PROJECT_DIR$/templates/search/indexes/videoapp/course_text.txt" />
         <option value="$PROJECT_DIR$/templates/search/search.html" />
         <option value="$PROJECT_DIR$/apps/homeworkapp/adminx.py" />
         <option value="$PROJECT_DIR$/apps/userapp/adminx.py" />
@@ -165,6 +154,7 @@
         <option value="$PROJECT_DIR$/apps/homeworkapp/views.py" />
         <option value="$PROJECT_DIR$/templates/video_player.html" />
         <option value="$PROJECT_DIR$/apps/userapp/views.py" />
+        <option value="$PROJECT_DIR$/templates/search/indexes/videoapp/course_text.txt" />
       </list>
     </option>
   </component>
@@ -196,100 +186,28 @@
             <path>
               <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
               <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="videoapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-              <item name="courseware" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-              <item name="cover" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-              <item name="video" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="elearnapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="user_profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="elearnapp" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
               <item name="Elearn" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+              <item name="indexes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Elearn" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+              <item name="indexes" type="462c0819:PsiDirectoryNode" />
+              <item name="videoapp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -308,19 +226,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.templateLanguages.PyTemplateLanguageModulesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Qin\Elearn\static\images\user_profile\default" />
-      <recent name="E:\Qin\Elearn\static\js\homeworkapp" />
-      <recent name="D:\Qin\Elearn\templates\search\indexes\videoapp" />
-      <recent name="$PROJECT_DIR$/apps" />
-      <recent name="$PROJECT_DIR$/static/css/coursewareapp" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Qin\Elearn\apps\videoapp" />
       <recent name="E:\Qin\Elearn\apps\userapp" />
       <recent name="E:\Qin\Elearn\apps\homeworkapp" />
       <recent name="E:\Qin\Elearn\apps\elearnapp" />
       <recent name="E:\Qin\Elearn\apps\coursewareapp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Qin\Elearn\static\images\user_profile\default" />
+      <recent name="E:\Qin\Elearn\static\js\homeworkapp" />
+      <recent name="D:\Qin\Elearn\templates\search\indexes\videoapp" />
+      <recent name="$PROJECT_DIR$/apps" />
+      <recent name="$PROJECT_DIR$/static/css/coursewareapp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -426,10 +344,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Django server.Elearn" />
       <item itemvalue="Python.123" />
       <item itemvalue="Python.tests (1)" />
       <item itemvalue="Python.tests" />
+      <item itemvalue="Django server.Elearn" />
     </list>
     <recent_temporary>
       <list>
@@ -491,7 +409,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="328809000" />
+    <option name="totallyTimeSpent" value="329234000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -505,7 +423,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24262735" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18967828" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -519,7 +437,7 @@
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49396783" visible="true" weight="0.1756374" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49396783" visible="true" weight="0.51699716" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Statistic" order="13" weight="0.58498585" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -720,13 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/search/indexes/videoapp/course_text.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/coursewareapp/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -883,8 +794,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/videoapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="51" column="12" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
+        <state relative-caret-position="327">
+          <caret line="167" column="52" selection-start-line="167" selection-start-column="52" selection-end-line="167" selection-end-column="52" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
@@ -912,6 +823,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/search/indexes/videoapp/course_text.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
         </state>
       </provider>
     </entry>

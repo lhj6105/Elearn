@@ -36,7 +36,7 @@
         <div class="header-index-search">
             <form action="/search/">
                 <div class="input-group input-group-lg">
-                    <input type="text" class="form-control" name="q" value="{{ query }}" placeholder="搜索">
+                    <input type="text" class="form-control" name="q" value="{{ query }}" placeholder="搜索视频">
                     <span class="input-group-btn">
                     <button class="btn btn-default" type="submit"
                             {% if request.session.user.number == null %}disabled{% endif %}>
